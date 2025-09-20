@@ -1,0 +1,19 @@
+/*
+Theme Name: MyTube
+Theme URI: https://example.com/mytube
+Author: Your Name
+Author URI: https://example.com
+Description: قالب شخصی برای بلاگرها و فروش دوره و ویدیو
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mytube
+Tags: blog, video, course, woocommerce
+*/
+
+body {
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}

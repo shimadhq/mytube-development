@@ -1,0 +1,283 @@
+.main-banner-wrapper{
+    width: 100%;
+    height: 465px;
+    position: relative;
+    border-radius: 15px;
+}
+
+.first-layer{
+    background-color: #FFDFDF !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    clip-path: polygon(
+        0% 0%,     
+        100% 0%,
+        100% 100%,  
+        0% 100%    
+    );
+    z-index: 1;
+}
+
+.second-layer{
+    background-color: #FFC5C5 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    clip-path: polygon(
+        0% 0%,     
+        100% 0%,
+        100% 94%,  
+        0% 100%    
+    );
+    z-index: 2;
+}
+
+.main-banner{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background: linear-gradient(to top, #FF4545, #992929);
+    border-radius: 15px;
+    clip-path: polygon(
+        0% 0%,     
+        100% 0%,
+        100% 88%,  
+        0% 100%    
+    );
+    border-radius: 15px;
+    z-index: 5;
+}
+
+.bg-shape{
+    position: absolute;
+    width: 46%;
+    top: 15%;
+    bottom: 0;
+    right: 0;
+}
+
+.bg-shape-mobile{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.content-section{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    padding-right: 70px;
+    z-index: 4;
+}
+
+.main-title{
+    width: 440px;
+    margin: 0;
+    padding: 0;
+}
+
+.description p{
+    margin: 0;
+    padding: 0;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.button1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: 15px;
+    width: 170px;
+    box-shadow: 0 10px 15px 2px rgba(29, 22, 22, 0.25) !important;
+}
+
+.button2{
+    width: 190px;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 15px 2px rgba(29, 22, 22, 0.25) !important;
+}
+
+.main-image{
+    position: absolute;
+    top: 1%;
+    left: 12.5%;
+    bottom: 0;
+    height: auto;
+    max-height: 100%;
+}
+
+.counters-section{
+    gap: 25px;
+    z-index: 10;
+    width: 342px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+.counter{
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 5;
+}
+
+.counter-icon-wrapper{
+    background-color: #ffffff2f;
+    border-radius: 12px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.text-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.number-suffix{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+@media (max-width: 1024px) {
+    .bg-shape{
+        bottom: 0;
+        right: 0;
+        top: 23%;
+    }
+
+    .frame{
+        width: 260px;
+    }
+
+    .content-section{
+        padding-right: 20px;
+    }
+
+    .main-image{
+        bottom: 0;
+        top: 29%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-banner-wrapper{
+        height: 630px;
+    }
+
+    .second-layer{
+        clip-path: polygon(
+            0% 0%,     
+            100% 0%,
+            100% 96%,  
+            0% 100%    
+        );
+    }
+
+    .main-banner{
+        width: 100%;
+        overflow: hidden;
+        align-items: start;
+        clip-path: polygon(
+            0% 0%,     
+            100% 0%,
+            100% 92%,  
+            0% 100%    
+        );
+    }
+
+    .bg-shape{
+        display: none;
+    }
+
+    .bg-shape-mobile{
+        display: block;
+    }
+
+    .main-banner{
+        flex-direction: column;
+    }
+
+    .content-section{
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 35px 15px 0 15px;
+    }
+
+    .main-title{
+        width: 260px;
+        text-align: center;
+    }
+
+    .main-image {
+        left: 5%;
+        bottom: 0;
+        top: 57%;
+        height: 100%;
+    }
+
+    .frame{
+        display: none;
+    }
+
+    .counters-section{
+        padding-right: 20px;
+        padding-top: 105px;
+        align-items: start;
+        justify-content: start;
+        gap: 30px;
+    }
+
+    .button1{
+        width: 115px;
+    }
+
+    .button2{
+        width: 187px;
+    }
+}
