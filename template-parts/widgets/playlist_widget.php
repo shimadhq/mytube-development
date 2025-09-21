@@ -28,6 +28,11 @@ class Playlist extends Widget_Base{
     }
 
     protected function register_controls(){
-        
+        $this->start_controls_section(
+            'content_section',
+            [
+                'label' => 'محتوا',
+            ]
+        );
     }
 }
