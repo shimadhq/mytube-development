@@ -147,5 +147,191 @@ class Playlist extends Widget_Base{
                 ],
             ]
         );
+
+        $this->end_controls_section();
+
+        // ------------------ Title Background ------------------
+        $this->start_controls_section(
+            'style_background_section',
+            [
+                'label' => __( 'بک گراند', 'mytube' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            ' title_bg_color',
+            [
+                'label'     => __( 'رنگ پس‌زمینه', 'mytube' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#EEEEEE',
+                'selectors' => [
+                    '{{WRAPPER}} .title-section' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // ------------------ Title Typography ------------------
+        $this->start_controls_section(
+            'style_title_section',
+            [
+                'label' => __( 'عنوان اصلی', 'mytube' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'title_color',
+            [
+                'label'     => __( 'رنگ عنوان', 'mytube' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#493A3A',
+                'selectors' => [
+                    '{{WRAPPER}} .main-heading' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'     => 'title_typography',
+                'label'    => __( 'تایپوگرافی عنوان', 'mytube' ),
+                'selector' => '{{WRAPPER}} .main-heading',
+                'fields_options' => [
+                    'typography' => [ 'default' => 'default' ], 
+                    'font_size'  => [ 'default' => [ 'size' => 16, 'unit' => 'px' ] ],
+                    'font_weight'=> [ 'default' => 900 ],
+                    'font_family'=> [ 'default' => 'IRANYekanX' ],
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // ------------------ Title Icon ------------------
+        $this->start_controls_section(
+            'style_title_section',
+            [
+                'label' => __( 'آیکن اصلی', 'mytube' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'tab_icon_width',
+            [
+                'label' => __( 'اندازه آیکن', 'mytube' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 50,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 16,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .main-icon' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'main_icon_bg',
+            [
+                'label'     => __( 'رنگ پس‌زمینه آیکن', 'mytube' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#FF4545',
+                'selectors' => [
+                    '{{WRAPPER}} .main-icon-wrapper' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // ------------------ Main image ------------------
+        $this->start_controls_section(
+            'style_title_section',
+            [
+                'label' => __( 'تصویر اصلی', 'mytube' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'main_image_width',
+            [
+                'label' => __( 'عرض تصویر', 'mytube' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range' => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 2000,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 200,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .main-image' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'main_image_height',
+            [
+                'label' => __( 'ارتفاع تصویر', 'mytube' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range' => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 2000,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => '%',
+                    'size' => 100,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .main-image' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // ------------------ Items ------------------
+        $this->start_controls_section(
+            'style_items_section',
+            [
+                'label' => __( 'آیتم ها', 'mytube' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        
     }
 }
