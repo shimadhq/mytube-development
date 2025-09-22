@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     new Swiper('.custom-slider', {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 20,
         loop: true,
         pagination: {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 slidesPerView: 2
             },
             1440: {
-                slidesPerView: 3
+                slidesPerView: 4
             }
         }
     });

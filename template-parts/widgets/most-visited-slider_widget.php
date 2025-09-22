@@ -354,7 +354,7 @@ class Most_Visited_Slider extends Widget_Base{
                 ],
                 'default' => [
                     'unit' => 'px',
-                    'size' => 280,
+                    'size' => 300,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .slide-image' => 'width: {{SIZE}}{{UNIT}};',
@@ -398,53 +398,66 @@ class Most_Visited_Slider extends Widget_Base{
 
         ?>
         <div class="most-visited-slider">
-    <!-- Header با عنوان و navigation/pagination -->
-    <div class="slider-header">
-        <div class="slider-title-wrapper">
-            <div class="slider-icon-wrapper">
-                <img class="main-icon" src="<?php echo esc_url( $settings['heading_icon']['url'] ); ?>" alt="" />
-            </div>
-            <span class="slider-main-title">
-                <?php echo esc_html($settings['heading']); ?>
-            </span>
-        </div>
-
-        <div class="slider-controls-wrapper">
-            <div class="pagination-wrapper">
-                <div class="custom-pagination"></div>
-            </div>
-            <div class="slider-navigation">
-                <button class="custom-prev">‹</button>
-                <button class="custom-next">›</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Swiper اسلایدر پایین -->
-    <div class="swiper custom-slider">
-        <div class="swiper-wrapper">
-            <?php foreach($slides as $slide): ?>
-                <div class="swiper-slide">
-                    <div class="slide-image-wrapper">
-                        <?php if (!empty($slide['slide_image']['url'])) : ?>
-                            <img class="slide-image" src="<?php echo esc_url($slide['slide_image']['url']); ?>" alt="">
-                        <?php endif; ?>
+            <!-- Header با عنوان و navigation/pagination -->
+            <div class="slider-header">
+                <div class="slider-title-wrapper">
+                    <div class="slider-icon-wrapper">
+                        <img class="main-icon" src="<?php echo esc_url( $settings['heading_icon']['url'] ); ?>" alt="" />
                     </div>
-                    <div class="slide-content">
-                        <div class="slide-text">
-                            <span class="slide-title"><?php echo esc_html($slide['slide_title']); ?></span>
-                            <span class="slide-description"><?php echo esc_html($slide['slide_text']); ?></span>
-                        </div>
-                        <?php if (!empty($slide['slide_icon']['url'])) : ?>
-                            <img src="<?php echo esc_url($slide['slide_icon']['url']); ?>" alt="youtube-icon" />
-                        <?php endif; ?>
+                    <span class="slider-main-title">
+                        <?php echo esc_html($settings['heading']); ?>
+                    </span>
+                </div>
+
+                <div class="slider-controls-wrapper">
+                    <div class="pagination-wrapper">
+                        <div class="custom-pagination"></div>
+                    </div>
+                    <div class="slider-navigation">
+                        <button class="custom-prev">‹</button>
+                        <button class="custom-next">›</button>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</div>
+            </div>
 
+            <!-- Swiper اسلایدر پایین -->
+            <div class="swiper custom-slider">
+                <div class="swiper-wrapper">
+                    <?php foreach($slides as $slide): ?>
+                        <div class="swiper-slide">
+                            <div class="slide-image-wrapper">
+                                <?php if (!empty($slide['slide_image']['url'])) : ?>
+                                    <img class="slide-image" src="<?php echo esc_url($slide['slide_image']['url']); ?>" alt="">
+                                <?php endif; ?>
+                            </div>
+                            <div class="slide-content">
+                                <div class="slide-text">
+                                    <span class="slide-title"><?php echo esc_html($slide['slide_title']); ?></span>
+                                    <span class="slide-description"><?php echo esc_html($slide['slide_text']); ?></span>
+                                </div>
+                                <?php if (!empty($slide['slide_icon']['url'])) : ?>
+                                    <img src="<?php echo esc_url($slide['slide_icon']['url']); ?>" alt="youtube-icon" />
+                                <?php endif; ?>
+                            </div>
+                            <div class="slide-boxes">
+                                <div class="category-box">
+                                    <?php if (!empty($slide['category_icon']['url'])) : ?>
+                                        <img src="<?php echo esc_url($slide['category_icon']['url']); ?>" />
+                                    <?php endif; ?>
+                                    <span class="category-title"><?php echo esc_html($slide['category_title']); ?></span>
+                                </div>
+                                <div class="time-box">
+                                    <?php if (!empty($slide['time_icon']['url'])) : ?>
+                                        <img src="<?php echo esc_url($slide['time_icon']['url']); ?>" />
+                                    <?php endif; ?>
+                                    <span class="time-title"><?php echo esc_html($slide['time']); ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
         <?php
     }
 }

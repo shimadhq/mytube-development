@@ -59,14 +59,14 @@
     background-color: #FF4545;
 }
 
-.custom-prev .custom-next {
+.custom-prev {
     background-color: #ff454518;
     color: #FF4545;
     border: none;
     border-radius: 12px;
     width: 40px;
     height: 40px;
-    font-size: 18px;
+    font-size: 23px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -74,8 +74,27 @@
     transition: all 0.3s;
 }
 
-.custom-nexthover,
+.custom-next {
+    background-color: #ff454518;
+    color: #FF4545;
+    border: none;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 23px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
 .custom-prev:hover {
+    background-color: #FF4545;
+    color: white;
+}
+
+.custom-next:hover{
     background-color: #FF4545;
     color: white;
 }
@@ -94,11 +113,81 @@
 }
 
 .swiper-slide {
-    width: calc(100% / 3);
+    width: calc(100% / 4);
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #EEEEEE;
     border-radius: 16px;
     padding: 10px;
+    cursor: pointer;
+}
+
+.siwper-slide:hover{
+    background-color: white;
+    transform: scale3d(1.1);
+}
+
+.slide-image-wrapper{
+    width: 100%;
+}
+
+.slide-image{
+    border-radius: 12px !important;
+}
+
+.slide-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+}
+
+.slide-text{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.slide-boxes{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-box{
+    width: 50%;
+    border: solid 1px #EEEEEE;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    gap: 10px;
+}
+
+.category-title{
+    color: #493A3A;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.time-box{
+    width: 50%;
+    border: solid 1px #EEEEEE;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    gap: 10px;
+}
+
+.time-title{
+    color: #493A3A;
+    font-size: 14px;
+    font-weight: 500;
 }
