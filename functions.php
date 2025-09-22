@@ -28,6 +28,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('video-category', get_template_directory_uri() . '/assets/css/video-category/video-category.css', [], $version);
     wp_enqueue_style('playlist', get_template_directory_uri() . '/assets/css/playlist/playlist.css', [], $version);
     wp_enqueue_style('most-visited-slider', get_template_directory_uri() . '/assets/css/most-visited-slider/most-visited-slider.css', [], $version);
+    wp_enqueue_style('biography', get_template_directory_uri() . '/assets/css/biography/biography.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
@@ -294,6 +295,10 @@ function register_mytube_widgets(){
         [
             'path' => '/template-parts/widgets/most-visited-slider_widget.php',
             'class' => 'WPC\Widgets\Most_Visited_Slider',
+        ],
+        [
+            'path' => '/template-parts/widgets/biography_widget.php',
+            'class' => 'WPC\Widgets\Biography',
         ],
     ];
 

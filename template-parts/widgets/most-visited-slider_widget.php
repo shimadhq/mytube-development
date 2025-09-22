@@ -5,6 +5,8 @@ namespace WPC\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
+
 class Most_Visited_Slider extends Widget_Base{
     public function get_name() {
         return 'most-visited-slider';
