@@ -27,10 +27,12 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('main-banner', get_template_directory_uri() . '/assets/css/main-banner/main-banner.css', [], $version);
     wp_enqueue_style('video-category', get_template_directory_uri() . '/assets/css/video-category/video-category.css', [], $version);
     wp_enqueue_style('playlist', get_template_directory_uri() . '/assets/css/playlist/playlist.css', [], $version);
+    wp_enqueue_style('most-visited-slider', get_template_directory_uri() . '/assets/css/most-visited-slider/most-visited-slider.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
     wp_enqueue_script('video-category-tabs', get_template_directory_uri() . '/inc/js/widgets/video-category-tabs.js', array(), $version, true);
+    wp_enqueue_script('slider', get_template_directory_uri() . '/inc/js/widgets/slider.js', array(), $version, true);
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
 
@@ -288,6 +290,10 @@ function register_mytube_widgets(){
         [
             'path' => '/template-parts/widgets/playlist_widget.php',
             'class' => 'WPC\Widgets\Playlist',
+        ],
+        [
+            'path' => '/template-parts/widgets/most-visited-slider_widget.php',
+            'class' => 'WPC\Widgets\Most_Visited_Slider',
         ],
     ];
 
