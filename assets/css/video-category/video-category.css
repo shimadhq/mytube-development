@@ -11,7 +11,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
 }
 
 .tab{
@@ -26,7 +26,7 @@
 
 .shape{
     position: absolute;
-    top: -3%;
+    top: -8%;
     bottom: 0;
     right: -2%;
 }
@@ -63,7 +63,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .title-wrapper{
@@ -206,6 +206,7 @@
 }
 
 .tab-columns{
+    width: 100%;
     display: flex;
     cursor: pointer;
     flex-direction: row;
@@ -219,6 +220,7 @@
     flex-direction: column;
     border-radius: 16px;
     padding: 10px;
+    width: 100%;
 }
 
 .column-image-wrapper{
@@ -252,4 +254,22 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+}
+
+@media (max-width: 768px) {
+    .video-category{
+        flex-direction: column;
+    }
+
+    .tabs-section{
+        width: 100%;
+    }
+
+    .tab-button{
+        display: none;
+    }
+
+    .tab-columns{
+        flex-direction: column;
+    }
 }
