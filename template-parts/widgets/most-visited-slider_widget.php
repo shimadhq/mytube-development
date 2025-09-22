@@ -398,6 +398,9 @@ class Most_Visited_Slider extends Widget_Base{
 
         ?>
         <div class="most-visited-slider">
+            <div class="slider-layer1"></div>
+            <div class="slider-layer2"></div>
+            <div class="slider-layer3"></div>
             <!-- Header با عنوان و navigation/pagination -->
             <div class="slider-header">
                 <div class="slider-title-wrapper">
