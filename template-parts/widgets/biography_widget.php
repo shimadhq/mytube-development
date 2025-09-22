@@ -228,7 +228,7 @@ class Biography extends Widget_Base{
                 'selector' => '{{WRAPPER}} .bio-title',
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
-                    'font_size'  => [ 'default' => [ 'size' => 34, 'unit' => 'px' ] ],
+                    'font_size'  => [ 'default' => [ 'size' => 18, 'unit' => 'px' ] ],
                     'font_weight'=> [ 'default' => 900 ],
                     'font_family'=> [ 'default' => 'IRANYekanX' ],
                 ]
