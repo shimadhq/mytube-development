@@ -7,9 +7,11 @@
 
 .slider-header {
     display: flex;
-    flex-direction: column; /* مهم: عنوان + controls روی هم قرار بگیرن */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
-    padding: 15px;
+    padding: 20px;
     border-radius: 24px;
     background-color: #eeeeee5a;
 }
@@ -18,6 +20,16 @@
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+.slider-icon-wrapper{
+    width: 45px;
+    height: 45px;
+    background-color: #FF4545;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slider-controls-wrapper {
@@ -32,15 +44,14 @@
     justify-content: center;
     background-color: white;
     border-radius: 12px;
-    padding: 10px;
+    padding: 15px;
 }
 
-.swiper-pagination-bullet {
-    background-color: #493a3a2d;
+.custom-pagination {
     opacity: 1;
     width: 12px;
     height: 12px;
-    margin: 0 6px;
+    margin-bottom: 5px;
 }
 
 .swiper-pagination-bullet-active,
@@ -48,13 +59,7 @@
     background-color: #FF4545;
 }
 
-/* Navigation */
-.slider-navigation {
-    display: flex;
-    gap: 10px;
-}
-
-.slider-navigation button {
+.custom-prev .custom-next {
     background-color: #ff454518;
     color: #FF4545;
     border: none;
@@ -69,9 +74,16 @@
     transition: all 0.3s;
 }
 
-.slider-navigation button:hover {
+.custom-nexthover,
+.custom-prev:hover {
     background-color: #FF4545;
     color: white;
+}
+
+/* Navigation */
+.slider-navigation {
+    display: flex;
+    gap: 10px;
 }
 
 /* Swiper */

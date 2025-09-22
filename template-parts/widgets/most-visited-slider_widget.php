@@ -411,11 +411,11 @@ class Most_Visited_Slider extends Widget_Base{
 
         <div class="slider-controls-wrapper">
             <div class="pagination-wrapper">
-                <div class="swiper-pagination"></div>
+                <div class="custom-pagination"></div>
             </div>
             <div class="slider-navigation">
-                <button class="swiper-button-prev">‹</button>
-                <button class="swiper-button-next">›</button>
+                <button class="custom-prev">‹</button>
+                <button class="custom-next">›</button>
             </div>
         </div>
     </div>
