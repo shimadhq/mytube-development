@@ -2,7 +2,6 @@
 
 namespace WPC\Widgets;
 
-use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
@@ -173,6 +172,7 @@ class Biography extends Widget_Base{
                 'label' => 'لیست آیتم ها',
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
+                'title_field' => '{{{ item_text }}}',
                 'default' => [
                     [
                         'item_icon' => ['url' => get_template_directory_uri() . '/assets/img/biography/calendar.svg'],

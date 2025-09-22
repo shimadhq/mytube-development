@@ -213,7 +213,7 @@ class Video_Category extends Widget_Base{
                 'label' => __( 'لیست تب‌ها', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ tab_title }}}',
+                'title_field' => '{{{ _title }}}',
                 'default' => [
                     [
                         'tab_title' => __( 'معرفی بازی و گیم پلی', 'mytube' ),
