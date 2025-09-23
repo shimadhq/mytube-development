@@ -1,0 +1,37 @@
+.short-videos {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; 
+}
+
+.short-layer4 {
+    position: absolute;
+    left: -3%;
+    background-color: #FFDFDF;
+    border-radius: 16px;
+    width: 300px;
+    height: 450px;
+    z-index: -2;
+}
+
+.short-layer5 {
+    position: absolute;
+    left: -2%;
+    background-color: #FFA1A1;
+    border-radius: 16px;
+    width: 350px;
+    height: 400px;
+    z-index: -1;
+}
+
+.short-layer6 {
+    position: absolute;
+    left: -1%;
+    background: linear-gradient(to top, #992929, #FF4545);
+    border-radius: 16px;
+    width: 400px;
+    height: 350px;
+    z-index: 0;
+}

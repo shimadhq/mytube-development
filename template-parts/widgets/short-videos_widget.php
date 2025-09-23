@@ -288,6 +288,125 @@ class Short_Videos extends Widget_Base{
     }
 
     public function render() {
-        $settings = $this->get_settings_for_display();
+        $settings  = $this->get_settings_for_display();
+        $counters  = $settings['counters_list'];
+        $videos    = $settings['videos_list'];
+        $thumbnail = $settings['video_thumbnail']['url'] ?? '';
+        $current   = 0;
+        ?>
+<div class="short-videos">
+    <!-- Background Layers -->
+    <div class="short-layer1"></div>
+    <div class="short-layer2"></div>
+    <div class="short-layer3"></div>
+
+    <!-- Title Section -->
+    <div class="short-title-section">
+        <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
+
+        <div class="short-title-wrapper">
+            <?php if (!empty($settings['heading_icon']['url'])) : ?>
+                <div class="short-title-icon">
+                    <img src="<?php echo esc_url($settings['heading_icon']['url']); ?>" alt="">
+                </div>
+            <?php endif; ?>
+            <span class="short-title">
+                <?php echo esc_html($settings['heading']); ?>
+            </span>
+        </div>
+
+        <!-- Counters -->
+        <div class="short-counters">
+            <?php if (!empty($counters)) : ?>
+                <?php foreach ($counters as $counter) : $current++; ?>
+                    <div class="short-counter">
+                        <div class="short-counter-icon">
+                            <?php if (!empty($counter['counter_icon']['url'])) : ?>
+                                <img src="<?php echo esc_url($counter['counter_icon']['url']); ?>" alt="<?php echo esc_attr($counter['counter_text']); ?>">
+                            <?php endif; ?>
+                        </div>
+                        <span class="short-counter-number" data-target="<?php echo esc_attr($counter['counter_number']); ?>">0</span>
+                        <div class="short-counter-description">
+                            <?php echo esc_attr($counter['counter_text']); ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+
+        <!-- Button -->
+        <div href="<?php echo esc_url($settings['button_url']['url']); ?>" class="short-button">
+            <?php echo esc_html($settings['button_title']); ?>
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
+        </div>
+    </div>
+
+    <!-- Videos Section -->
+    <div class="short-videos-section">
+        <?php if (!empty($videos)) : ?>
+            <?php foreach ($videos as $video) : 
+                $video_id = 'video_' . uniqid();
+            ?>
+                <div class="short-video">
+
+                    <!-- Video Puzzle Icon -->
+                    <div class="short-video-icon">
+                        <?php if (!empty($video['video_puzzle_icon']['url'])) : ?>
+                            <img src="<?php echo esc_url($video['video_puzzle_icon']['url']); ?>" alt="Puzzle Icon">
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- Video Thumbnail -->
+                    <?php if ($thumbnail) : ?>
+                        <div class="video-thumbnail" onclick="
+                            const videoEl = document.getElementById('<?php echo esc_attr($video_id); ?>');
+                            videoEl.style.display = 'block';
+                            videoEl.play();
+                            this.style.display='none';
+                        ">
+                            <img src="<?php echo esc_url($thumbnail); ?>" />
+                            <div class="play-button">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/play-icon.svg" />
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Video Element -->
+                    <?php if (!empty($video['video_url']['url'])) : ?>
+                        <video 
+                            id="<?php echo esc_attr($video_id); ?>" 
+                            class="video" 
+                            src="<?php echo esc_url($video['video_url']['url']); ?>" 
+                            controls 
+                            style="display:<?php echo $thumbnail ? 'none' : 'block'; ?>;">
+                        </video>
+                    <?php endif; ?>
+
+                    <!-- Video Content -->
+                    <div class="short-video-content">
+                        <?php if (!empty($video['video_title'])) : ?>
+                            <h3 class="video-title">
+                                <?php echo esc_html($video['video_title']); ?>
+                            </h3>
+                        <?php endif; ?>
+
+                        <?php if (!empty($video['video_text'])) : ?>
+                            <p class="video-description">
+                                <?php echo esc_html($video['video_text']); ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+
+    <!-- Additional Background Layers -->
+    <div class="short-layer4"></div>
+    <div class="short-layer5"></div>
+    <div class="short-layer6"></div>
+</div>
+    <?php
     }
 }
