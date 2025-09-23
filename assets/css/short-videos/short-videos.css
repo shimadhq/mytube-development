@@ -6,6 +6,37 @@
     gap: 20px; 
 }
 
+.short-layer1,
+.short-layer2,
+.short-layer3 {
+    position: absolute;
+    top: 50%; 
+    right: 0;
+    transform: translateY(-50%);
+    border-radius: 16px;
+}
+
+.short-layer1 {
+    background-color: #FFDFDF;
+    width: 279px;
+    height: 385px;
+    z-index: -2;
+}
+
+.short-layer2 {
+    background-color: #FFA1A1;
+    width: 312px;
+    height: 370px;
+    z-index: -1;
+}
+
+.short-layer3 {
+    background: linear-gradient(to top, #992929, #FF4545);
+    width: 342px;
+    height: 350px;
+    z-index: 0;
+}
+
 .short-layer4 {
     position: absolute;
     left: -3%;

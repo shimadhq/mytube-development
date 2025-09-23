@@ -439,7 +439,7 @@ class Playlist extends Widget_Base{
                 <img class="gray-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/gray-shape.svg') ?>" />
                 <img class="traingle-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/traingle-shape.svg') ?>" />
             </div>
-            <div class="items-content">
+            <div class="items-container">
                 <?php foreach ($items as $item) : ?>
                     <?php $current++; ?>
                     <div class="item-content">
@@ -454,7 +454,10 @@ class Playlist extends Widget_Base{
                             <span class="item-description"><?php echo esc_html($item['item_text']); ?></span>
                         </div>
                         <div class="title-content">
-                            <span class="item-title"><?php echo esc_html($item['item_title']); ?></span>
+                            <div class="playlist-title-wrapper">
+                                <span class="item-title"><?php echo esc_html($item['item_title']); ?></span>
+                                <span class="mobile-item-description"><?php echo esc_html($item['item_text']); ?></span>
+                            </div>
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg') ?>" alt="arrow-icon" />
                         </div>
                     </div>
