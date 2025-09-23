@@ -182,6 +182,23 @@
     width: 100%;
     overflow: hidden;
     padding: 20px 0;
+    position: relative;
+}
+
+.right-corner{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 6;
+}
+
+.left-corner{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 6;
 }
 
 .swiper-slide {
@@ -334,5 +351,13 @@
     .slider-shape{
         top: -19%;
         right: 3%;
+    }
+
+    .left-corner{
+        display: none;
+    }
+
+    .right-corner{
+        display: none;
     }
 }

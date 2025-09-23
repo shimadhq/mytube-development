@@ -427,6 +427,8 @@ class Most_Visited_Slider extends Widget_Base{
 
             <!-- Swiper اسلایدر پایین -->
             <div class="swiper custom-slider">
+                <img class="right-corner" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/most-visited-slider/right-corner.svg') ?>" alt="" />
+                <img class="left-corner" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/most-visited-slider/left-corner.svg') ?>" alt="" />
                 <div class="swiper-wrapper">
                     <?php foreach($slides as $slide): ?>
                         <div class="swiper-slide">

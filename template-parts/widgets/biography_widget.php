@@ -512,6 +512,9 @@ class Biography extends Widget_Base{
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                     </div>
                 </div>
+                <div class="mobile-bio-image-section">
+                    <img class="mobile-bio-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/biography/image.svg') ?>" />
+                </div>
             </div>
             <div class="bio-content-section">
                 <div class="bio-content-wrapper">

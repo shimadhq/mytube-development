@@ -44,6 +44,10 @@
     overflow: hidden;
 }
 
+.mobile-bio-image-section{
+    display: none;
+}
+
 .bio-shape1{
     position: absolute;
     bottom: 0;
@@ -152,3 +156,46 @@
     gap: 5px;
 }
 
+@media (max-width: 768px) {
+    .biography{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .bio-title-section{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        position: relative;
+    }
+
+    .mobile-bio-image-section{
+        display: flex;
+    }
+
+    .bio-items{
+        flex-direction: column;
+    }
+
+    .bio-item{
+        width: 100%;
+    }
+
+    .bio-image-section{
+        display: none;
+    }
+
+    .main-layer{
+        min-height: 240px;
+    }
+
+    .bio-shape2{
+        right: -3%;
+        top: -2%;
+    }
+
+    .biography-description{
+        width: 100%;
+        text-align: justify;
+    }
+}
