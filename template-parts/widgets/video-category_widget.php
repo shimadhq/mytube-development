@@ -494,7 +494,7 @@ class Video_Category extends Widget_Base{
                 ],
                 'default' => [
                     'unit' => 'px',
-                    'size' => 408,
+                    'size' => 470,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .tab-column-image' => 'width: {{SIZE}}{{UNIT}};',

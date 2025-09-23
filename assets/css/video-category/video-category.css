@@ -272,4 +272,21 @@
     .tab-columns{
         flex-direction: column;
     }
+
+    .tabs-content{
+        width: 100%;
+    }
+
+    .tab-body{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .shape3{
+        display: none;
+    }
+
+    .tab-header{
+        margin-top: 10px;
+    }
 }
