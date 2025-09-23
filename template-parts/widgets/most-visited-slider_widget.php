@@ -400,12 +400,12 @@ class Most_Visited_Slider extends Widget_Base{
 
         ?>
         <div class="most-visited-slider">
-            <div class="slider-layer1"></div>
-            <div class="slider-layer2"></div>
-            <div class="slider-layer3"></div>
             <!-- Header با عنوان و navigation/pagination -->
             <div class="slider-header">
+                <img class="slider-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/video-category/shape.svg') ?>" alt="" />
+                <img class="slider-shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/most-visited-slider/slider-shape.svg') ?>" alt="" />
                 <div class="slider-title-wrapper">
+                    <img class="slider-shape3" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/gray-shape.svg') ?>" />
                     <div class="slider-icon-wrapper">
                         <img class="main-icon" src="<?php echo esc_url( $settings['heading_icon']['url'] ); ?>" alt="" />
                     </div>
@@ -414,7 +414,7 @@ class Most_Visited_Slider extends Widget_Base{
                     </span>
                 </div>
 
-                <div class="slider-controls-wrapper">
+                <div class="slider-controls-wrapper desktop-controls">
                     <div class="pagination-wrapper">
                         <div class="custom-pagination"></div>
                     </div>
@@ -462,6 +462,15 @@ class Most_Visited_Slider extends Widget_Base{
                     <?php endforeach; ?>
                 </div>
             </div>
+            <div class="mobile-controls-wrapper">
+                <div class="mobile-controls">
+                    <button class="custom-prev">‹</button>
+                    <button class="custom-next">›</button>
+                </div>
+            </div>
+            <div class="slider-layer1"></div>
+            <div class="slider-layer2"></div>
+            <div class="slider-layer3"></div>
         </div>
         <?php
     }

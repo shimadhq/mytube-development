@@ -51,12 +51,39 @@
     padding: 20px;
     border-radius: 24px;
     background-color: #eeeeee5a;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-shape{
+    position: absolute;
+    top: -4%;
+    bottom: 0;
+    right: 1%;
+    z-index: 2;
+}
+
+.slider-shape2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+    z-index: 1;
 }
 
 .slider-title-wrapper {
     display: flex;
     align-items: center;
     gap: 15px;
+    z-index: 5;
+    padding-right: 25px;
+    z-index: 4;
+}
+
+.slider-shape3{
+    position: absolute;
+    bottom: -50%;
+    right: 17%;
 }
 
 .slider-icon-wrapper{
@@ -67,6 +94,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.desktop-controls {
+  display: flex;
+}
+
+.mobile-controls-wrapper {
+  display: none;
 }
 
 .slider-controls-wrapper {
@@ -229,4 +264,75 @@
     color: #493A3A;
     font-size: 14px;
     font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .slider-layer1 {
+        width: 300px;
+        height: 120px;
+        left: 50%;
+        bottom: 11%;
+        transform: translateX(-50%);
+    }
+
+    .slider-layer2 {
+        width: 350px;
+        height: 120px;
+        left: 50%;
+        bottom: 13%;
+        transform: translateX(-50%);
+    }
+
+    .slider-layer3 {
+        width: 99%;
+        height: 170px;
+        bottom: 15%;
+        left: 0;
+        right: 0;
+        border-radius: 16px;
+    }
+
+    .swiper{
+        padding-right: 10px;
+    }
+
+    .swiper-slide{
+        background-color: white;
+        box-shadow: 0 4px 20px #00000046;
+    }
+
+    .swiper-slide:hover{
+        transform: translateY(0);
+    }
+
+    .desktop-controls{
+        display: none;
+    }
+
+    .mobile-controls-wrapper{
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .mobile-controls {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 10px 20px;
+    }
+
+    .slider-shape3{
+        right: 30%;
+        bottom: -60%;
+    }
+
+    .slider-shape{
+        top: -19%;
+        right: 3%;
+    }
 }
