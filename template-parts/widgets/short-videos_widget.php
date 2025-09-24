@@ -291,61 +291,61 @@ class Short_Videos extends Widget_Base{
         $settings  = $this->get_settings_for_display();
         $counters  = $settings['counters_list'];
         $videos    = $settings['videos_list'];
-        $thumbnail = $settings['video_thumbnail']['url'] ?? '';
         $current   = 0;
         ?>
-<div class="short-videos">
-    <!-- Background Layers -->
-    <div class="short-layer1"></div>
-    <div class="short-layer2"></div>
-    <div class="short-layer3"></div>
+        <div class="short-videos">
+            <!-- Background Layers -->
+            <div class="short-layer1"></div>
+            <div class="short-layer2"></div>
+            <div class="short-layer3"></div>
 
-    <!-- Title Section -->
-    <div class="short-title-section">
-        <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
+            <!-- Title Section -->
+            <div class="short-title-section">
+                <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
 
-        <div class="short-title-wrapper">
-            <?php if (!empty($settings['heading_icon']['url'])) : ?>
-                <div class="short-title-icon">
-                    <img src="<?php echo esc_url($settings['heading_icon']['url']); ?>" alt="">
+                <div class="short-title-wrapper">
+                    <?php if (!empty($settings['heading_icon']['url'])) : ?>
+                        <div class="short-title-icon">
+                            <img src="<?php echo esc_url($settings['heading_icon']['url']); ?>" alt="">
+                        </div>
+                    <?php endif; ?>
+                    <span class="short-title">
+                        <?php echo esc_html($settings['heading']); ?>
+                    </span>
                 </div>
-            <?php endif; ?>
-            <span class="short-title">
-                <?php echo esc_html($settings['heading']); ?>
-            </span>
-        </div>
 
-        <!-- Counters -->
-        <div class="short-counters">
-            <?php if (!empty($counters)) : ?>
-                <?php foreach ($counters as $counter) : $current++; ?>
-                    <div class="short-counter">
-                        <div class="short-counter-icon">
-                            <?php if (!empty($counter['counter_icon']['url'])) : ?>
-                                <img src="<?php echo esc_url($counter['counter_icon']['url']); ?>" alt="<?php echo esc_attr($counter['counter_text']); ?>">
-                            <?php endif; ?>
-                        </div>
-                        <span class="short-counter-number" data-target="<?php echo esc_attr($counter['counter_number']); ?>">0</span>
-                        <div class="short-counter-description">
-                            <?php echo esc_attr($counter['counter_text']); ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
+                <!-- Counters -->
+                <div class="short-counters">
+                    <?php if (!empty($counters)) : ?>
+                        <?php foreach ($counters as $counter) : $current++; ?>
+                            <div class="short-counter">
+                                <div class="short-counter-icon">
+                                    <?php if (!empty($counter['counter_icon']['url'])) : ?>
+                                        <img src="<?php echo esc_url($counter['counter_icon']['url']); ?>" alt="<?php echo esc_attr($counter['counter_text']); ?>">
+                                    <?php endif; ?>
+                                </div>
+                                <span class="short-counter-number" data-target="<?php echo esc_attr($counter['counter_number']); ?>">0</span>
+                                <div class="short-counter-description">
+                                    <?php echo esc_attr($counter['counter_text']); ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
 
-        <!-- Button -->
-        <div href="<?php echo esc_url($settings['button_url']['url']); ?>" class="short-button">
-            <?php echo esc_html($settings['button_title']); ?>
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
-        </div>
-    </div>
+                <!-- Button -->
+                <div href="<?php echo esc_url($settings['button_url']['url']); ?>" class="short-button">
+                    <?php echo esc_html($settings['button_title']); ?>
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
+                </div>
+            </div>
 
     <!-- Videos Section -->
     <div class="short-videos-section">
         <?php if (!empty($videos)) : ?>
             <?php foreach ($videos as $video) : 
                 $video_id = 'video_' . uniqid();
+                $thumbnail = $video['video_thumbnail']['url'] ?? '';
             ?>
                 <div class="short-video">
 
