@@ -349,6 +349,7 @@ class Short_Videos extends Widget_Base{
             ?>
                 <div class="short-video">
 
+                    <img class="white-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/white-shape.svg" />
                     <!-- Video Puzzle Icon -->
                     <div class="short-video-icon">
                         <?php if (!empty($video['video_puzzle_icon']['url'])) : ?>
