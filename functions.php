@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once get_template_directory() . '/inc/class-mytube-walker/class-mytube-walker.php';
+require_once get_template_directory() . '/inc/class-mytube-mobile-walker/class-mytube-mobile-walker.php';
 
 /**
  * Uploading CSS & JS files
@@ -35,6 +36,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
     wp_enqueue_script('video-category-tabs', get_template_directory_uri() . '/inc/js/widgets/video-category-tabs.js', array(), $version, true);
     wp_enqueue_script('slider', get_template_directory_uri() . '/inc/js/widgets/slider.js', array(), $version, true);
+    wp_enqueue_script('mobile-menu', get_template_directory_uri() . '/inc/js/mobile-menu/mobile-menu.js', array (), $version, true);
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
 
