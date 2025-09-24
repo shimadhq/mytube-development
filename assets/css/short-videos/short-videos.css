@@ -223,3 +223,136 @@
     height: 450px;
     z-index: 0;
 }
+
+.short-counter-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .short-videos{
+        flex-direction: column;
+    }
+
+    .short-layer1,
+    .short-layer2,
+    .short-layer3 {
+        position: absolute;
+        top: 0; 
+        right: 0;
+        transform: translateY(0);
+        border-radius: 16px 0 0 16px;
+    }
+
+    .short-layer1{
+        width: 100px;
+        height: 191px;
+    }
+
+    .short-layer2{
+        width: 212px;
+        height: 175px;
+    }
+
+    .short-layer3{
+        width: 260px;
+        height: 156px;
+    }
+
+    .short-title-section{
+        width: 95%;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+
+    .short-counters{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .short-counter{
+        flex-direction: row;
+        width: 100%;
+        justify-content: start;
+    }
+
+    .short-counter-text{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 8px;
+    }
+
+    .short-layer4,
+    .short-layer5,
+    .short-layer6 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 16px;
+    }
+
+    .short-layer4{
+        width: 290px;
+        height: 270px;
+        bottom: 5%;
+    }
+
+    .short-layer5{
+        width: 270px;
+        height: 330px;
+        bottom: 3%;
+    }
+
+    .short-layer6{
+        width: 250px;
+        height: 380px;
+        bottom: 2%;
+    }
+
+    .short-videos-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow: hidden;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .short-video {
+        display: none;
+    }
+
+    .short-video:first-child{
+        display: block;
+        width: 230px;
+        height: 420px;
+        scroll-snap-align: center;
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .video-thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .video-title{
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .video-description{
+        font-size: 12px;
+    }
+}

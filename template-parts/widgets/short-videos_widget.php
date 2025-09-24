@@ -324,9 +324,11 @@ class Short_Videos extends Widget_Base{
                                         <img src="<?php echo esc_url($counter['counter_icon']['url']); ?>" alt="<?php echo esc_attr($counter['counter_text']); ?>">
                                     <?php endif; ?>
                                 </div>
-                                <span class="short-counter-number" data-target="<?php echo esc_attr($counter['counter_number']); ?>">0</span>
-                                <div class="short-counter-description">
-                                    <?php echo esc_attr($counter['counter_text']); ?>
+                                <div class="short-counter-text">
+                                    <span class="short-counter-number" data-target="<?php echo esc_attr($counter['counter_number']); ?>">0</span>
+                                    <div class="short-counter-description">
+                                        <?php echo esc_attr($counter['counter_text']); ?>
+                                    </div>
                                 </div>
                             </div>
                         <?php endforeach; ?>
