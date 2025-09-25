@@ -649,7 +649,7 @@ class Short_Videos extends Widget_Base{
     <div class="short-layer4"></div>
     <div class="short-layer5"></div>
     <div class="short-layer6"></div>
-</div>
+    </div>
     <?php
     }
 }
