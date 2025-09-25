@@ -285,6 +285,246 @@ class Short_Videos extends Widget_Base{
         );
 
         $this->end_controls_section();
+
+        $this->start_controls_section(
+            'style_counters_section',
+            [
+                'label' => __( 'شمارش گرها', 'mytube' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'counters_bg_color',
+            [
+                'label'     => __( 'رنگ بک گراند شمارش گر', 'mytube' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#EEEEEE',
+                'selectors' => [
+                    '{{WRAPPER}} .short-counter' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'counter_number_color',
+            [
+                'label'     => __( 'رنگ عدد شمارش گر', 'mytube' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#493A3A',
+                'selectors' => [
+                    '{{WRAPPER}} .short-counter-number' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'     => 'counter_number_typography',
+                'label'    => __( 'تایپوگرافی عدد شمارش گر', 'mytube' ),
+                'selector' => '{{WRAPPER}} .short-counter-number',
+                'fields_options' => [
+                    'typography' => [ 'default' => 'default' ], 
+                    'font_size'  => [ 'default' => [ 'size' => 24, 'unit' => 'px' ] ],
+                    'font_weight'=> [ 'default' => 700 ],
+                    'font_family'=> [ 'default' => 'IRANYekanX' ],
+                ]
+            ]
+        );
+
+
+        $this->add_responsive_control(
+            'counter_description_color',
+            [
+                'label'     => __( 'رنگ متن شمارش گر', 'mytube' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#493a3a99',
+                'selectors' => [
+                    '{{WRAPPER}} .short-counter-description' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'     => 'counter_description_typography',
+                'label'    => __( 'تایپوگرافی متن شمارش گر', 'mytube' ),
+                'selector' => '{{WRAPPER}} .short-counter-description',
+                'fields_options' => [
+                    'typography' => [ 'default' => 'default' ], 
+                    'font_size'  => [ 'default' => [ 'size' => 14, 'unit' => 'px' ] ],
+                    'font_weight'=> [ 'default' => 500 ],
+                    'font_family'=> [ 'default' => 'IRANYekanX' ],
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'style_button_section',
+            [
+                'label' => __( 'دکمه', 'mytube' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_bg_color',
+            [
+                'label'     => __( 'رنگ بک گراند دکمه', 'mytube' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#FFFFFF',
+                'selectors' => [
+                    '{{WRAPPER}} .short-button' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_text_color',
+            [
+                'label'     => __( 'رنگ متن دکمه', 'mytube' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#FF4545',
+                'selectors' => [
+                    '{{WRAPPER}} .short-button' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'     => 'button_text_typography',
+                'label'    => __( 'تایپوگرافی متن شمارش گر', 'mytube' ),
+                'selector' => '{{WRAPPER}} .short-button',
+                'fields_options' => [
+                    'typography' => [ 'default' => 'default' ], 
+                    'font_size'  => [ 'default' => [ 'size' => 16, 'unit' => 'px' ] ],
+                    'font_weight'=> [ 'default' => 700 ],
+                    'font_family'=> [ 'default' => 'IRANYekanX' ],
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'style_videos_section',
+            [
+                'label' => __( 'ویدیوها', 'mytube' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'video_width',
+            [
+                'label' => __( 'عرض ویدیو', 'mytube' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range' => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 2000,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 270,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .short-video' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'video_height',
+            [
+                'label' => __( 'ارتفاع ویدیو', 'mytube' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range' => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 2000,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => '%',
+                    'size' => 100,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .short-video' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'video_title_color',
+            [
+                'label'     => __( 'رنگ عنوان ویدیو', 'mytube' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#FFFFFF',
+                'selectors' => [
+                    '{{WRAPPER}} .video-title' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'     => 'video_title_typography',
+                'label'    => __( 'تایپوگرافی عنوان ویدیو', 'mytube' ),
+                'selector' => '{{WRAPPER}} .video-title',
+                'fields_options' => [
+                    'typography' => [ 'default' => 'default' ], 
+                    'font_size'  => [ 'default' => [ 'size' => 16, 'unit' => 'px' ] ],
+                    'font_weight'=> [ 'default' => 700 ],
+                    'font_family'=> [ 'default' => 'IRANYekanX' ],
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'video_description_color',
+            [
+                'label'     => __( 'رنگ متن ویدیو', 'mytube' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#ffffffa4',
+                'selectors' => [
+                    '{{WRAPPER}} .video-description' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'     => 'video_description_typography',
+                'label'    => __( 'تایپوگرافی متن ویدیو', 'mytube' ),
+                'selector' => '{{WRAPPER}} .video-description',
+                'fields_options' => [
+                    'typography' => [ 'default' => 'default' ], 
+                    'font_size'  => [ 'default' => [ 'size' => 14, 'unit' => 'px' ] ],
+                    'font_weight'=> [ 'default' => 400 ],
+                    'font_family'=> [ 'default' => 'IRANYekanX' ],
+                ]
+            ]
+        );
     }
 
     public function render() {

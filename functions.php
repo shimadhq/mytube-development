@@ -285,27 +285,27 @@ add_action( 'elementor/elements/categories_registered', function( $elements_mana
 function register_mytube_widgets(){
     $widgets = [
         [
-            'path' => '/template-parts/widgets/main-banner_widget.php',
+            'path' => '/template-parts/elementor_widgets/main-banner_widget.php',
             'class' => 'WPC\Widgets\Main_Banner',
         ],
         [
-            'path' => '/template-parts/widgets/video-category_widget.php',
+            'path' => '/template-parts/elementor_widgets/video-category_widget.php',
             'class' => 'WPC\Widgets\Video_Category',
         ],
         [
-            'path' => '/template-parts/widgets/playlist_widget.php',
+            'path' => '/template-parts/elementor_widgets/playlist_widget.php',
             'class' => 'WPC\Widgets\Playlist',
         ],
         [
-            'path' => '/template-parts/widgets/most-visited-slider_widget.php',
+            'path' => '/template-parts/elementor_widgets/most-visited-slider_widget.php',
             'class' => 'WPC\Widgets\Most_Visited_Slider',
         ],
         [
-            'path' => '/template-parts/widgets/biography_widget.php',
+            'path' => '/template-parts/elementor_widgets/biography_widget.php',
             'class' => 'WPC\Widgets\Biography',
         ],
         [
-            'path' => '/template-parts/widgets/short-videos_widget.php',
+            'path' => '/template-parts/elementor_widgets/short-videos_widget.php',
             'class' => 'WPC\Widgets\Short_Videos',
         ],
     ];
