@@ -31,6 +31,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('most-visited-slider', get_template_directory_uri() . '/assets/css/most-visited-slider/most-visited-slider.css', [], $version);
     wp_enqueue_style('biography', get_template_directory_uri() . '/assets/css/biography/biography.css', [], $version);
     wp_enqueue_style('short-videos', get_template_directory_uri() . '/assets/css/short-videos/short-videos.css', [], $version);
+    wp_enqueue_style('contact-us', get_template_directory_uri() . '/assets/css/contact-us/contact-us.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
@@ -307,6 +308,10 @@ function register_mytube_widgets(){
         [
             'path' => '/template-parts/elementor_widgets/short-videos_widget.php',
             'class' => 'WPC\Widgets\Short_Videos',
+        ],
+        [
+            'path' => '/template-parts/elementor_widgets/contact-us_widget.php',
+            'class' => 'WPC\Widgets\Contact_Us',
         ],
     ];
 

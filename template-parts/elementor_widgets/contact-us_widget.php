@@ -33,7 +33,6 @@ class Contact_Us extends Widget_Base{
             'first_section',
             [
                 'label' => 'سکشن اول',
-                'tab'   => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -69,7 +68,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_address_title',
+            'contact_address_label',
             [
                 'label' => __( 'عنوان آدرس', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -82,8 +81,7 @@ class Contact_Us extends Widget_Base{
             [
                 'label' => 'متن فیلد آدرس',
                 'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'default' => '',
-                'placeholder' => 'تهران، میدان آزادی، کوچه ۲۴ آزادی، پلاک ۳۰',
+                'default' => 'تهران، میدان آزادی، کوچه ۲۴ آزادی، پلاک ۳۰',
             ]
         );
 
@@ -99,7 +97,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_phone_title',
+            'contact_phone_label',
             [
                 'label' => __( 'عنوان تماس', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -111,9 +109,8 @@ class Contact_Us extends Widget_Base{
             'contact_phone_text',
             [
                 'label' => 'متن فیلد تماس',
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'default' => '',
-                'placeholder' => '۰۹۳۸ ۹۳۸ ۸۱۸۱',
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '۰۹۳۸ ۹۳۸ ۸۱۸۱',
             ]
         );
 
@@ -129,22 +126,20 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_whatsapp_text',
+            'contact_whatsapp_label',
             [
                 'label' => 'عنوان فیلد واتساپ',
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'default' => '',
-                'placeholder' => 'واتساپ',
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => 'واتساپ',
             ]
         );
 
         $this->add_control(
             'contact_whatsapp_text',
             [
-                'label' => 'متن فیلد تماس',
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'default' => '',
-                'placeholder' => '۰۹۳۸ ۹۳۸ ۸۱۸۱',
+                'label' => 'متن فیلد واتساپ',
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '۰۹۳۸ ۹۳۸ ۸۱۸۱',
             ]
         );
 
@@ -160,12 +155,11 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_email_text',
+            'contact_email_label',
             [
                 'label' => 'عنوان فیلد ایمیل',
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'default' => '',
-                'placeholder' => 'ایمیل',
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => 'ایمیل',
             ]
         );
 
@@ -173,9 +167,8 @@ class Contact_Us extends Widget_Base{
             'contact_email_text',
             [
                 'label' => 'متن فیلد ایمیل',
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'default' => '',
-                'placeholder' => 'info@mytube.com',
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => 'info@mytube.com',
             ]
         );
 
@@ -262,7 +255,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_third__heading',
+            'contact_third_heading',
             [
                 'label' => __( 'عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -271,32 +264,29 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'fullname_placeholder',
+            'fullname_label',
             [
-                'label'       => 'Placeholder',
-                'type'        => Controls_Manager::TEXT,
-                'default'     => 'نام و نام خانوادگی',
-                'label_block' => true,
+                'label' => 'لیبل فیلد اول',
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => 'نام و نام خانوادگی',
             ]
         );
 
         $this->add_control(
-            'phone_placeholder',
+            'phone_label',
             [
-                'label'       => 'Placeholder',
+                'label'       => 'لیبل فیلد دوم',
                 'type'        => Controls_Manager::TEXT,
                 'default'     => 'شماره تلفن',
-                'label_block' => true,
             ]
         );
 
         $this->add_control(
-            'message_placeholder',
+            'message_label',
             [
-                'label'       => 'Placeholder',
+                'label'       => 'لیبل فیلد سوم',
                 'type'        => Controls_Manager::TEXT,
                 'default'     => 'توضیحات',
-                'label_block' => true,
             ]
         );
 
@@ -360,13 +350,13 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'address_title',
+            'address_label',
             [
                 'label'     => __( 'رنگ عنوان فیلد آدرس', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#493A3A',
                 'selectors' => [
-                    '{{WRAPPER}} .address-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .address-label' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -374,9 +364,9 @@ class Contact_Us extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'address_title_typography',
+                'name'     => 'address_label_typography',
                 'label'    => __( 'تایپوگرافی عنوان فیلد آدرس', 'mytube' ),
-                'selector' => '{{WRAPPER}} .address-title',
+                'selector' => '{{WRAPPER}} .address-label',
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
                     'font_size'  => [ 'default' => [ 'size' => 14, 'unit' => 'px' ] ],
@@ -414,13 +404,13 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'phone_title',
+            'phone_label',
             [
                 'label'     => __( 'رنگ عنوان فیلد تماس', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#493A3A',
                 'selectors' => [
-                    '{{WRAPPER}} .phone-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .phone-label' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -428,9 +418,9 @@ class Contact_Us extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'phone_title_typography',
+                'name'     => 'phone_label_typography',
                 'label'    => __( 'تایپوگرافی عنوان فیلد تماس', 'mytube' ),
-                'selector' => '{{WRAPPER}} .phone-title',
+                'selector' => '{{WRAPPER}} .phone-label',
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
                     'font_size'  => [ 'default' => [ 'size' => 14, 'unit' => 'px' ] ],
@@ -468,13 +458,13 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'whatsapp_title',
+            'whatsapp_label',
             [
                 'label'     => __( 'رنگ عنوان فیلد واتساپ', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#493A3A',
                 'selectors' => [
-                    '{{WRAPPER}} .whatsapp-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .whatsapp-label' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -482,9 +472,9 @@ class Contact_Us extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'whatsapp_title_typography',
+                'name'     => 'whatsapp_label_typography',
                 'label'    => __( 'تایپوگرافی عنوان فیلد واتساپ', 'mytube' ),
-                'selector' => '{{WRAPPER}} .whatsapp-title',
+                'selector' => '{{WRAPPER}} .whatsapp-label',
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
                     'font_size'  => [ 'default' => [ 'size' => 14, 'unit' => 'px' ] ],
@@ -522,13 +512,13 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'email_title',
+            'email_label',
             [
                 'label'     => __( 'رنگ عنوان فیلد ایمیل', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#493A3A',
                 'selectors' => [
-                    '{{WRAPPER}} .email-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .email-label' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -536,9 +526,9 @@ class Contact_Us extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'email_title_typography',
+                'name'     => 'email_label_typography',
                 'label'    => __( 'تایپوگرافی عنوان فیلد ایمیل', 'mytube' ),
-                'selector' => '{{WRAPPER}} .email-title',
+                'selector' => '{{WRAPPER}} .email-label',
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
                     'font_size'  => [ 'default' => [ 'size' => 14, 'unit' => 'px' ] ],
@@ -743,5 +733,233 @@ class Contact_Us extends Widget_Base{
                 ]
             ]
         );
+
+        $this->add_responsive_control(
+            'label_color',
+            [
+                'label'     => __( 'رنگ لیبل فیلد', 'mytube' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#493A3A',
+                'selectors' => [
+                    '{{WRAPPER}} .field-label' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'     => 'label_typography',
+                'label'    => __( 'تایپوگرافی لیبل فیلد', 'mytube' ),
+                'selector' => '{{WRAPPER}} .field-label',
+                'fields_options' => [
+                    'typography' => [ 'default' => 'default' ], 
+                    'font_size'  => [ 'default' => [ 'size' => 14, 'unit' => 'px' ] ],
+                    'font_weight'=> [ 'default' => 500 ],
+                    'font_family'=> [ 'default' => 'IRANYekanX' ],
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'field_bg_color',
+            [
+                'label'     => 'رنگ پس‌زمینه فیلد',
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#EEEEEE',
+                'selectors' => [
+                    '{{WRAPPER}} .field-input' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'send_button_bg_color',
+            [
+                'label'     => 'رنگ پس‌زمینه دکمه ارسال',
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#ff454512',
+                'selectors' => [
+                    '{{WRAPPER}} .send-button' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'send_button_text_color',
+            [
+                'label'     => __( 'رنگ متن دکمه ارسال', 'mytube' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#FF4545',
+                'selectors' => [
+                    '{{WRAPPER}} .send-button' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'     => 'send_button_typography',
+                'label'    => __( 'تایپوگرافی متن دکمه ارسال', 'mytube' ),
+                'selector' => '{{WRAPPER}} .send-button',
+                'fields_options' => [
+                    'typography' => [ 'default' => 'default' ], 
+                    'font_size'  => [ 'default' => [ 'size' => 16, 'unit' => 'px' ] ],
+                    'font_weight'=> [ 'default' => 700 ],
+                    'font_family'=> [ 'default' => 'IRANYekanX' ],
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+    }
+
+    public function render() {
+        $settings = $this->get_settings_for_display();
+
+        ?>
+        <div class="contact-us">
+            <img class="right-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/right-shape.svg" />
+            <div class="first-section">
+                <div class="first-title-section">
+                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
+                    <span class="first-title">
+                        <?php echo esc_html($settings['contact_heading']); ?>
+                    </span>
+                    <?php if ( ! empty( $settings['contact_heading_icon']['url'] ) ) : ?>
+                        <div class="first-title-icon">
+                            <img src="<?php echo esc_url( $settings['contact_heading_icon']['url'] ); ?>" alt="">
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="first-contact-section">
+                    <div class="address-section">
+                        <div class="label-section">
+                            <?php if ( ! empty( $settings['contact_address_icon']['url'] ) ) : ?>
+                                <div class="label-icon">
+                                    <img src="<?php echo esc_url( $settings['contact_address_icon']['url'] ); ?>" alt="">
+                                </div>
+                            <?php endif; ?>
+                            <span class="address-label">
+                                <?php echo esc_html($settings['contact_address_label']); ?>
+                            </span>
+                        </div>
+                        <div class="address-field-section">
+                            <span class="address-text">
+                                <?php echo wp_kses_post( $settings['contact_address_text'] ); ?>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="phone-whatsapp">
+                        <div class="phone-section">
+                            <div class="label-section">
+                                <?php if ( ! empty( $settings['contact_phone_icon']['url'] ) ) : ?>
+                                    <div class="label-icon">
+                                        <img src="<?php echo esc_url( $settings['contact_phone_icon']['url'] ); ?>" alt="">
+                                    </div>
+                                <?php endif; ?>
+                                <span class="phone-label">
+                                    <?php echo esc_html($settings['contact_phone_label']); ?>
+                                </span>
+                            </div>
+                            <div class="field-section">
+                                <span class="phone-text">
+                                    <?php echo esc_html($settings['contact_phone_text']); ?>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="whatsapp-section">
+                            <div class="label-section">
+                                <?php if ( ! empty( $settings['contact_whatsapp_icon']['url'] ) ) : ?>
+                                    <div class="label-icon">
+                                        <img src="<?php echo esc_url( $settings['contact_whatsapp_icon']['url'] ); ?>" alt="">
+                                    </div>
+                                <?php endif; ?>
+                                <span class="whatsapp-label">
+                                    <?php echo esc_html($settings['contact_whatsapp_label']); ?>
+                                </span>
+                            </div>
+                            <div class="field-section">
+                                <span class="whatsapp-text">
+                                    <?php echo esc_html($settings['contact_whatsapp_text']); ?>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email-section">
+                        <div class="label-section">
+                            <?php if ( ! empty( $settings['contact_email_icon']['url'] ) ) : ?>
+                                <div class="label-icon">
+                                    <img src="<?php echo esc_url( $settings['contact_email_icon']['url'] ); ?>" alt="">
+                                </div>
+                            <?php endif; ?>
+                            <span class="email-label">
+                                <?php echo esc_html($settings['contact_email_label']); ?>
+                            </span>
+                        </div>
+                        <div class="field-section">
+                            <span class="email-text">
+                                <?php echo esc_html($settings['contact_email_text']); ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="second-section">
+                <img class="bg-shape1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/contact-us/bg-contact-shape.svg') ?>" />
+                <div class="second-title-section">
+                    <?php if ( ! empty( $settings['contact_second_heading_icon']['url'] ) ) : ?>
+                        <div class="second-title-icon">
+                            <img src="<?php echo esc_url( $settings['contact_second_heading_icon']['url'] ); ?>" alt="">
+                        </div>
+                    <?php endif; ?>
+                    <span class="second-title">
+                        <?php echo esc_html($settings['contact_second_heading']); ?>
+                    </span>
+                </div>
+                <div class="second-image">
+                    <img src="<?php echo esc_url( $settings['contact_image']['url'] ); ?>" alt="">
+                </div>
+                <div href="<?php echo esc_url($settings['contact_button_link']['url']); ?>" class="second-button">
+                    <?php echo esc_html($settings['contact_button_text']); ?>
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
+                </div>
+                <img class="bg-shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/contact-us/bg-contact-shape2.svg') ?>" />
+            </div>
+            <div class="third-section">
+                <div class="third-title-section">
+                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/shape.svg" />
+                    <span class="third-title">
+                        <?php echo esc_html($settings['contact_third_heading']); ?>
+                    </span>
+                    <?php if ( ! empty( $settings['contact_third_heading_icon']['url'] ) ) : ?>
+                        <div class="third-title-icon">
+                            <img src="<?php echo esc_url( $settings['contact_third_heading_icon']['url'] ); ?>" alt="">
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="third-contact-section">
+                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
+                    <div class="name-phone">
+                        <div class="fullname-field">
+                            <label class="field-label">
+                                <?php echo esc_html($settings['fullname_label']); ?>
+                            </label>
+                            <input type="text" class="field-input" />
+                        </div>
+                        <div class="phone-field">
+                            <label class="field-label">
+                                <?php echo esc_html($settings['phone_label']); ?>
+                            </label>
+                            <input type="text" class="field-input" />
+                        </div>
+                    </div>
+                    <div class=""></div>
+                </div>
+            </div>
+            <img class="left-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/left-shape.svg" />
+        </div>
+        <?php
     }
 }

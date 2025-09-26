@@ -1,0 +1,236 @@
+.contact-us{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.right-shape{
+    width: 100px;
+}
+
+.first-section{
+    width: 550px;
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #EEEEEE;
+    border-radius: 24px;
+    padding: 15px;
+    position: relative;
+}
+
+.first-title-section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-shape{
+    position: absolute;
+    top: -8%;
+    right: 2%;
+}
+
+.first-title{
+    width: 110px;
+    z-index: 3;
+    padding-right: 30px;
+}
+
+.main-icon-wrapper{
+    padding-left: 10px;
+}
+
+.first-contact-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.address-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.label-section{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: white;
+}
+
+.field-section{
+    padding: 15px;
+    border: solid 1px #EEEEEE;
+    border-radius: 12px;
+    padding-right: 30px;
+}
+
+.address-field-section{
+    display: flex;
+    border: solid 1px #EEEEEE;
+    border-radius: 12px;
+    padding: 10px;
+    height: 50px;
+    align-items: center;
+}
+
+.phone-whatsapp{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.phone-section{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.phone-text{
+    padding-right: 40px;
+}
+
+.whatsapp-section{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.whatsapp-text{
+    padding-right: 40px;
+}
+
+.email-section{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.second-section{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.bg-shape1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.bg-shape2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+.second-title-section{
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    z-index: 3;
+}
+
+.second-image{
+    margin-top: 20px;
+    z-index: 3;
+    height: 217px;
+}
+
+.second-title-icon{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF4545;
+    border-radius: 12px;
+}
+
+.second-button{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    z-index: 3;
+    padding: 12px;
+}
+
+.third-section{
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: solid 1px #EEEEEE;
+    border-radius: 24px;
+    padding: 15px;
+    position: relative;
+}
+
+.third-title-section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.third-title{
+    width: 110px;
+    padding-right: 25px;
+    z-index: 3;
+}
+
+.third-contact-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.name-phone{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.fullname-field{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+}
+
+.field-input{
+    width: 220px;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+}
+
+.phone-field{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+}
+
+.left-shape{
+    width: 100px;
+}
