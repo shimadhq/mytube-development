@@ -649,6 +649,12 @@ class Short_Videos extends Widget_Base{
     <div class="short-layer4"></div>
     <div class="short-layer5"></div>
     <div class="short-layer6"></div>
+
+    <!-- Mobile Button -->
+    <div href="<?php echo esc_url($settings['button_url']['url']); ?>" class="short-button-mobile">
+        <?php echo esc_html($settings['button_title']); ?>
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
+    </div>
     </div>
     <?php
     }
