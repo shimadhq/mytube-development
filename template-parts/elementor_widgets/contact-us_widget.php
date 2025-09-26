@@ -291,7 +291,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_button_text',
+            'contact_send_button_text',
             [
                 'label' => 'متن دکمه ارسال',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -300,7 +300,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_button_link',
+            'contact_send_button_link',
             [
                 'label' => 'لینک دکمه ارسال',
                 'type' => Controls_Manager::URL,
@@ -821,6 +821,26 @@ class Contact_Us extends Widget_Base{
         ?>
         <div class="contact-us">
             <img class="right-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/right-shape.svg" />
+            <div class="contact-mobile">
+                <img class="contact-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/bg-mobile.svg" />
+                <div class="contact-title-mobile">
+                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
+                    <div class="second-title-section">
+                        <?php if ( ! empty( $settings['contact_second_heading_icon']['url'] ) ) : ?>
+                            <div class="second-title-icon">
+                                <img src="<?php echo esc_url( $settings['contact_second_heading_icon']['url'] ); ?>" alt="">
+                            </div>
+                        <?php endif; ?>
+                        <span class="second-title">
+                            <?php echo esc_html($settings['contact_second_heading']); ?>
+                        </span>
+                    </div>
+                </div>
+                <img class="contact-image-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/contact-bg.svg" />
+                <div class="second-image-mobile">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/phone-mobile.svg" alt="">
+                </div>
+            </div>
             <div class="first-section">
                 <div class="first-title-section">
                     <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
@@ -955,10 +975,27 @@ class Contact_Us extends Widget_Base{
                             <input type="text" class="field-input" />
                         </div>
                     </div>
-                    <div class=""></div>
+                    <div class="message-button">
+                        <div class="message-field">
+                            <label class="field-label">
+                                <?php echo esc_html($settings['message_label']); ?>
+                            </label>
+                            <input type="text" class="message-field-input" />
+                        </div>
+                        <div href="<?php echo esc_url($settings['contact_send_button_link']['url']); ?>" class="send-button">
+                            <?php echo esc_html($settings['contact_send_button_text']); ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <img class="left-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/left-shape.svg" />
+            <div class="mobile-button">
+                <div href="<?php echo esc_url($settings['contact_button_link']['url']); ?>" class="second-button">
+                    <?php echo esc_html($settings['contact_button_text']); ?>
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
+                </div>
+            </div>
+            <img class="background" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/background.svg" />
         </div>
         <?php
     }
