@@ -1,0 +1,123 @@
+.courses{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: solid 1px #EEEEEE;
+    border-radius: 24px;
+    padding: 15px;
+    position: relative;
+}
+
+.courses-header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.courses-title-wrapper{
+    width: 130px;
+    padding-right: 40px;
+}
+
+.courses-main-title{
+    position: relative;
+    z-index: 3;
+}
+
+.courses-button{
+    background-color: #eeeeee57;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.courses-section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    z-index: 3;
+}
+
+.course{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #eeeeee87;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+.course-image-wrapper{
+    width: 100%;
+}
+
+.course-text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.price-pay{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.course-price-wrapper{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.price-unit{
+    color: #493a3a77;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pay-button{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.course:hover{
+    background: linear-gradient(to top, #FF4545, #992929);
+}
+
+.course:hover .course-title{
+    color: white;
+}
+
+.course:hover .course-text{
+    color: #ffffff85;
+}
+
+.course:hover .course-price{
+    color: white;
+}
+
+.course:hover .price-unit{
+    color: #ffffff85;
+}
+
+.course:hover .pay-button{
+    color: white;
+}

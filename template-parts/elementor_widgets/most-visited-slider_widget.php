@@ -275,7 +275,7 @@ class Most_Visited_Slider extends Widget_Base{
             [
                 'name'     => 'slide_title_typography',
                 'label'    => __( 'تایپوگرافی عنوان اسلاید', 'mytube' ),
-                'selector' => '{{WRAPPER}} .tab-title',
+                'selector' => '{{WRAPPER}} .slide-title',
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
                     'font_size'  => [ 'default' => [ 'size' => 16, 'unit' => 'px' ] ],
