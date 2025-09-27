@@ -658,6 +658,7 @@ class Comments extends Widget_Base{
                         <button class="custom-up">˄</button>
                         <button class="custom-down">˅</button>
                     </div>
+                    <div class=""></div>
                 </div>
             </div>
         </div>
