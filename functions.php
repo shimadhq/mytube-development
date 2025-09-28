@@ -33,6 +33,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('short-videos', get_template_directory_uri() . '/assets/css/short-videos/short-videos.css', [], $version);
     wp_enqueue_style('contact-us', get_template_directory_uri() . '/assets/css/contact-us/contact-us.css', [], $version);
     wp_enqueue_style('courses', get_template_directory_uri() . '/assets/css/courses/courses.css', [], $version);
+    wp_enqueue_style('comments', get_template_directory_uri() . '/assets/css/comments/comments.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
@@ -40,6 +41,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_script('slider', get_template_directory_uri() . '/inc/js/widgets/slider.js', array(), $version, true);
     wp_enqueue_script('mobile-menu', get_template_directory_uri() . '/inc/js/mobile-menu/mobile-menu.js', array (), $version, true);
     wp_enqueue_script('cart-toggle', get_template_directory_uri() . '/inc/js/cart-toggle/cart-toggle.js', array (), $version, true);
+    wp_enqueue_script('vertical-slider', get_template_directory_uri() . '/inc/js/widgets/vertical-slider.js', array (), $version, true);
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
 
@@ -317,6 +319,10 @@ function register_mytube_widgets(){
         [
             'path' => '/template-parts/elementor_widgets/courses_wisget.php',
             'class' => 'WPC\Widgets\Courses',
+        ],
+        [
+            'path' => '/template-parts/elementor_widgets/comments_widget.php',
+            'class' => 'WPC\Widgets\Comments',
         ],
     ];
 

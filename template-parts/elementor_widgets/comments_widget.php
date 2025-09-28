@@ -547,32 +547,6 @@ class Comments extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'social_icon_width',
-            [
-                'label' => __( 'اندازه آیکن', 'mytube' ),
-                'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => [ 'px', '%' ],
-                'range' => [
-                    'px' => [
-                        'min' => 50,
-                        'max' => 2000,
-                    ],
-                    '%' => [
-                        'min' => 10,
-                        'max' => 100,
-                    ],
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 70,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .social-icon' => 'width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
             'social_title_color',
             [
                 'label'     => __( 'رنگ عنوان شبکه اجتماعی', 'mytube' ),
@@ -638,7 +612,7 @@ class Comments extends Widget_Base{
         ?>
         <div class="comments-widget">
             <div class="comments-section">
-                <img class="comments-bg" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/comments/comments-bg.svg') ?>" />
+                <img class="comments-bg" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/comments/comments-bg.svg'); ?>" />
                 <div class="comments-title-section">
                     <div class="comments-title-wrapper">
                         <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
@@ -658,7 +632,73 @@ class Comments extends Widget_Base{
                         <button class="custom-up">˄</button>
                         <button class="custom-down">˅</button>
                     </div>
-                    <div class=""></div>
+                    <div class="custom-vertical-slider swiper-container">
+                        <div class="comment-layer1"></div>
+                        <div class="comment-layer2"></div>
+                        <div class="swiper-wrapper">
+                            <?php foreach($comments as $comment): ?>
+                                <div class="swiper-slide comment">
+                                    <div class="comment-top">
+                                        <div class="title-image">
+                                            <div class="comment-image-wrapper">
+                                                <?php if (!empty($comment['comment_image']['url'])) : ?>
+                                                    <img class="comment-image" src="<?php echo esc_url($comment['comment_image']['url']); ?>" alt="">
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="comment-title-wrapper">
+                                                <span class="comment-title"><?php echo esc_html($comment['comment_title']); ?></span>
+                                                <span class="comment-text"><?php echo esc_html($comment['comment_text']); ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="comment-icon">
+                                            <div class="heart-icon-wrapper">
+                                                <img class="heart-icon" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/comments/heart.svg') ?>" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment-bottom">
+                                        <span class="comment-description"><?php echo esc_html($comment['comment_description']); ?></span>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="socials-section">
+                <img class="socials-bg" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/comments/socials-bg.svg'); ?>" />
+                <div class="socials-title-section">
+                    <div class="socials-title-wrapper">
+                        <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
+                        <div class="comments-icon-wrapper">
+                            <img class="main-icon" src="<?php echo esc_url( $settings['social_heading_icon']['url'] ); ?>" alt="" />
+                        </div>
+                        <span class="socials-title">
+                            <?php echo esc_html($settings['social_heading']); ?>
+                        </span>
+                    </div>
+                    <div class="socials-description">
+                        <?php echo esc_html($settings['social_heading_description']); ?>
+                    </div>
+                </div>
+                <div class="socials-content-section">
+                    <?php if (!empty($socials)) : ?>
+                        <?php foreach ($socials as $social) : $current++; ?>
+                            <div class="social">
+                                <div class="social-icon">
+                                    <?php if (!empty($social['social_icon']['url'])) : ?>
+                                        <img src="<?php echo esc_url($social['social_icon']['url']); ?>" alt="<?php echo esc_attr($social['social_title']); ?>">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="social-title">
+                                    <?php echo esc_attr($social['social_title']); ?>
+                                </div>
+                                <div class="social-description">
+                                    <?php echo esc_attr($social['social_text']); ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
