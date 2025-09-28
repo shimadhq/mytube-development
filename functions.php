@@ -47,7 +47,7 @@ add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
  * Adding settings menu & setting default items
 */
 add_action('after_switch_theme', function() {
-    // لوگوی دسکتاپ پیش‌فرض
+    // Default desktop logo
     if ( ! get_option('mytube_logo_desktop') ) {
         update_option('mytube_logo_desktop', get_template_directory_uri() . '/assets/img/logo.png');
     }
