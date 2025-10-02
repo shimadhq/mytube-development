@@ -109,7 +109,7 @@ class Biography extends Widget_Base{
                 'label' => 'تصویر بیوگرافی',
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/biography/image.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/biography/image.webp',
                 ],
             ]
         );

@@ -62,7 +62,7 @@ class Playlist extends Widget_Base{
                 'label' => __( 'تصویر عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/playlist/camera.png',
+                    'url' => get_template_directory_uri() . '/assets/img/playlist/camera.webp',
                 ],
             ]
         );

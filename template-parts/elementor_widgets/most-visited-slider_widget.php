@@ -157,7 +157,7 @@ class Most_Visited_Slider extends Widget_Base{
                 'title_field' => '{{{ slide_title }}}',
                 'default' => [
                     [
-                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image1.png'],
+                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image1.webp'],
                         'slide_title' => __( 'بهترین رپر ایران از نظر پیشرو', 'mytube' ),
                         'slide_text' =>  __( 'اینو دیگ واقعا نخندی میگم پوتک ...', 'mytube' ),
                         'slide_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
@@ -167,7 +167,7 @@ class Most_Visited_Slider extends Widget_Base{
                         'time' => __( '۳ ساعت پیش', 'mytube' ),
                     ],
                     [
-                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image2.png'],
+                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image2.webp'],
                         'slide_title' => __( 'روز ۵۱م زندگی تو جنگل', 'mytube' ),
                         'slide_text' =>  __( 'با این وضع دیگ نمیشه ادامه داد...', 'mytube' ),
                         'slide_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
@@ -177,7 +177,7 @@ class Most_Visited_Slider extends Widget_Base{
                         'time' => __( '۳ ساعت پیش', 'mytube' ),
                     ],
                     [
-                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image3.png'],
+                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image3.webp'],
                         'slide_title' => __( 'دعوای یوتیوبرا سر ۱ میلیون دلار', 'mytube' ),
                         'slide_text' =>  __( 'پنجاه تا یوتیوبر برتر جهان رو ...', 'mytube' ),
                         'slide_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
@@ -187,7 +187,7 @@ class Most_Visited_Slider extends Widget_Base{
                         'time' => __( '۳ ساعت پیش', 'mytube' ),
                     ],
                     [
-                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image4.png'],
+                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image4.webp'],
                         'slide_title' => __( 'واکنش خود لامبورگینی دیدنیه', 'mytube' ),
                         'slide_text' =>  __( 'فک کنم کمپانی لامبورگینی دیگه ...', 'mytube' ),
                         'slide_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
@@ -197,7 +197,7 @@ class Most_Visited_Slider extends Widget_Base{
                         'time' => __( '۳ ساعت پیش', 'mytube' ),
                     ],
                     [
-                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image5.png'],
+                        'slide_image' => ['url' => get_template_directory_uri() . '/assets/img/most-visited-slider/image5.webp'],
                         'slide_title' => __( 'دوباره یه ماشین دیگ', 'mytube' ),
                         'slide_text' =>  __( 'اینو دیگ واقعا نخندی میگم پوتک ...', 'mytube' ),
                         'slide_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],

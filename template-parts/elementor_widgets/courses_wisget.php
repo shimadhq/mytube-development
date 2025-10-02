@@ -154,28 +154,28 @@ class Courses extends Widget_Base{
                 'title_field' => '{{{ course_title }}}',
                 'default' => [
                     [
-                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course1.png'],
+                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course1.webp'],
                         'course_title' => __( 'دوره آموزش یوتیوب', 'mytube' ),
                         'course_text' =>  __( 'ترفند های حرفه ای یوتیوب', 'mytube' ),
                         'price' => __( '۵,۶۰۰,۰۰۰', 'mytube' ),
                         'pay_button_text' => __( 'خرید', 'mytube' ),
                     ],
                     [
-                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course2.png'],
+                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course2.webp'],
                         'course_title' => __( 'دوره آموزش پرمیر', 'mytube' ),
                         'course_text' =>  __( 'تدوین حرفه ای ویدیو هاتون', 'mytube' ),
                         'price' => __( '۷,۶۰۰,۰۰۰', 'mytube' ),
                         'pay_button_text' => __( 'خرید', 'mytube' ),
                     ],
                     [
-                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course3.png'],
+                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course3.webp'],
                         'course_title' => __( 'دوره آموزش تولید محتوا', 'mytube' ),
                         'course_text' =>  __( 'تولید محتوا یه اصل خیلی مهم برای ...', 'mytube' ),
                         'price' => __( '۱,۳۰۰,۰۰۰', 'mytube' ),
                         'pay_button_text' => __( 'خرید', 'mytube' ),
                     ],
                     [
-                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course4.png'],
+                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course4.webp'],
                         'course_title' => __( 'دوره آموزش اینستاگرام', 'mytube' ),
                         'course_text' =>  __( 'ترفند های حرفه ای اینستاگرام', 'mytube' ),
                         'price' => __( '۵,۶۰۰,۰۰۰', 'mytube' ),

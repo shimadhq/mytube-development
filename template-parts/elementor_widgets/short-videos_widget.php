@@ -229,14 +229,14 @@ class Short_Videos extends Widget_Base{
                 'title_field' => '{{{ video_title }}}',
                 'default' => [
                     [
-                        'video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video1.png'],
+                        'video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video1.webp'],
                         'video_url' => '',
                         'video_title' => __( 'برای چالش ماشین جدید گرفتیم !', 'mytube' ),
                         'video_text' => __( 'بریم بینیم استقامت این ماشین چقدره!', 'mytube' ),
                         'video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/puzzle-icon.svg'],
                     ],
                     [
-                        'video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video2.png'],
+                        'video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video2.webp'],
                         'video_url' => '',
                         'video_title' => __( 'مصاحبه با یوتیوبر ها پارت اول', 'mytube' ),
                         'video_text' => __( 'مصاحبه با معروفترین یوتیوبر ها', 'mytube' ),

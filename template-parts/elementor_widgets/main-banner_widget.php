@@ -110,7 +110,7 @@ class Main_Banner extends Widget_Base{
                 'label' => 'تصویر اصلی',
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/main-banner/main-image.png',
+                    'url' => get_template_directory_uri() . '/assets/img/main-banner/main-image.webp',
                 ],
             ]
         );

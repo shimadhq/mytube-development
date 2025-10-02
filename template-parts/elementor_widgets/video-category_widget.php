@@ -189,7 +189,7 @@ class Video_Category extends Widget_Base{
                 'title_field' => '{{{ title }}}',
                 'default' => [
                     [
-                        'image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video1.png'],
+                        'image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video1.webp'],
                         'icon_image' => ['url' => get_template_directory_uri() . '/assets/icon/puzzle.svg'],
                         'title' => __( 'هفت روز ماجراجویی توی شهر زیرزمینی', 'mytube' ),
                         'text' => __( 'با دو تا از دوستای یوتیوبرمون قراره هفت روز بریم ...', 'mytube' ),
@@ -197,7 +197,7 @@ class Video_Category extends Widget_Base{
 
                     ],
                     [
-                        'image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video2.png'],
+                        'image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video2.webp'],
                         'icon_image' => ['url' => get_template_directory_uri() . '/assets/icon/smily.svg'], 
                         'title' => __( 'دعوای یوتیوبرا سر ۱ میلیون دلار', 'mytube' ),
                         'text' => __('پنجاه تا یوتیوبر برتر جهان رو جمع کردیم یه جا که ...', 'mytube'),
