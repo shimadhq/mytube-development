@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once get_template_directory() . '/inc/class-mytube-walker/class-mytube-walker.php';
+require_once get_template_directory() . '/inc/class-mytube-mobile-walker/class-mytube-mobile-walker.php';
 
 /**
  * Uploading CSS & JS files
@@ -29,11 +30,18 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('playlist', get_template_directory_uri() . '/assets/css/playlist/playlist.css', [], $version);
     wp_enqueue_style('most-visited-slider', get_template_directory_uri() . '/assets/css/most-visited-slider/most-visited-slider.css', [], $version);
     wp_enqueue_style('biography', get_template_directory_uri() . '/assets/css/biography/biography.css', [], $version);
+    wp_enqueue_style('short-videos', get_template_directory_uri() . '/assets/css/short-videos/short-videos.css', [], $version);
+    wp_enqueue_style('contact-us', get_template_directory_uri() . '/assets/css/contact-us/contact-us.css', [], $version);
+    wp_enqueue_style('courses', get_template_directory_uri() . '/assets/css/courses/courses.css', [], $version);
+    wp_enqueue_style('comments', get_template_directory_uri() . '/assets/css/comments/comments.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
     wp_enqueue_script('video-category-tabs', get_template_directory_uri() . '/inc/js/widgets/video-category-tabs.js', array(), $version, true);
     wp_enqueue_script('slider', get_template_directory_uri() . '/inc/js/widgets/slider.js', array(), $version, true);
+    wp_enqueue_script('mobile-menu', get_template_directory_uri() . '/inc/js/mobile-menu/mobile-menu.js', array (), $version, true);
+    wp_enqueue_script('cart-toggle', get_template_directory_uri() . '/inc/js/cart-toggle/cart-toggle.js', array (), $version, true);
+    wp_enqueue_script('vertical-slider', get_template_directory_uri() . '/inc/js/widgets/vertical-slider.js', array (), $version, true);
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
 
@@ -41,7 +49,7 @@ add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
  * Adding settings menu & setting default items
 */
 add_action('after_switch_theme', function() {
-    // لوگوی دسکتاپ پیش‌فرض
+    // Default desktop logo
     if ( ! get_option('mytube_logo_desktop') ) {
         update_option('mytube_logo_desktop', get_template_directory_uri() . '/assets/img/logo.png');
     }
@@ -281,24 +289,40 @@ add_action( 'elementor/elements/categories_registered', function( $elements_mana
 function register_mytube_widgets(){
     $widgets = [
         [
-            'path' => '/template-parts/widgets/main-banner_widget.php',
+            'path' => '/template-parts/elementor_widgets/main-banner_widget.php',
             'class' => 'WPC\Widgets\Main_Banner',
         ],
         [
-            'path' => '/template-parts/widgets/video-category_widget.php',
+            'path' => '/template-parts/elementor_widgets/video-category_widget.php',
             'class' => 'WPC\Widgets\Video_Category',
         ],
         [
-            'path' => '/template-parts/widgets/playlist_widget.php',
+            'path' => '/template-parts/elementor_widgets/playlist_widget.php',
             'class' => 'WPC\Widgets\Playlist',
         ],
         [
-            'path' => '/template-parts/widgets/most-visited-slider_widget.php',
+            'path' => '/template-parts/elementor_widgets/most-visited-slider_widget.php',
             'class' => 'WPC\Widgets\Most_Visited_Slider',
         ],
         [
-            'path' => '/template-parts/widgets/biography_widget.php',
+            'path' => '/template-parts/elementor_widgets/biography_widget.php',
             'class' => 'WPC\Widgets\Biography',
+        ],
+        [
+            'path' => '/template-parts/elementor_widgets/short-videos_widget.php',
+            'class' => 'WPC\Widgets\Short_Videos',
+        ],
+        [
+            'path' => '/template-parts/elementor_widgets/contact-us_widget.php',
+            'class' => 'WPC\Widgets\Contact_Us',
+        ],
+        [
+            'path' => '/template-parts/elementor_widgets/courses_wisget.php',
+            'class' => 'WPC\Widgets\Courses',
+        ],
+        [
+            'path' => '/template-parts/elementor_widgets/comments_widget.php',
+            'class' => 'WPC\Widgets\Comments',
         ],
     ];
 

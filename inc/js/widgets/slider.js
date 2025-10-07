@@ -12,8 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
             prevEl: '.custom-prev',
         },
         breakpoints: {
+            425: {
+                slidesPerView: 1.2
+            },
             768: {
-                slidesPerView: 1
+                slidesPerView: 2
             },
             1024: {
                 slidesPerView: 2

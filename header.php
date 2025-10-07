@@ -21,10 +21,27 @@
 </header>
 <header class="header-mobile">
     <div class="header-section-mb">
-        <div class="cart-icon">
+        <div class="menu-icon" id="mobileMenuToggle">
             <a href="#" class="icon-btn">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/menu-toggle.svg') ?>" alt="menu-toggle" />
             </a>
+        </div>
+        <div class="mobile-menu-wrapper" id="mobileMenu">
+            <?php
+                wp_nav_menu([
+                    'theme_location' => 'primary-menu',
+                    'menu_class'     => 'mobile-menu',
+                    'container'      => false,
+                    'walker'         => new Mobile_Walker_Nav_Menu()
+                ]);
+            ?>
+            <div class="mobile-login-wrapper">
+                <div class="wrapper">
+                    <span class="login">ورود</span>
+                    <span class="login">|</span>
+                    <span class="login">ثبت نام</span>
+                </div>
+            </div>
         </div>
         <div class="mobile-logo">
             <a href="<?php echo home_url(); ?>">
@@ -32,9 +49,14 @@
             </a>
         </div>
         <div class="cart-icon">
-            <a href="#" class="icon-btn">
+            <a id="cartToggle" class="icon-btn" href="javascript:void(0)">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/cart.svg') ?>" alt="cart-icon" />
             </a>
+        </div>
+
+        <div id="cartWrapper" class="mobile-cart-wrapper">
+            <p class="cart-text">سبد خرید شما خالی است!</p>
+            <button class="cart-button">رفتن به فروشگاه</button>
         </div>
     </div>
 </header>
