@@ -283,6 +283,33 @@ add_action( 'elementor/elements/categories_registered', function( $elements_mana
 }, 10 );
 
 /**
+ * Creating homepage when installing the theme
+ */
+function mytheme_create_home_page() {
+    // Check for the existence of a page titled "Homepage"
+    $page_check = new WP_Query([
+        'post_type' => 'page',
+        'title' => 'صفحه اصلی',
+        'post_status' => 'any',
+        'posts_per_page' => 1,
+    ]);
+
+    if ( ! $page_check->have_posts() ) {
+        $new_page_id = wp_insert_post([
+            'post_title'   => 'صفحه اصلی',
+            'post_content' => '[elementor-template id="123"]', // Elementor template id
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+        ]);
+
+        // Set as homepage
+        update_option('page_on_front', $new_page_id);
+        update_option('show_on_front', 'page');
+    }
+}
+add_action('after_switch_theme', 'mytheme_create_home_page');
+
+/**
  * Adding elementor widgets
  */
 
