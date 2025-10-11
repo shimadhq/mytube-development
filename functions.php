@@ -270,6 +270,35 @@ function mytube_create_default_menu(){
 add_action('after_switch_theme', 'mytube_create_default_menu');
 
 /**
+ * Create Homepage and Import Elementor Template Automatically
+ */
+function mytheme_import_homepage_template() {
+    $page_check = new WP_Query([
+        'post_type' => 'page',
+        'title' => 'صفحه اصلی',
+        'post_status' => 'any',
+        'posts_per_page' => 1,
+    ]);
+
+    if ( $page_check->have_posts() ) {
+        $page_check->the_post();
+        $page_id = get_the_ID();
+        wp_reset_postdata();
+    } else {
+        $page_id = wp_insert_post([
+            'post_title'   => 'صفحه اصلی',
+            'post_name' => 'home',
+            'post_content' => '',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+        ]);
+    }
+
+    return $page_id;
+}
+add_action('after_switch_theme', 'mytheme_import_homepage_template');
+
+/**
  * Adding custom elementor category
  */
 add_action( 'elementor/elements/categories_registered', function( $elements_manager ) {
@@ -344,49 +373,54 @@ function register_mytube_widgets(){
 add_action('elementor/widgets/register', 'register_mytube_widgets');
 
 /**
- * Create Homepage and Import Elementor Template Automatically
+ * Import Elementor Template to Homepage
  */
-function mytheme_import_homepage_template() {
-    if ( get_option( 'mytheme_homepage_created' ) ) return;
+function mytheme_import_elementor_template_to_homepage( $page_id ) {
+    if ( ! $page_id ) return;
     if ( ! class_exists( '\Elementor\Plugin' ) ) return;
 
     $template_path = get_template_directory() . '/template-parts/elementor_templates/home-template.json';
+
     if ( ! file_exists( $template_path ) ) {
-        error_log('Home template not found at ' . $template_path);
+        error_log('❌ Home template not found at ' . $template_path);
         return;
     }
 
-    $existing = get_page_by_path('home');
-    if ( $existing ) {
-        $page_id = $existing->ID;
-    } else {
-        $page_id = wp_insert_post([
-            'post_title'   => 'صفحه اصلی',
-            'post_name'    => 'home',
-            'post_content' => '',
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-        ]);
+    $json = file_get_contents( $template_path );
+    $data = json_decode( $json, true );
+
+    if ( ! isset( $data['content'] ) ) {
+        error_log('❌ Invalid JSON format — no "content" key found.');
+        return;
     }
 
-    if ( $page_id ) {
-        $content = file_get_contents($template_path);
-        $data = json_decode($content, true);
+    // ذخیره محتوای المنتور به‌صورت مستقیم در متادیتا
+    $elementor_data = wp_json_encode( $data['content'] );
+    update_post_meta( $page_id, '_elementor_edit_mode', 'builder' );
+    update_post_meta( $page_id, '_elementor_data', $elementor_data );
+    update_post_meta( $page_id, '_elementor_template_type', 'wp-page' );
 
-        if ( $data ) {
-            $document = \Elementor\Plugin::$instance->documents->get( $page_id );
-            if ( $document ) {
-                $document->update( $data );
-                $document->save();
-            }
-        }
+    // تنظیم به عنوان صفحه اصلی سایت
+    update_option( 'page_on_front', $page_id );
+    update_option( 'show_on_front', 'page' );
 
-        update_option('page_on_front', $page_id);
-        update_option('show_on_front', 'page');
-        update_option('mytheme_homepage_created', true);
-    }
+    error_log('✅ Elementor template imported successfully to page ID: ' . $page_id);
 }
 
-add_action('elementor/loaded', 'mytheme_import_homepage_template');
+
+/**
+ * Run after theme is activated
+ */
+function mytheme_setup_homepage() {
+    if ( get_option( 'mytheme_homepage_created' ) ) return;
+
+    $page_id = mytheme_create_homepage();
+
+    if ( $page_id ) {
+        mytheme_import_elementor_template_to_homepage( $page_id );
+        update_option( 'mytheme_homepage_created', true );
+    }
+}
+add_action( 'after_switch_theme', 'mytheme_setup_homepage' );
 
 ?>
