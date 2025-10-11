@@ -24,20 +24,24 @@ class Short_Videos extends Widget_Base{
         return ['short-videos'];
     }
 
+    public function get_script_depends() {
+        return ['counter'];
+    }
+
     public function get_categories() {
         return [ 'mytube-category' ];
     }
 
     protected function register_controls(){
         $this->start_controls_section(
-            'content_section',
+            'sv_content_section',
             [
                 'label' => 'عنوان',
             ]
         );
 
         $this->add_control(
-            'heading_icon',
+            'sv_heading_icon',
             [
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -48,7 +52,7 @@ class Short_Videos extends Widget_Base{
         );
 
         $this->add_control(
-            'heading',
+            'sv_heading_text',
             [
                 'label' => __( 'عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -59,16 +63,16 @@ class Short_Videos extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'counters_section',
+            'sv_counters_section',
             [
                 'label' => 'شمارش گرها'
             ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $counter_repeater = new \Elementor\Repeater();
 
-        $repeater->add_control(
-            'counter_icon',
+        $counter_repeater->add_control(
+            'sv_counter_icon',
             [
                 'label' => 'آیکن شمارش گر',
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -78,8 +82,8 @@ class Short_Videos extends Widget_Base{
             ]
         );
 
-        $repeater->add_control(
-            'counter_number',
+        $counter_repeater->add_control(
+            'sv_counter_number',
             [
                 'label' => 'عدد شمارش گر',
                 'type' => \Elementor\Controls_Manager::NUMBER,
@@ -88,8 +92,8 @@ class Short_Videos extends Widget_Base{
             ]
         );
 
-        $repeater->add_control(
-            'counter_text',
+        $counter_repeater->add_control(
+            'sv_counter_text',
             [
                 'label' => 'متن شمارش گر',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -103,23 +107,23 @@ class Short_Videos extends Widget_Base{
             [
                 'label' => 'لیست شمارش گرها',
                 'type' => \Elementor\Controls_Manager::REPEATER,
-                'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ counter_text }}}',
+                'fields' => $counter_repeater->get_controls(),
+                'title_field' => '{{{ sv_counter_text }}}',
                 'default' => [
                     [
-                        'counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/play.svg'],
-                        'counter_number' => __('۶۷', 'mytube'),
-                        'counter_text' => __('ویدیوی کوتاه', 'mytube'),
+                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/play.svg'],
+                        'sv_counter_number' => __('۶۷', 'mytube'),
+                        'sv_counter_text' => __('ویدیوی کوتاه', 'mytube'),
                     ],
                     [
-                        'counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/film.svg'],
-                        'counter_number' => __('۲۴۸', 'mytube'),
-                        'counter_text' => __('همه ویدیو ها', 'mytube'),
+                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/film.svg'],
+                        'sv_counter_number' => __('۲۴۸', 'mytube'),
+                        'sv_counter_text' => __('همه ویدیو ها', 'mytube'),
                     ],
                     [
-                        'counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/playlist.svg'],
-                        'counter_number' => __('۲۳', 'mytube'),
-                        'counter_text' => __('لیست های پخش', 'mytube'),
+                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/playlist.svg'],
+                        'sv_counter_number' => __('۲۳', 'mytube'),
+                        'sv_counter_text' => __('لیست های پخش', 'mytube'),
                     ]
                 ],
             ]
@@ -128,14 +132,14 @@ class Short_Videos extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'button_section',
+            'sv_button_section',
             [
                 'label' => 'دکمه'
             ]
         );
 
         $this->add_control(
-            'button_title',
+            'sv_button_title',
             [
                 'label' => 'عنوان دکمه',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -144,7 +148,7 @@ class Short_Videos extends Widget_Base{
         );
 
         $this->add_control(
-            'button_url',
+            'sv_button_url',
             [
                 'label' => 'لینک دکمه',
                 'type' => Controls_Manager::URL,
@@ -157,16 +161,16 @@ class Short_Videos extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'videos_section',
+            'sv_videos_section',
             [
                 'label' => 'ویدیوها'
             ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $video_repeater = new \Elementor\Repeater();
 
-        $repeater->add_control(
-            'video_url',
+        $video_repeater->add_control(
+            'sv_video_url',
             [
                 'label' => 'لینک ویدیو',
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -177,8 +181,8 @@ class Short_Videos extends Widget_Base{
             ]
         );
 
-        $repeater->add_control(
-            'video_thumbnail',
+        $video_repeater->add_control(
+            'sv_video_thumbnail',
             [
                 'label' => 'تصویر کاور (Thumbnail)',
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -189,8 +193,8 @@ class Short_Videos extends Widget_Base{
             ]
         );
 
-        $repeater->add_control(
-            'video_puzzle_icon',
+        $video_repeater->add_control(
+            'sv_video_puzzle_icon',
             [
                 'label' => 'آیکن بالای ویدیو',
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -200,8 +204,8 @@ class Short_Videos extends Widget_Base{
             ]
         );
 
-        $repeater->add_control(
-            'video_title',
+        $video_repeater->add_control(
+            'sv_video_title',
             [
                 'label' => 'عنوان ویدیو',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -210,8 +214,8 @@ class Short_Videos extends Widget_Base{
             ]
         );
 
-        $repeater->add_control(
-            'video_text',
+        $video_repeater->add_control(
+            'sv_video_text',
             [
                 'label' => 'متن ویدیو',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -225,22 +229,22 @@ class Short_Videos extends Widget_Base{
             [
                 'label' => 'لیست ویدیوها',
                 'type' => \Elementor\Controls_Manager::REPEATER,
-                'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ video_title }}}',
+                'fields' => $video_repeater->get_controls(),
+                'title_field' => '{{{ sv_video_title }}}',
                 'default' => [
                     [
-                        'video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video1.webp'],
-                        'video_url' => '',
-                        'video_title' => __( 'برای چالش ماشین جدید گرفتیم !', 'mytube' ),
-                        'video_text' => __( 'بریم بینیم استقامت این ماشین چقدره!', 'mytube' ),
-                        'video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/puzzle-icon.svg'],
+                        'sv_video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video1.webp'],
+                        'sv_video_url' => '',
+                        'sv_video_title' => __( 'برای چالش ماشین جدید گرفتیم !', 'mytube' ),
+                        'sv_video_text' => __( 'بریم بینیم استقامت این ماشین چقدره!', 'mytube' ),
+                        'sv_video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/puzzle-icon.svg'],
                     ],
                     [
-                        'video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video2.webp'],
-                        'video_url' => '',
-                        'video_title' => __( 'مصاحبه با یوتیوبر ها پارت اول', 'mytube' ),
-                        'video_text' => __( 'مصاحبه با معروفترین یوتیوبر ها', 'mytube' ),
-                        'video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/puzzle-icon.svg'],
+                        'sv_video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video2.webp'],
+                        'sv_video_url' => '',
+                        'sv_video_title' => __( 'مصاحبه با یوتیوبر ها پارت اول', 'mytube' ),
+                        'sv_video_text' => __( 'مصاحبه با معروفترین یوتیوبر ها', 'mytube' ),
+                        'sv_video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/puzzle-icon.svg'],
                     ]
                 ],
             ]
@@ -395,11 +399,11 @@ class Short_Videos extends Widget_Base{
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'button_text_typography',
-                'label'    => __( 'تایپوگرافی متن شمارش گر', 'mytube' ),
+                'label'    => __( 'تایپوگرافی متن دکمه', 'mytube' ),
                 'selector' => '{{WRAPPER}} .short-button',
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
@@ -544,13 +548,13 @@ class Short_Videos extends Widget_Base{
                 <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
 
                 <div class="short-title-wrapper">
-                    <?php if (!empty($settings['heading_icon']['url'])) : ?>
+                    <?php if (!empty($settings['sv_heading_icon']['url'])) : ?>
                         <div class="short-title-icon">
-                            <img src="<?php echo esc_url($settings['heading_icon']['url']); ?>" alt="">
+                            <img src="<?php echo esc_url($settings['sv_heading_icon']['url']); ?>" alt="">
                         </div>
                     <?php endif; ?>
                     <span class="short-title">
-                        <?php echo esc_html($settings['heading']); ?>
+                        <?php echo esc_html($settings['sv_heading_text']); ?>
                     </span>
                 </div>
 
@@ -560,14 +564,14 @@ class Short_Videos extends Widget_Base{
                         <?php foreach ($counters as $counter) : $current++; ?>
                             <div class="short-counter">
                                 <div class="short-counter-icon">
-                                    <?php if (!empty($counter['counter_icon']['url'])) : ?>
-                                        <img src="<?php echo esc_url($counter['counter_icon']['url']); ?>" alt="<?php echo esc_attr($counter['counter_text']); ?>">
+                                    <?php if (!empty($counter['sv_counter_icon']['url'])) : ?>
+                                        <img src="<?php echo esc_url($counter['sv_counter_icon']['url']); ?>" alt="<?php echo esc_attr($counter['sv_counter_text']); ?>">
                                     <?php endif; ?>
                                 </div>
                                 <div class="short-counter-text">
-                                    <span class="short-counter-number" data-target="<?php echo esc_attr($counter['counter_number']); ?>">0</span>
+                                    <span class="short-counter-number"><?php echo esc_html($counter['sv_counter_number']); ?></span>
                                     <div class="short-counter-description">
-                                        <?php echo esc_attr($counter['counter_text']); ?>
+                                        <?php echo esc_attr($counter['sv_counter_text']); ?>
                                     </div>
                                 </div>
                             </div>
@@ -576,86 +580,84 @@ class Short_Videos extends Widget_Base{
                 </div>
 
                 <!-- Button -->
-                <div href="<?php echo esc_url($settings['button_url']['url']); ?>" class="short-button">
-                    <?php echo esc_html($settings['button_title']); ?>
+                <div href="<?php echo esc_url($settings['sv_button_url']['url']); ?>" class="short-button">
+                    <?php echo esc_html($settings['sv_button_title']); ?>
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
                 </div>
             </div>
 
-    <!-- Videos Section -->
-    <div class="short-videos-section">
-        <?php if (!empty($videos)) : ?>
-            <?php foreach ($videos as $video) : 
-                $video_id = 'video_' . uniqid();
-                $thumbnail = $video['video_thumbnail']['url'] ?? '';
-            ?>
-                <div class="short-video">
+            <!-- Videos Section -->
+            <div class="short-videos-section">
+                <?php if (!empty($videos)) : ?>
+                    <?php foreach ($videos as $video) : 
+                        $video_id = 'video_' . uniqid();
+                        $thumbnail = $video['sv_video_thumbnail']['url'] ?? '';
+                    ?>
+                        <div class="short-video">
+                            <img class="white-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/white-shape.svg" />
+                            <!-- Video Puzzle Icon -->
+                            <div class="short-video-icon">
+                                <?php if (!empty($video['sv_video_puzzle_icon']['url'])) : ?>
+                                    <img src="<?php echo esc_url($video['sv_video_puzzle_icon']['url']); ?>" alt="Puzzle Icon">
+                                <?php endif; ?>
+                            </div>
 
-                    <img class="white-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/white-shape.svg" />
-                    <!-- Video Puzzle Icon -->
-                    <div class="short-video-icon">
-                        <?php if (!empty($video['video_puzzle_icon']['url'])) : ?>
-                            <img src="<?php echo esc_url($video['video_puzzle_icon']['url']); ?>" alt="Puzzle Icon">
-                        <?php endif; ?>
-                    </div>
+                            <!-- Video Thumbnail -->
+                            <?php if ($thumbnail) : ?>
+                                <div class="video-thumbnail" onclick="
+                                    const videoEl = document.getElementById('<?php echo esc_attr($video_id); ?>');
+                                    videoEl.style.display = 'block';
+                                    videoEl.play();
+                                    this.style.display='none';
+                                ">
+                                    <img src="<?php echo esc_url($thumbnail); ?>" />
+                                    <div class="play-button">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/play-icon.svg" />
+                                    </div>
+                                </div>
+                            <?php endif; ?>
 
-                    <!-- Video Thumbnail -->
-                    <?php if ($thumbnail) : ?>
-                        <div class="video-thumbnail" onclick="
-                            const videoEl = document.getElementById('<?php echo esc_attr($video_id); ?>');
-                            videoEl.style.display = 'block';
-                            videoEl.play();
-                            this.style.display='none';
-                        ">
-                            <img src="<?php echo esc_url($thumbnail); ?>" />
-                            <div class="play-button">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/play-icon.svg" />
+                            <!-- Video Element -->
+                            <?php if (!empty($video['sv_video_url']['url'])) : ?>
+                                <video 
+                                    id="<?php echo esc_attr($video_id); ?>" 
+                                    class="video" 
+                                    src="<?php echo esc_url($video['sv_video_url']['url']); ?>" 
+                                    controls 
+                                    style="display:<?php echo $thumbnail ? 'none' : 'block'; ?>;">
+                                </video>
+                            <?php endif; ?>
+
+                            <!-- Video Content -->
+                            <div class="short-video-content">
+                                <?php if (!empty($video['sv_video_title'])) : ?>
+                                    <h3 class="video-title">
+                                        <?php echo esc_html($video['sv_video_title']); ?>
+                                    </h3>
+                                <?php endif; ?>
+
+                                <?php if (!empty($video['sv_video_text'])) : ?>
+                                    <p class="video-description">
+                                        <?php echo esc_html($video['sv_video_text']); ?>
+                                    </p>
+                                <?php endif; ?>
                             </div>
                         </div>
-                    <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
 
-                    <!-- Video Element -->
-                    <?php if (!empty($video['video_url']['url'])) : ?>
-                        <video 
-                            id="<?php echo esc_attr($video_id); ?>" 
-                            class="video" 
-                            src="<?php echo esc_url($video['video_url']['url']); ?>" 
-                            controls 
-                            style="display:<?php echo $thumbnail ? 'none' : 'block'; ?>;">
-                        </video>
-                    <?php endif; ?>
+            <!-- Additional Background Layers -->
+            <div class="short-layer4"></div>
+            <div class="short-layer5"></div>
+            <div class="short-layer6"></div>
 
-                    <!-- Video Content -->
-                    <div class="short-video-content">
-                        <?php if (!empty($video['video_title'])) : ?>
-                            <h3 class="video-title">
-                                <?php echo esc_html($video['video_title']); ?>
-                            </h3>
-                        <?php endif; ?>
-
-                        <?php if (!empty($video['video_text'])) : ?>
-                            <p class="video-description">
-                                <?php echo esc_html($video['video_text']); ?>
-                            </p>
-                        <?php endif; ?>
-                    </div>
-
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-
-    <!-- Additional Background Layers -->
-    <div class="short-layer4"></div>
-    <div class="short-layer5"></div>
-    <div class="short-layer6"></div>
-
-    <!-- Mobile Button -->
-    <div href="<?php echo esc_url($settings['button_url']['url']); ?>" class="short-button-mobile">
-        <?php echo esc_html($settings['button_title']); ?>
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
-    </div>
-    </div>
+            <!-- Mobile Button -->
+            <a href="<?php echo esc_url($settings['sv_button_url']['url']); ?>" class="short-button-mobile">
+                <?php echo esc_html($settings['sv_button_title']); ?>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
+            </a>
+        </div>
     <?php
     }
 }
