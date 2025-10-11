@@ -25,7 +25,7 @@ class Short_Videos extends Widget_Base{
     }
 
     public function get_script_depends() {
-        return ['counter'];
+        return ['short-counter'];
     }
 
     public function get_categories() {

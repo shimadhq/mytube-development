@@ -30,7 +30,7 @@ class Most_Visited_Slider extends Widget_Base{
 
     protected function register_controls(){
         $this->start_controls_section(
-            'content_section',
+            'mvs_content_section',
             [
                 'label' => 'محتوا',
             ]
@@ -59,7 +59,7 @@ class Most_Visited_Slider extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'slides_section',
+            'mvs_slides_section',
             [
                 'label' => 'اسلاید ها',
                 'tab' => Controls_Manager::TAB_CONTENT,

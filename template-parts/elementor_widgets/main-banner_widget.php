@@ -2,7 +2,6 @@
 
 namespace WPC\Widgets;
 
-use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
@@ -25,20 +24,24 @@ class Main_Banner extends Widget_Base{
         return ['main-banner'];
     }
 
+    public function get_script_depends() {
+        return ['counter'];
+    }
+
     public function get_categories() {
         return [ 'mytube-category' ];
     }
 
     protected function register_controls(){
         $this->start_controls_section(
-            'content_section',
+            'mb_content_section',
             [
                 'label' => 'محتوا',
             ]
         );
 
         $this->add_control(
-            'heading',
+            'mb_heading_text',
             [
                 'label' => 'عنوان',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -47,7 +50,7 @@ class Main_Banner extends Widget_Base{
         );
 
         $this->add_control(
-            'description',
+            'mb_description',
             [
                 'label' => 'متن',
                 'type' =>  \Elementor\Controls_Manager::WYSIWYG,
@@ -56,7 +59,7 @@ class Main_Banner extends Widget_Base{
         );
 
         $this->add_control(
-            'button1_text',
+            'mb_button1_text',
             [
                 'label' => 'متن دکمه اول',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -65,7 +68,7 @@ class Main_Banner extends Widget_Base{
         );
 
         $this->add_control(
-            'button1_link',
+            'mb_button1_link',
             [
                 'label' => 'لینک دکمه اول',
                 'type' => Controls_Manager::URL,
@@ -76,7 +79,7 @@ class Main_Banner extends Widget_Base{
         );
 
         $this->add_control(
-            'button2_text',
+            'mb_button2_text',
             [
                 'label' => 'متن دکمه دوم',
                 'type' => Controls_Manager::TEXT,
@@ -85,7 +88,7 @@ class Main_Banner extends Widget_Base{
         );
 
         $this->add_control(
-            'button2_link',
+            'mb_button2_link',
             [
                 'label' => 'لینک دکمه دوم',
                 'type' => Controls_Manager::URL,
@@ -98,14 +101,14 @@ class Main_Banner extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'image_section',
+            'mb_image_section',
             [
                 'label' => 'تصویر',
             ]
         );
 
         $this->add_control(
-            'main_image',
+            'mb_main_image',
             [
                 'label' => 'تصویر اصلی',
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -118,7 +121,7 @@ class Main_Banner extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'counter_section',
+            'mb_counter_section',
             [
                 'label' => 'شمارش گرها',
             ]
@@ -127,7 +130,7 @@ class Main_Banner extends Widget_Base{
         $repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
-            'counter_icon',
+            'mb_counter_icon',
             [
                 'label' => 'تصویر شمارش گر',
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -138,7 +141,7 @@ class Main_Banner extends Widget_Base{
         );
 
         $repeater->add_control(
-            'counter_number',
+            'mb_counter_number',
             [
                 'label' => 'عدد شمارش گر',
                 'type' => \Elementor\Controls_Manager::NUMBER,
@@ -148,7 +151,7 @@ class Main_Banner extends Widget_Base{
         );
 
         $repeater->add_control(
-            'counter_suffix',
+            'mb_counter_suffix',
             [
                 'label' => 'پسوند شمارش گر',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -158,7 +161,7 @@ class Main_Banner extends Widget_Base{
         );
 
         $repeater->add_control(
-            'counter_text',
+            'mb_counter_text',
             [
                 'label' => 'متن شمارش گر',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -175,25 +178,25 @@ class Main_Banner extends Widget_Base{
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/calendar.svg'],
-                        'counter_number' => 10,
-                        'counter_suffix' => 'سال',
-                        'counter_text' => 'سابقه فعالیت'
+                        'mb_counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/calendar.svg'],
+                        'mb_counter_number' => '10',
+                        'mb_counter_suffix' => 'سال',
+                        'mb_counter_text' => 'سابقه فعالیت'
                     ],
                     [
-                        'counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/group.svg'],
-                        'counter_number' => 1,
-                        'counter_suffix' => 'میلیون',
-                        'counter_text' => 'دنبال کننده'
+                        'mb_counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/group.svg'],
+                        'mb_counter_number' => '1',
+                        'mb_counter_suffix' => 'میلیون',
+                        'mb_counter_text' => 'دنبال کننده'
                     ],
                     [
-                        'counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/eye.svg'],
-                        'counter_number' => 3,
-                        'counter_suffix' => 'میلیون',
-                        'counter_text' => 'بازدید ماهانه'
+                        'mb_counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/eye.svg'],
+                        'mb_counter_number' => '3',
+                        'mb_counter_suffix' => 'میلیون',
+                        'mb_counter_text' => 'بازدید ماهانه'
                     ],
                 ],
-                'title_field' => '{{{ counter_text }}}',
+                'title_field' => '{{{ mb_counter_text }}}',
             ]
         );
 
@@ -544,8 +547,6 @@ class Main_Banner extends Widget_Base{
         $settings = $this->get_settings_for_display();
         $default_icon = get_template_directory_uri() . '/assets/icon/calendar.svg';
         $counters = $settings['counters_list'];
-        $total = count($counters);
-        $current = 0;
 
         ?>
         <div class="main-banner-wrapper">
@@ -556,53 +557,52 @@ class Main_Banner extends Widget_Base{
                 <img class="bg-shape-mobile" src="<?php echo get_template_directory_uri(); ?>/assets/img/main-banner/bg-mobile.png" />
                 <div class="content-section">
                     <h1 class="main-title">
-                        <?php echo esc_html($settings['heading']); ?>
+                        <?php echo esc_html($settings['mb_heading_text']); ?>
                     </h1>
                     <div class="description">
-                        <?php echo $settings['description'] ?>
+                        <?php echo $settings['mb_description'] ?>
                     </div>
                     <div class="buttons">
-                        <a href="<?php echo esc_url($settings['button1_link']['url']); ?>" class="button1">
-                            <?php echo esc_html($settings['button1_text']); ?>
+                        <a href="<?php echo esc_url($settings['mb_button1_link']['url']); ?>" class="button1">
+                            <?php echo esc_html($settings['mb_button1_text']); ?>
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                         </a>
-                        <a href="<?php echo esc_url($settings['button2_link']['url']); ?>" class="button2">
+                        <a href="<?php echo esc_url($settings['mb_button2_link']['url']); ?>" class="button2">
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/crooked-arrow.svg') ?>" alt="crooked-arrow" />
-                            <?php echo esc_html($settings['button2_text']); ?>
+                            <?php echo esc_html($settings['mb_button2_text']); ?>
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/youtube.svg') ?>" alt="youtube" />
                         </a>
                     </div>
                 </div>
-                <?php if ( ! empty( $settings['main_image']['url'] ) ) : ?>
+                <?php if ( ! empty( $settings['mb_main_image']['url'] ) ) : ?>
                     <div class="main-image">
-                        <img src="<?php echo esc_url( $settings['main_image']['url'] ); ?>" alt="">
+                        <img src="<?php echo esc_url( $settings['mb_main_image']['url'] ); ?>" alt="">
                     </div>
                 <?php endif; ?>
                 <?php if (!empty($counters)) : ?>
                     <div class="counters-section">
                         <img class="frame" src="<?php echo get_template_directory_uri(); ?>/assets/img/main-banner/frame.svg" />
                         <?php foreach ($counters as $counter) : ?>
-                            <?php $current++; ?>
                             <div class="counter">
                                 <div class="counter-icon-wrapper">
-                                    <?php if (!empty($counter['counter_icon']['url'])) : ?>
+                                    <?php if (!empty($counter['mb_counter_icon']['url'])) : ?>
                                         <?php
-                                            $image_url = !empty($counter['counter_icon']['url']) 
-                                            ? $counter['counter_icon']['url'] 
+                                            $image_url = !empty($counter['mb_counter_icon']['url']) 
+                                            ? $counter['mb_counter_icon']['url'] 
                                             : $default_icon;
                                         ?>
-                                        <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($counter['counter_text']); ?>">
+                                        <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($counter['mb_counter_text']); ?>">
                                     <?php endif; ?>
                                 </div>
                                 <div class="text-wrapper">
                                     <div class="number-suffix">
-                                        <span class="counter-number" data-target="<?php echo esc_attr($counter['counter_number']); ?>">0</span>
+                                        <span class="counter-number" data-target="<?php echo esc_attr($counter['mb_counter_number']); ?>">0</span>
                                         <span class="counter-suffix">
-                                            <?php echo esc_attr($counter['counter_suffix']); ?>
+                                            <?php echo esc_attr($counter['mb_counter_suffix']); ?>
                                         </span>
                                     </div>
                                     <div class="counter-text">
-                                        <?php echo esc_attr($counter['counter_text']); ?>
+                                        <?php echo esc_attr($counter['mb_counter_text']); ?>
                                     </div>
                                 </div>
                             </div>
