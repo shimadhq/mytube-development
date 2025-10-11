@@ -569,7 +569,7 @@ class Short_Videos extends Widget_Base{
                                     <?php endif; ?>
                                 </div>
                                 <div class="short-counter-text">
-                                    <span class="short-counter-number"><?php echo esc_html($counter['sv_counter_number']); ?></span>
+                                    <span class="short-counter-number" data-target="<?php echo esc_attr($counter['sv_counter_number']); ?>">0</span>
                                     <div class="short-counter-description">
                                         <?php echo esc_attr($counter['sv_counter_text']); ?>
                                     </div>

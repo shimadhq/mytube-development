@@ -42,7 +42,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_script('mobile-menu', get_template_directory_uri() . '/inc/js/mobile-menu/mobile-menu.js', array (), $version, true);
     wp_enqueue_script('cart-toggle', get_template_directory_uri() . '/inc/js/cart-toggle/cart-toggle.js', array (), $version, true);
     wp_enqueue_script('vertical-slider', get_template_directory_uri() . '/inc/js/widgets/vertical-slider.js', array (), $version, true);
-    wp_enqueue_script('counter', get_template_directory_uri() . '/inc/js/counter.js', ['jquery'], $version, true);
+    wp_enqueue_script('counter', get_template_directory_uri() . '/inc/js/counter/counter.js', array (), $version, true);
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
 
