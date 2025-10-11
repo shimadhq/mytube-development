@@ -30,14 +30,14 @@ class Video_Category extends Widget_Base{
 
     protected function register_controls(){
         $this->start_controls_section(
-            'content_section',
+            'vc_content_section',
             [
                 'label' => 'محتوا',
             ]
         );
 
         $this->add_control(
-            'heading_icon',
+            'vc_heading_icon',
             [
                 'label' => 'آیکن عنوان',
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -48,7 +48,7 @@ class Video_Category extends Widget_Base{
         );
 
         $this->add_control(
-            'heading',
+            'vc_heading_text',
             [
                 'label' => 'عنوان',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -59,7 +59,7 @@ class Video_Category extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_tabs',
+            'vc_tabs_section',
             [
                 'label' => __( 'تب‌ها', 'mytube' ),
             ]
@@ -69,7 +69,7 @@ class Video_Category extends Widget_Base{
         $inner_repeater = new \Elementor\Repeater();
 
         $inner_repeater->add_control(
-            'image',
+            'vc_inner_image',
             [
                 'label' => __( 'تصویر', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -80,7 +80,7 @@ class Video_Category extends Widget_Base{
         );
 
         $inner_repeater->add_control(
-            'icon_image',
+            'vc_inner_icon_image',
             [
                 'label' => __( 'آیکن تصویر', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -91,7 +91,7 @@ class Video_Category extends Widget_Base{
         );
 
         $inner_repeater->add_control(
-            'title',
+            'vc_inner_title',
             [
                 'label' => __( 'عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -100,7 +100,7 @@ class Video_Category extends Widget_Base{
         );
 
         $inner_repeater->add_control(
-            'text',
+            'vc_inner_description',
             [
                 'label' => __( 'توضیحات', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
@@ -109,7 +109,7 @@ class Video_Category extends Widget_Base{
         );
 
         $inner_repeater->add_control(
-            'icon',
+            'vc_inner_icon',
             [
                 'label' => __( 'آیکن', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -123,7 +123,7 @@ class Video_Category extends Widget_Base{
         $repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
-            'tab_title',
+            'vc_tab_title',
             [
                 'label' => __( 'عنوان تب', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -132,7 +132,7 @@ class Video_Category extends Widget_Base{
         );
 
         $repeater->add_control(
-            'tab_description',
+            'vc_tab_description',
             [
                 'label' => __('توضیحات تب', 'mytube'),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -141,7 +141,7 @@ class Video_Category extends Widget_Base{
         );
 
         $repeater->add_control(
-            'tab_icon',
+            'vc_tab_icon',
             [
                 'label' => __('آیکن تب', 'mytube'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -152,7 +152,7 @@ class Video_Category extends Widget_Base{
         );
 
         $repeater->add_control(
-            'tab_header_title',
+            'vc_tab_header_title',
             [
                 'label' => __( 'عنوان بالای محتوا', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -161,7 +161,7 @@ class Video_Category extends Widget_Base{
         );
 
         $repeater->add_control(
-            'tab_header_text',
+            'vc_tab_header_text',
             [
                 'label' => __( 'دکمه بالای محتوا', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -170,7 +170,7 @@ class Video_Category extends Widget_Base{
         );
 
         $repeater->add_control(
-            'tab_header_link',
+            'vc_tab_header_link',
             [
                 'label' => 'لینک دکمه',
                 'type' => Controls_Manager::URL,
@@ -186,22 +186,22 @@ class Video_Category extends Widget_Base{
                 'label' => __( 'محتوای تب', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $inner_repeater->get_controls(),
-                'title_field' => '{{{ title }}}',
+                'title_field' => '{{{ vc_inner_title }}}',
                 'default' => [
                     [
-                        'image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video1.webp'],
-                        'icon_image' => ['url' => get_template_directory_uri() . '/assets/icon/puzzle.svg'],
-                        'title' => __( 'هفت روز ماجراجویی توی شهر زیرزمینی', 'mytube' ),
-                        'text' => __( 'با دو تا از دوستای یوتیوبرمون قراره هفت روز بریم ...', 'mytube' ),
-                        'icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
+                        'vc_inner_image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video1.webp'],
+                        'vc_inner_icon_image' => ['url' => get_template_directory_uri() . '/assets/icon/puzzle.svg'],
+                        'vc_inner_title' => __( 'هفت روز ماجراجویی توی شهر زیرزمینی', 'mytube' ),
+                        'vc_inner_description' => __( 'با دو تا از دوستای یوتیوبرمون قراره هفت روز بریم ...', 'mytube' ),
+                        'vc_inner_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
 
                     ],
                     [
-                        'image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video2.webp'],
-                        'icon_image' => ['url' => get_template_directory_uri() . '/assets/icon/smily.svg'], 
-                        'title' => __( 'دعوای یوتیوبرا سر ۱ میلیون دلار', 'mytube' ),
-                        'text' => __('پنجاه تا یوتیوبر برتر جهان رو جمع کردیم یه جا که ...', 'mytube'),
-                        'icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
+                        'vc_inner_image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video2.webp'],
+                        'vc_inner_icon_image' => ['url' => get_template_directory_uri() . '/assets/icon/smily.svg'], 
+                        'vc_inner_title' => __( 'دعوای یوتیوبرا سر ۱ میلیون دلار', 'mytube' ),
+                        'vc_inner_description' => __('پنجاه تا یوتیوبر برتر جهان رو جمع کردیم یه جا که ...', 'mytube'),
+                        'vc_inner_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
                     ],
                 ],
             ]
@@ -213,22 +213,22 @@ class Video_Category extends Widget_Base{
                 'label' => __( 'لیست تب‌ها', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ _title }}}',
+                'title_field' => '{{{ vc_tab_title }}}',
                 'default' => [
                     [
-                        'tab_title' => __( 'معرفی بازی و گیم پلی', 'mytube' ),
-                        'tab_description' => __('۳۴ ویدیو', 'mytube'),
-                        'tab_icon' => ['url' => get_template_directory_uri() . '/assets/icon/handle.svg'],
+                        'vc_tab_title' => __( 'معرفی بازی و گیم پلی', 'mytube' ),
+                        'vc_tab_description' => __('۳۴ ویدیو', 'mytube'),
+                        'vc_tab_icon' => ['url' => get_template_directory_uri() . '/assets/icon/handle.svg'],
                     ],
                     [
-                        'tab_title' => __( 'ویدیو های طنز', 'mytube' ),
-                        'tab_description' => __('۷۰ ویدیو', 'mytube'),
-                        'tab_icon' => ['url' => get_template_directory_uri() . '/assets/icon/smily-face.svg'],
+                        'vc_tab_title' => __( 'ویدیو های طنز', 'mytube' ),
+                        'vc_tab_description' => __('۷۰ ویدیو', 'mytube'),
+                        'vc_tab_icon' => ['url' => get_template_directory_uri() . '/assets/icon/smily-face.svg'],
                     ],
                     [
-                        'tab_title' => __( 'چالش ها', 'mytube' ),
-                        'tab_description' => __('۱۲ ویدیو', 'mytube'),
-                        'tab_icon' => ['url' => get_template_directory_uri() . '/assets/icon/red-puzzle.svg'],
+                        'vc_tab_title' => __( 'چالش ها', 'mytube' ),
+                        'vc_tab_description' => __('۱۲ ویدیو', 'mytube'),
+                        'vc_tab_icon' => ['url' => get_template_directory_uri() . '/assets/icon/red-puzzle.svg'],
                     ],
                 ],
             ]
@@ -598,10 +598,10 @@ class Video_Category extends Widget_Base{
                     <img class="shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/video-category/shape.svg') ?>" alt="" />
                     <div class="title-section">
                         <div class="image-wrapper">
-                            <img class="heading-icon" src="<?php echo esc_url( $settings['heading_icon']['url'] ) ?>" alt="" />
+                            <img class="heading-icon" src="<?php echo esc_url( $settings['vc_heading_icon']['url'] ) ?>" alt="" />
                         </div>
                         <span class="main-heading">
-                            <?php echo esc_html($settings['heading']); ?>
+                            <?php echo esc_html($settings['vc_heading_text']); ?>
                         </span>
                     </div>
                     <div class="mytube-titles-wrapper">
@@ -610,16 +610,16 @@ class Video_Category extends Widget_Base{
                             <div class="title-wrapper <?php echo $index === 0 ? 'active' : ''; ?>" data-tab="<?php echo $index; ?>">
                                 <div class="title-image">
                                     <div class="tab-icon-wrapper">
-                                    <?php if ( !empty($tab['tab_icon']['url']) ) : ?>
-                                        <img src="<?php echo esc_url($tab['tab_icon']['url']); ?>" alt="<?php echo esc_attr($tab['tab_title']); ?>">
+                                    <?php if ( !empty($tab['vc_tab_icon']['url']) ) : ?>
+                                        <img src="<?php echo esc_url($tab['vc_tab_icon']['url']); ?>" alt="<?php echo esc_attr($tab['vc_tab_title']); ?>">
                                     <?php endif; ?>
                                 </div>
                                 <div class="text-wrapper">
                                     <span class="tab-title">
-                                        <?php echo esc_html($tab['tab_title']); ?>
+                                        <?php echo esc_html($tab['vc_tab_title']); ?>
                                     </span>
                                     <span class="tab-description">
-                                        <?php echo esc_html($tab['tab_description']); ?>
+                                        <?php echo esc_html($tab['vc_tab_description']); ?>
                                     </span>
                                 </div>
                                 </div>
@@ -645,10 +645,10 @@ class Video_Category extends Widget_Base{
                                 <div class="top-icon-wrapper">
                                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/video.svg') ?>" />
                                 </div>
-                                <span class="tab-main-title"><?php echo esc_html($tab['tab_header_title']); ?></span>
+                                <span class="tab-main-title"><?php echo esc_html($tab['vc_tab_header_title']); ?></span>
                             </div>
-                            <a href="<?php echo esc_url($tab['tab_header_link']['url']) ?>" class="tab-button">
-                                <?php echo esc_html($tab['tab_header_text']); ?>
+                            <a href="<?php echo esc_url($tab['vc_tab_header_link']['url']) ?>" class="tab-button">
+                                <?php echo esc_html($tab['vc_tab_header_text']); ?>
                                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                             </a>
                         </div>
@@ -659,23 +659,23 @@ class Video_Category extends Widget_Base{
                                     <?php foreach ($tab['tab_content'] as $column) : ?>
                                         <div class="tab-column">
                                             <div class="column-image-wrapper">
-                                                <?php if (!empty($column['image']['url'])) : ?>
-                                                    <img class="tab-column-image" src="<?php echo esc_url($column['image']['url']); ?>" alt="">
+                                                <?php if (!empty($column['vc_inner_image']['url'])) : ?>
+                                                    <img class="tab-column-image" src="<?php echo esc_url($column['vc_inner_image']['url']); ?>" alt="">
                                                 <?php endif; ?>
 
-                                                <?php if (!empty($column['icon_image']['url'])) : ?>
+                                                <?php if (!empty($column['vc_inner_icon_image']['url'])) : ?>
                                                     <div class="image-icon-wrapper">
-                                                        <img src="<?php echo esc_url($column['icon_image']['url']); ?>" alt="">
+                                                        <img src="<?php echo esc_url($column['vc_inner_icon_image']['url']); ?>" alt="">
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
                                             <div class="tab-column-content">
                                                 <div class="tab-column-text">
-                                                    <span class="tab-column-title"><?php echo esc_html($column['title']); ?></span>
-                                                    <span class="tab-column-text"><?php echo esc_html($column['text']); ?></span>
+                                                    <span class="tab-column-title"><?php echo esc_html($column['vc_inner_title']); ?></span>
+                                                    <span class="tab-column-text"><?php echo esc_html($column['vc_inner_description']); ?></span>
                                                 </div>
-                                                <?php if (!empty($column['icon']['url'])) : ?>
-                                                    <img src="<?php echo esc_url($column['icon']['url']); ?>" alt="youtube-icon" />
+                                                <?php if (!empty($column['vc_inner_icon']['url'])) : ?>
+                                                    <img src="<?php echo esc_url($column['vc_inner_icon']['url']); ?>" alt="youtube-icon" />
                                                 <?php endif; ?>
                                             </div>
                                         </div>
