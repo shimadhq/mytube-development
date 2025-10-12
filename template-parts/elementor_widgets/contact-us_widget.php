@@ -30,7 +30,7 @@ class Contact_Us extends Widget_Base{
 
     protected function register_controls(){
         $this->start_controls_section(
-            'first_section',
+            'cu_first_section',
             [
                 'label' => 'سکشن اول',
             ]
@@ -48,7 +48,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_heading',
+            'contact_heading_text',
             [
                 'label' => __( 'عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -175,7 +175,7 @@ class Contact_Us extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'second_section',
+            'cu_second_section',
             [
                 'label' => 'سکشن دوم',
                 'tab'   => Controls_Manager::TAB_CONTENT,
@@ -236,7 +236,7 @@ class Contact_Us extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'third_section',
+            'cu_third_section',
             [
                 'label' => 'سکشن سوم',
                 'tab'   => Controls_Manager::TAB_CONTENT,
@@ -350,7 +350,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'address_label',
+            'address_label_color',
             [
                 'label'     => __( 'رنگ عنوان فیلد آدرس', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -377,7 +377,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'address_text',
+            'address_text_color',
             [
                 'label'     => __( 'رنگ متن فیلد آدرس', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -404,7 +404,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'phone_label',
+            'phone_label_color',
             [
                 'label'     => __( 'رنگ عنوان فیلد تماس', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -431,7 +431,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'phone_text',
+            'phone_text_color',
             [
                 'label'     => __( 'رنگ متن فیلد تماس', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -458,7 +458,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'whatsapp_label',
+            'whatsapp_label_color',
             [
                 'label'     => __( 'رنگ عنوان فیلد واتساپ', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -485,7 +485,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'whatsapp_text',
+            'whatsapp_text_color',
             [
                 'label'     => __( 'رنگ متن فیلد واتساپ', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -512,7 +512,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'email_label',
+            'email_label_color',
             [
                 'label'     => __( 'رنگ عنوان فیلد ایمیل', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -539,7 +539,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'email_text',
+            'email_text_color',
             [
                 'label'     => __( 'رنگ متن فیلد ایمیل', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -683,7 +683,7 @@ class Contact_Us extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'button_typography',
+                'name'     => 'button_text_typography',
                 'label'    => __( 'تایپوگرافی متن دکمه', 'mytube' ),
                 'selector' => '{{WRAPPER}} .second-button',
                 'fields_options' => [
@@ -800,7 +800,7 @@ class Contact_Us extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'send_button_typography',
+                'name'     => 'send_button_text_typography',
                 'label'    => __( 'تایپوگرافی متن دکمه ارسال', 'mytube' ),
                 'selector' => '{{WRAPPER}} .send-button',
                 'fields_options' => [
@@ -845,7 +845,7 @@ class Contact_Us extends Widget_Base{
                 <div class="first-title-section">
                     <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
                     <span class="first-title">
-                        <?php echo esc_html($settings['contact_heading']); ?>
+                        <?php echo esc_html($settings['contact_heading_text']); ?>
                     </span>
                     <?php if ( ! empty( $settings['contact_heading_icon']['url'] ) ) : ?>
                         <div class="first-title-icon">

@@ -333,7 +333,7 @@ class Main_Banner extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'button1_typography',
+                'name'     => 'button1_text_typography',
                 'label'    => __( 'تایپوگرافی متن دکمه اول', 'mytube' ),
                 'selector' => '{{WRAPPER}} .button1',
                 'fields_options' => [
@@ -372,7 +372,7 @@ class Main_Banner extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'button2_typography',
+                'name'     => 'button2_text_typography',
                 'label'    => __( 'تایپوگرافی متن دکمه دوم', 'mytube' ),
                 'selector' => '{{WRAPPER}} .button2',
                 'fields_options' => [
