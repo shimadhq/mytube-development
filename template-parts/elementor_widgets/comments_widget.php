@@ -38,7 +38,7 @@ class Comments extends Widget_Base{
         );
 
         $this->add_control(
-            'heading_icon',
+            'cm_heading_icon',
             [
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -49,7 +49,7 @@ class Comments extends Widget_Base{
         );
 
         $this->add_control(
-            'heading',
+            'cm_heading_text',
             [
                 'label' => __( 'عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -58,7 +58,7 @@ class Comments extends Widget_Base{
         );
 
         $this->add_control(
-            'heading_description',
+            'cm_heading_description',
             [
                 'label' => __( 'متن توضیحات', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
@@ -262,7 +262,7 @@ class Comments extends Widget_Base{
 
         // ------------------ Comments Section Title ------------------
         $this->start_controls_section(
-            'style_title_section',
+            'comments_style_title_section',
             [
                 'label' => __( 'عنوان نظرات', 'mytube' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -270,7 +270,7 @@ class Comments extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'heading_color',
+            'comments_heading_color',
             [
                 'label'     => __( 'رنگ عنوان', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -284,7 +284,7 @@ class Comments extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'heading_typography',
+                'name'     => 'comments_heading_typography',
                 'label'    => __( 'تایپوگرافی عنوان', 'mytube' ),
                 'selector' => '{{WRAPPER}} .comments-title',
                 'fields_options' => [
@@ -297,7 +297,7 @@ class Comments extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'heading_description_color',
+            'comments_heading_description_color',
             [
                 'label'     => __( 'رنگ متن توضیحات', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -311,7 +311,7 @@ class Comments extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'heading_description_typography',
+                'name'     => 'comments_heading_description_typography',
                 'label'    => __( 'تایپوگرافی عنوان', 'mytube' ),
                 'selector' => '{{WRAPPER}} .comments-description',
                 'fields_options' => [
@@ -473,7 +473,7 @@ class Comments extends Widget_Base{
 
         // ------------------ Social Media Title Section ------------------
         $this->start_controls_section(
-            'style_socials_title_section',
+            'socials_style_title_section',
             [
                 'label' => __( 'عنوان شبکه های اجتماعی', 'mytube' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -617,14 +617,14 @@ class Comments extends Widget_Base{
                     <div class="comments-title-wrapper">
                         <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
                         <div class="comments-icon-wrapper">
-                            <img class="main-icon" src="<?php echo esc_url( $settings['heading_icon']['url'] ); ?>" alt="" />
+                            <img class="main-icon" src="<?php echo esc_url( $settings['cm_heading_icon']['url'] ); ?>" alt="" />
                         </div>
                         <span class="comments-title">
-                            <?php echo esc_html($settings['heading']); ?>
+                            <?php echo esc_html($settings['cm_heading_text']); ?>
                         </span>
                     </div>
                     <div class="comments-description">
-                        <?php echo esc_html($settings['heading_description']); ?>
+                        <?php echo esc_html($settings['cm_heading_description']); ?>
                     </div>
                 </div>
                 <div class="comments-content-section">
