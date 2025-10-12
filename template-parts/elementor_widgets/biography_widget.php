@@ -30,7 +30,7 @@ class Biography extends Widget_Base{
 
     protected function register_controls(){
         $this->start_controls_section(
-            'content_section',
+            'bio_content_section',
             [
                 'label' => 'عنوان',
             ]
@@ -48,7 +48,7 @@ class Biography extends Widget_Base{
         );
 
         $this->add_control(
-            'bio_heading',
+            'bio_heading_text',
             [
                 'label' => __( 'عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -57,7 +57,7 @@ class Biography extends Widget_Base{
         );
 
         $this->add_control(
-            'button_text',
+            'bio_button_text',
             [
                 'label' => 'متن دکمه',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -66,7 +66,7 @@ class Biography extends Widget_Base{
         );
 
         $this->add_control(
-            'button_link',
+            'bio_button_link',
             [
                 'label' => 'لینک دکمه',
                 'type' => Controls_Manager::URL,
@@ -79,7 +79,7 @@ class Biography extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'content_section',
+            'bio_content_section',
             [
                 'label' => 'بیوگرافی',
             ]
@@ -117,7 +117,7 @@ class Biography extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'content_section',
+            'bio_items_section',
             [
                 'label' => 'آیتم ها',
             ]
@@ -201,7 +201,7 @@ class Biography extends Widget_Base{
 
         // ------------------ Title & decs ------------------
         $this->start_controls_section(
-            'style_heading_section',
+            'bio_style_heading_section',
             [
                 'label' => __( 'عنوان', 'mytube' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -209,13 +209,13 @@ class Biography extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'bio_title_color',
+            'bio_heading_color',
             [
                 'label'     => __( 'رنگ عنوان', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#FFFFFF',
                 'selectors' => [
-                    '{{WRAPPER}} .bio-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .bio-heading' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -223,9 +223,9 @@ class Biography extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'bio_title_typography',
+                'name'     => 'bio_heading_typography',
                 'label'    => __( 'تایپوگرافی عنوان', 'mytube' ),
-                'selector' => '{{WRAPPER}} .bio-title',
+                'selector' => '{{WRAPPER}} .bio-heading',
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
                     'font_size'  => [ 'default' => [ 'size' => 18, 'unit' => 'px' ] ],
@@ -236,7 +236,7 @@ class Biography extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'button_text_color',
+            'bio_button_text_color',
             [
                 'label'     => __( 'رنگ متن دکمه', 'mytube' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
@@ -250,7 +250,7 @@ class Biography extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'button_typography',
+                'name'     => 'bio_button_text_typography',
                 'label'    => __( 'تایپوگرافی متن دکمه', 'mytube' ),
                 'selector' => '{{WRAPPER}} .bio-button',
                 'fields_options' => [
@@ -265,7 +265,7 @@ class Biography extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'style_biography_section',
+            'biography_style_section',
             [
                 'label' => __( 'عنوان و متن بیوگرافی', 'mytube' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -382,7 +382,7 @@ class Biography extends Widget_Base{
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'style_items_section',
+            'bio_style_items_section',
             [
                 'label' => __( 'آیتم ها', 'mytube' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -390,7 +390,7 @@ class Biography extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'item_bg_color',
+            'bio_item_bg_color',
             [
                 'label'     => __( 'رنگ پس‌زمینه', 'mytube' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
@@ -402,7 +402,7 @@ class Biography extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'item_number_color',
+            'bio_item_number_color',
             [
                 'label'     => __( 'رنگ عدد', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -416,7 +416,7 @@ class Biography extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'item_number_typography',
+                'name'     => 'bio_item_number_typography',
                 'label'    => __( 'تایپوگرافی عدد', 'mytube' ),
                 'selector' => '{{WRAPPER}} .item-number',
                 'fields_options' => [
@@ -429,7 +429,7 @@ class Biography extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'item_suffix_color',
+            'bio_item_suffix_color',
             [
                 'label'     => __( 'رنگ پسوند', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
@@ -443,7 +443,7 @@ class Biography extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'item_suffix_typography',
+                'name'     => 'bio_item_suffix_typography',
                 'label'    => __( 'تایپوگرافی پسوند شمارش گر', 'mytube' ),
                 'selector' => '{{WRAPPER}} .item-suffix',
                 'fields_options' => [
@@ -456,7 +456,7 @@ class Biography extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'item_text_color',
+            'bio_item_text_color',
             [
                 'label'     => __( 'رنگ متن شمارش گر', 'mytube' ),
                 'default'   => '#493A3A',
@@ -470,7 +470,7 @@ class Biography extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'item_text_typography',
+                'name'     => 'bio_item_text_typography',
                 'label'    => __( 'تایپوگرافی متن شمارش گر', 'mytube' ),
                 'selector' => '{{WRAPPER}} .item-text',
                 'fields_options' => [
@@ -503,12 +503,12 @@ class Biography extends Widget_Base{
                                 <img src="<?php echo esc_url( $settings['bio_heading_icon']['url'] ); ?>" alt="">
                             </div>
                         <?php endif; ?>
-                        <span class="bio-title">
-                            <?php echo esc_html($settings['bio_heading']); ?>
+                        <span class="bio-heading">
+                            <?php echo esc_html($settings['bio_heading_text']); ?>
                         </span>
                     </div>
-                    <div href="<?php echo esc_url($settings['button_link']['url']); ?>" class="bio-button">
-                            <?php echo esc_html($settings['button_text']); ?>
+                    <div href="<?php echo esc_url($settings['bio_button_link']['url']); ?>" class="bio-button">
+                            <?php echo esc_html($settings['bio_button_text']); ?>
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                     </div>
                 </div>
@@ -557,7 +557,7 @@ class Biography extends Widget_Base{
                 </div>
             </div>
             <div class="bio-image-section">
-                <img class="bio-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/biography/image.svg') ?>" />
+                <img class="bio-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/biography/image.webp') ?>" />
             </div>
         </div>
         <?php
