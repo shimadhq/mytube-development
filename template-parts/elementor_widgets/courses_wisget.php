@@ -197,13 +197,13 @@ class Courses extends Widget_Base{
         );
 
         $this->add_responsive_control(
-            'courses_title_color',
+            'courses_heading_color',
             [
                 'label'     => __( 'رنگ عنوان', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#493A3A',
                 'selectors' => [
-                    '{{WRAPPER}} .courses-main-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .courses-heading' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -211,7 +211,7 @@ class Courses extends Widget_Base{
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name'     => 'courses_title_typography',
+                'name'     => 'courses_heading_typography',
                 'label'    => __( 'تایپوگرافی عنوان', 'mytube' ),
                 'selector' => '{{WRAPPER}} .courses-main-title',
                 'fields_options' => [
@@ -439,49 +439,52 @@ class Courses extends Widget_Base{
 
     public function render() {
         $settings = $this->get_settings_for_display();
-        $courses = $settings['courses'];
-        $current = 0;
+        $courses = $settings['courses'] ?? [];
+        if (empty($courses)) return;
 
         ?>
-        <div class="courses">
-            <div class="courses-header">
-                <div class="courses-title-wrapper">
-                    <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
-                    <div class="courses-icon-wrapper">
-                        <img class="main-icon" src="<?php echo esc_url( $settings['co_heading_icon']['url'] ); ?>" alt="" />
-                    </div>
-                    <span class="courses-main-title">
-                        <?php echo esc_html($settings['co_heading_text']); ?>
-                    </span>
-                </div>
-                <div href="<?php echo esc_url($settings['co_button_link']['url']); ?>" class="courses-button">
-                    <?php echo esc_html($settings['co_button_text']); ?>
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
-                </div>
-            </div>
-            <div class="courses-section">
-                <?php foreach($courses as $course): ?>
-                    <div class="course">
-                        <div class="course-image-wrapper">
-                            <?php if (!empty($course['course_image']['url'])) : ?>
-                                <img class="course-image" src="<?php echo esc_url($course['course_image']['url']); ?>" alt="">
+        <div class="elementor-widget-courses">
+            <div class="courses">
+                <div class="courses-header">
+                    <div class="courses-title-wrapper">
+                        <img class="short-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/short-videos/shape.svg'); ?>" alt="">
+                        <div class="courses-icon-wrapper">
+                            <?php if (!empty($settings['co_heading_icon']['url'])) : ?>
+                                <img class="main-icon" src="<?php echo esc_url($settings['co_heading_icon']['url']); ?>" alt="<?php echo esc_attr($settings['co_heading_text'] ?? ''); ?>" />
                             <?php endif; ?>
                         </div>
-                        <div class="course-text">
-                            <span class="course-title"><?php echo esc_html($course['course_title']); ?></span>
-                            <span class="course-text"><?php echo esc_html($course['course_text']); ?></span>
-                        </div>
-                        <div class="price-pay">
-                            <div class="course-price-wrapper">
-                                <span class="course-price"><?php echo esc_html($course['course_price']); ?></span>
-                                <span class="price-unit">تومان</span>
-                            </div>
-                            <div href="<?php echo esc_url($course['pay_button_link']['url']); ?>" class="pay-button">
-                                <?php echo esc_html($course['pay_button_text']); ?>
-                            </div>
-                        </div>
+                        <span class="courses-main-title"><?php echo esc_html($settings['co_heading_text'] ?? ''); ?></span>
                     </div>
-                <?php endforeach; ?>
+                    <a href="<?php echo esc_url($settings['co_button_link']['url'] ?? '#'); ?>" class="courses-button">
+                        <?php echo esc_html($settings['co_button_text'] ?? ''); ?>
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg'); ?>" alt="arrow-icon" />
+                    </a>
+                </div>
+
+                <div class="courses-section">
+                    <?php foreach ($courses as $course): ?>
+                        <div class="course">
+                            <div class="course-image-wrapper">
+                                <?php if (!empty($course['course_image']['url'])) : ?>
+                                    <img class="course-image" src="<?php echo esc_url($course['course_image']['url']); ?>" alt="<?php echo esc_attr($course['course_title']); ?>">
+                                <?php endif; ?>
+                            </div>
+                            <div class="course-text">
+                                <span class="course-title"><?php echo esc_html($course['course_title']); ?></span>
+                                <span class="course-text"><?php echo wp_kses_post($course['course_text']); ?></span>
+                            </div>
+                            <div class="price-pay">
+                                <div class="course-price-wrapper">
+                                    <span class="course-price"><?php echo esc_html($course['course_price']); ?></span>
+                                    <span class="price-unit">تومان</span>
+                                </div>
+                                <a href="<?php echo esc_url($course['pay_button_link']['url'] ?? '#'); ?>" class="pay-button">
+                                    <?php echo esc_html($course['pay_button_text']); ?>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
         <?php

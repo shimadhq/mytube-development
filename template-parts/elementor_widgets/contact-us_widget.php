@@ -203,7 +203,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_image',
+            'contact_second_image',
             [
                 'label' => __( 'تصویر', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -214,7 +214,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_button_text',
+            'contact_second_button_text',
             [
                 'label' => 'متن دکمه',
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -223,7 +223,7 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'contact_button_link',
+            'contact_second_button_link',
             [
                 'label' => 'لینک دکمه',
                 'type' => Controls_Manager::URL,
@@ -915,7 +915,7 @@ class Contact_Us extends Widget_Base{
                                 </div>
                             <?php endif; ?>
                             <span class="email-label">
-                                <?php echo esc_html($settings['contact_email_label']); ?>
+                                <?php echo esc_html( $settings['contact_email_label'] ); ?>
                             </span>
                         </div>
                         <div class="field-section">
@@ -939,10 +939,10 @@ class Contact_Us extends Widget_Base{
                     </span>
                 </div>
                 <div class="second-image">
-                    <img src="<?php echo esc_url( $settings['contact_image']['url'] ); ?>" alt="">
+                    <img src="<?php echo esc_url( $settings['contact_second_image']['url'] ); ?>" alt="">
                 </div>
-                <div href="<?php echo esc_url($settings['contact_button_link']['url']); ?>" class="second-button">
-                    <?php echo esc_html($settings['contact_button_text']); ?>
+                <div href="<?php echo esc_url($settings['contact_second_button_link']['url']); ?>" class="second-button">
+                    <?php echo esc_html($settings['contact_second_button_text']); ?>
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                 </div>
                 <img class="bg-shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/contact-us/bg-contact-shape2.svg') ?>" />
