@@ -275,15 +275,23 @@ add_action('after_switch_theme', 'mytube_create_default_menu');
  * Create or get a page by title
  */
 function mytheme_get_or_create_page( $title, $slug ) {
-    $page = get_page_by_title( $title );
+    // Query for a page with that title
+    $query = new WP_Query( [
+        'post_type'      => 'page',
+        'title'          => $title,
+        'posts_per_page' => 1,
+        'post_status'    => [ 'publish', 'draft', 'pending' ],
+        'fields'         => 'ids',
+    ] );
 
-    if ( $page ) {
-        return $page->ID;
+    if ( $query->have_posts() ) {
+        return $query->posts[0];
     }
 
+    // If not found, create it
     return wp_insert_post( [
         'post_title'   => $title,
-        'post_name'    => $slug,
+        'post_name'    => sanitize_title( $slug ),
         'post_content' => '',
         'post_status'  => 'publish',
         'post_type'    => 'page',
@@ -305,16 +313,35 @@ function mytheme_import_elementor_template( $page_id, $template_file ) {
 
     $json = file_get_contents( $template_path );
     $data = json_decode( $json, true );
-    $content = isset( $data['content'] ) ? $data['content'] : $data;
 
-    $elementor_data = is_array( $content ) ? wp_json_encode( $content ) : $content;
+    // Elementor export file structure
+    $content = [];
+    if ( isset( $data['content'] ) ) {
+        $content = $data['content']; // normal export
+    } elseif ( isset( $data[0]['elType'] ) ) {
+        $content = $data; // raw elementor elements array
+    } else {
+        error_log('⚠️ Unknown Elementor JSON structure.');
+        return;
+    }
 
+    // Encode properly
+    $elementor_data = wp_slash( wp_json_encode( $content ) );
+
+    // Save Elementor data correctly
     update_post_meta( $page_id, '_elementor_edit_mode', 'builder' );
     update_post_meta( $page_id, '_elementor_data', $elementor_data );
     update_post_meta( $page_id, '_elementor_template_type', 'wp-page' );
     update_post_meta( $page_id, '_wp_page_template', 'default' );
 
-    error_log('✅ Imported Elementor template: ' . $template_file . ' to page ID ' . $page_id);
+    // Force Elementor to rebuild CSS
+    $files_manager = \Elementor\Plugin::$instance->files_manager;
+    if ( method_exists( $files_manager, 'clear_cache' ) ) {
+        $files_manager->clear_cache();
+    }
+    // regenerate_css() حذف شده، نیاز به فراخوانی مستقیم نیست
+
+    error_log('✅ Elementor template imported successfully to page ID: ' . $page_id);
 }
 
 /**
@@ -330,12 +357,6 @@ function mytheme_import_multiple_templates() {
             'slug'     => 'mytube',
             'template' => 'homepage.json',
             'front'    => true // Set as front page
-        ],
-        [
-            'title'    => 'تماس با ما',
-            'slug'     => 'contact',
-            'template' => 'contact-us.json',
-            'front'    => false
         ],
     ];
 

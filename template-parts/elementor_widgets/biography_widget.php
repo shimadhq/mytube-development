@@ -30,7 +30,7 @@ class Biography extends Widget_Base{
 
     protected function register_controls(){
         $this->start_controls_section(
-            'bio_content_section',
+            'bio_title_section',
             [
                 'label' => 'عنوان',
             ]
