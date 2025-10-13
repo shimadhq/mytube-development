@@ -272,75 +272,96 @@ function mytube_create_default_menu(){
 add_action('after_switch_theme', 'mytube_create_default_menu');
 
 /**
- * Create Homepage (or get if exists)
+ * Create or get a page by title
  */
-function mytheme_create_homepage() {
-    $page = get_page_by_title('صفحه اصلی');
+function mytheme_get_or_create_page( $title, $slug ) {
+    $page = get_page_by_title( $title );
 
-    if ($page) {
+    if ( $page ) {
         return $page->ID;
     }
 
-    $page_id = wp_insert_post([
-        'post_title'   => 'صفحه اصلی',
-        'post_name'    => 'home',
+    return wp_insert_post( [
+        'post_title'   => $title,
+        'post_name'    => $slug,
         'post_content' => '',
         'post_status'  => 'publish',
         'post_type'    => 'page',
-    ]);
-
-    return $page_id;
+    ] );
 }
 
-
 /**
- * Import Elementor Template to Homepage
+ * Import an Elementor template JSON file into a page
  */
-function mytheme_import_elementor_template_to_homepage( $page_id ) {
-    if ( ! $page_id ) return;
-    if ( ! class_exists( '\Elementor\Plugin' ) ) return;
+function mytheme_import_elementor_template( $page_id, $template_file ) {
+    if ( ! $page_id || ! class_exists( '\Elementor\Plugin' ) ) return;
 
-    $template_path = get_template_directory() . '/template-parts/elementor_templates/homepage.json';
+    $template_path = get_template_directory() . '/template-parts/elementor_templates/' . $template_file;
 
     if ( ! file_exists( $template_path ) ) {
-        error_log('❌ Home template not found at ' . $template_path);
+        error_log('❌ Template not found: ' . $template_path);
         return;
     }
 
     $json = file_get_contents( $template_path );
     $data = json_decode( $json, true );
-
     $content = isset( $data['content'] ) ? $data['content'] : $data;
 
-    $elementor_data = wp_json_encode( $content );
+    $elementor_data = is_array( $content ) ? wp_json_encode( $content ) : $content;
+
     update_post_meta( $page_id, '_elementor_edit_mode', 'builder' );
     update_post_meta( $page_id, '_elementor_data', $elementor_data );
     update_post_meta( $page_id, '_elementor_template_type', 'wp-page' );
+    update_post_meta( $page_id, '_wp_page_template', 'default' );
 
-    update_option( 'page_on_front', $page_id );
-    update_option( 'show_on_front', 'page' );
-
-    error_log('✅ Elementor template imported successfully to page ID: ' . $page_id);
+    error_log('✅ Imported Elementor template: ' . $template_file . ' to page ID ' . $page_id);
 }
-
 
 /**
- * Run after theme activation
+ * Import multiple templates on Elementor init
  */
-function mytheme_setup_homepage() {
-    if ( get_option( 'mytheme_homepage_created' ) ) return;
+function mytheme_import_multiple_templates() {
+    if ( get_option( 'mytheme_demo_pages_imported' ) ) return;
 
-    $page_id = mytheme_create_homepage();
+    // Define your pages here
+    $pages = [
+        [
+            'title'    => 'MYTUBE',
+            'slug'     => 'mytube',
+            'template' => 'homepage.json',
+            'front'    => true // Set as front page
+        ],
+        [
+            'title'    => 'تماس با ما',
+            'slug'     => 'contact',
+            'template' => 'contact-us.json',
+            'front'    => false
+        ],
+    ];
 
-    if ( $page_id ) {
-        mytheme_import_elementor_template_to_homepage( $page_id );
-        update_option( 'mytheme_homepage_created', true );
+    $front_page_id = null;
+
+    foreach ( $pages as $page ) {
+        $page_id = mytheme_get_or_create_page( $page['title'], $page['slug'] );
+        if ( $page_id ) {
+            mytheme_import_elementor_template( $page_id, $page['template'] );
+
+            if ( $page['front'] ) {
+                $front_page_id = $page_id;
+            }
+        }
     }
+
+    // Set front page
+    if ( $front_page_id ) {
+        update_option( 'page_on_front', $front_page_id );
+        update_option( 'show_on_front', 'page' );
+    }
+
+    update_option( 'mytheme_demo_pages_imported', true );
+    error_log('🏁 All Elementor templates imported successfully.');
 }
-// تأخیر در اجرا تا وقتی وردپرس کاملاً لود شد
-add_action('after_switch_theme', function() {
-    add_action('init', 'mytheme_setup_homepage', 15);
-});
+add_action( 'elementor/init', 'mytheme_import_multiple_templates' );
 
 /**
  * Adding custom elementor category
