@@ -272,7 +272,7 @@ function mytube_create_default_menu(){
 add_action('after_switch_theme', 'mytube_create_default_menu');
 
 /**
- * Create Homepage and Import Elementor Template Automatically
+ * Create Homepage
  */
 function mytheme_import_homepage_template() {
     $page_check = new WP_Query([
@@ -377,7 +377,7 @@ add_action('elementor/widgets/register', 'register_mytube_widgets');
 /**
  * Import Elementor Template to Homepage
  */
-function mytheme_import_elementor_template_to_homepage( $page_id ) {
+/*function mytheme_import_elementor_template_to_homepage( $page_id ) {
     if ( ! $page_id ) return;
     if ( ! class_exists( '\Elementor\Plugin' ) ) return;
 
@@ -407,13 +407,13 @@ function mytheme_import_elementor_template_to_homepage( $page_id ) {
     update_option( 'show_on_front', 'page' );
 
     error_log('✅ Elementor template imported successfully to page ID: ' . $page_id);
-}
+}*/
 
 
 /**
  * Run after theme is activated
  */
-function mytheme_setup_homepage() {
+/*function mytheme_setup_homepage() {
     if ( get_option( 'mytheme_homepage_created' ) ) return;
 
     $page_id = mytheme_create_homepage();
@@ -423,6 +423,6 @@ function mytheme_setup_homepage() {
         update_option( 'mytheme_homepage_created', true );
     }
 }
-add_action( 'after_switch_theme', 'mytheme_setup_homepage' );
+add_action( 'after_switch_theme', 'mytheme_setup_homepage' );*/
 
 ?>
