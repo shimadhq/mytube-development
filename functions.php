@@ -436,7 +436,7 @@ add_action( 'elementor/elements/categories_registered', function( $elements_mana
 /**
  * Adding elementor widgets
  */
-function register_mytube_widgets (){
+function register_mytube_widgets( $widgets_manager ){
     $widgets = [
         [
             'path' => '/template-parts/elementor_widgets/main-banner_widget.php',
@@ -467,7 +467,7 @@ function register_mytube_widgets (){
             'class' => 'WPC\Widgets\Contact_Us',
         ],
         [
-            'path' => '/template-parts/elementor_widgets/courses_wisget.php',
+            'path' => '/template-parts/elementor_widgets/courses_widget.php',
             'class' => 'WPC\Widgets\Courses',
         ],
         [
@@ -482,11 +482,12 @@ function register_mytube_widgets (){
 
     foreach ($widgets as $widget) {
         $full_path = get_template_directory() . $widget['path'];
+
         if (file_exists($full_path)) {
             require_once $full_path;
 
             if (class_exists($widget['class'])) {
-                \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new $widget['class']);
+                $widgets_manager->register( new $widget['class'] );
             } else {
                 error_log("Class {$widget['class']} not found in {$full_path}");
             }
