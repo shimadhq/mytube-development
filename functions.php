@@ -33,6 +33,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('contact-us', get_template_directory_uri() . '/assets/css/contact-us/contact-us.css', [], $version);
     wp_enqueue_style('courses', get_template_directory_uri() . '/assets/css/courses/courses.css', [], $version);
     wp_enqueue_style('comments', get_template_directory_uri() . '/assets/css/comments/comments.css', [], $version);
+    wp_enqueue_style('map', get_template_directory_uri() . '/assets/css/map/map.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
@@ -41,8 +42,10 @@ function mytube_enqueue_scripts() {
     wp_enqueue_script('mobile-menu', get_template_directory_uri() . '/inc/js/mobile-menu/mobile-menu.js', array (), $version, true);
     wp_enqueue_script('cart-toggle', get_template_directory_uri() . '/inc/js/cart-toggle/cart-toggle.js', array (), $version, true);
     wp_enqueue_script('vertical-slider', get_template_directory_uri() . '/inc/js/widgets/vertical-slider.js', array (), $version, true);
-    wp_enqueue_script('short-counter', get_template_directory_uri() . '/inc/js/widget/short-counter.js', array (), $version, true);
+    wp_enqueue_script('short-videos-counter', get_template_directory_uri() . '/inc/js/widget/short-videos-counter.js', array (), $version, true);
     wp_enqueue_script('main-banner-counter', get_template_directory_uri() . '/inc/js/widgets/main-banner-counter.js', array (), $version, true);
+    wp_enqueue_script('google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY', [], null, true);
+    wp_enqueue_script('custom-map', get_template_directory_uri() . '/inc/js/widgets/custom-map.js', ['google-maps-api'], $version, true);
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
 
@@ -433,7 +436,7 @@ add_action( 'elementor/elements/categories_registered', function( $elements_mana
 /**
  * Adding elementor widgets
  */
-function register_mytube_widgets(){
+function register_mytube_widgets (){
     $widgets = [
         [
             'path' => '/template-parts/elementor_widgets/main-banner_widget.php',
@@ -471,6 +474,10 @@ function register_mytube_widgets(){
             'path' => '/template-parts/elementor_widgets/comments_widget.php',
             'class' => 'WPC\Widgets\Comments',
         ],
+        [
+            'path' => '/template-parts/elementor_widgets/custom-map_widget.php',
+            'class' => 'WPC\Widgets\Custom_Map',
+        ]
     ];
 
     foreach ($widgets as $widget) {
