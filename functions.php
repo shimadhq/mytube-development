@@ -24,7 +24,6 @@ function mytube_enqueue_scripts() {
 
     // Customized styles
     wp_enqueue_style( 'mytube-header-style', get_template_directory_uri() . '/assets/css/header/header.css', [], $version );
-    wp_enqueue_style( 'mytube-fonts', get_template_directory_uri() . '/assets/css/custom-fonts.css', [], $version );
     wp_enqueue_style('main-banner', get_template_directory_uri() . '/assets/css/main-banner/main-banner.css', [], $version);
     wp_enqueue_style('video-category', get_template_directory_uri() . '/assets/css/video-category/video-category.css', [], $version);
     wp_enqueue_style('playlist', get_template_directory_uri() . '/assets/css/playlist/playlist.css', [], $version);
@@ -46,6 +45,30 @@ function mytube_enqueue_scripts() {
     wp_enqueue_script('main-banner-counter', get_template_directory_uri() . '/inc/js/widgets/main-banner-counter.js', array (), $version, true);
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
+
+function mytheme_add_custom_fonts() {
+    // Uploading font
+    wp_enqueue_style( 'IRANYekanX', get_template_directory_uri() . '/assets/css/custom-fonts.css', [], '1.0' );
+    
+    if ( class_exists( 'Elementor\Plugin' ) ) {
+        add_filter( 'elementor/fonts/groups', function( $groups ) {
+            $groups['mytube'] = [
+                'title' => 'My Tube Fonts',
+            ];
+            return $groups;
+        } );
+
+        add_filter( 'elementor/fonts/additional_fonts', function( $fonts ) {
+            $fonts['IRANYekanX'] = [
+                'label' => 'IRAN Yekan Font',
+                'stack' => 'IRANYekanX, sans-serif',
+                'category' => 'sans-serif',
+            ];
+            return $fonts;
+        } );
+    }
+}
+add_action( 'elementor/frontend/after_enqueue_styles', 'mytube_add_custom_fonts' );
 
 /**
  * Adding settings menu & setting default items

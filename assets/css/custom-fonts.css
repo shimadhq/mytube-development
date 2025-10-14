@@ -54,6 +54,10 @@
     font-style: normal;
 }
 
-body, .elementor-widget-heading, .elementor-widget-text-editor {
-    font-family: 'IRANYekanX' !important;
+body,
+p,
+h1, h2, h3, h4, h5, h6,
+.elementor-widget-heading,
+.elementor-widget-text-editor {
+    font-family: 'IRANYekanX', sans-serif !important;
 }
