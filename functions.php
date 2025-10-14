@@ -46,18 +46,28 @@ function mytube_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
 
-function mytheme_add_custom_fonts() {
-    // Uploading font
-    wp_enqueue_style( 'IRANYekanX', get_template_directory_uri() . '/assets/css/custom-fonts.css', [], '1.0' );
-    
-    if ( class_exists( 'Elementor\Plugin' ) ) {
+function mytube_add_custom_fonts() {
+    // Upload custom font CSS
+    $version = date('YmdHis'); // cache buster
+    wp_enqueue_style( 
+        'IRANYekanX', 
+        get_template_directory_uri() . '/assets/css/custom-fonts.css', 
+        [], 
+        $version 
+    );
+
+    // Register custom font in Elementor
+    if ( class_exists( '\Elementor\Plugin' ) ) {
+
+        // Add custom group name to Elementor
         add_filter( 'elementor/fonts/groups', function( $groups ) {
-            $groups['mytube'] = [
-                'title' => 'My Tube Fonts',
+            $groups['mytube_font'] = [
+                'title' => __( 'My Tube Fonts', 'mytube' ),
             ];
             return $groups;
-        } );
+        });
 
+        // Add font to Elementor list
         add_filter( 'elementor/fonts/additional_fonts', function( $fonts ) {
             $fonts['IRANYekanX'] = [
                 'label' => 'IRAN Yekan Font',
@@ -65,7 +75,7 @@ function mytheme_add_custom_fonts() {
                 'category' => 'sans-serif',
             ];
             return $fonts;
-        } );
+        });
     }
 }
 add_action( 'elementor/frontend/after_enqueue_styles', 'mytube_add_custom_fonts' );
