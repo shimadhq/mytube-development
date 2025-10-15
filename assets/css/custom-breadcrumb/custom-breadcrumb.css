@@ -1,0 +1,16 @@
+.main-page a{
+    font-size: 14px;
+    color: #493A3A;
+}
+
+.previous-page a{
+    margin-right: 15px;
+    font-size: 14px;
+    color: #493A3A;
+}
+
+.current-page a{
+    margin-right: 15px;
+    font-size: 14px;
+    color: #928989;
+}
