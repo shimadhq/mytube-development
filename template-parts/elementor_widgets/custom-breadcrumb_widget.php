@@ -21,7 +21,7 @@ class Custom_Breadcrumb extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return ['custom-breadcrumb'];
+        return ['custom-breadcrumb']; // اسم فایل CSS خودت
     }
 
     public function get_categories() {
@@ -53,7 +53,7 @@ class Custom_Breadcrumb extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $separator = esc_html($settings['separator']);
+        $separator = $settings['separator'];
 
         global $post;
         $ancestors = [];
@@ -61,14 +61,17 @@ class Custom_Breadcrumb extends Widget_Base {
         if ( is_page() && $post->post_parent ) {
             $ancestors = array_reverse( get_post_ancestors( $post->ID ) );
         }
-
         ?>
         <nav class="breadcrumb">
             <a class="main-page" href="<?php echo esc_url( home_url('/') ); ?>">MYTUBE</a>
 
             <?php if ( ! empty($ancestors) ): ?>
                 <?php foreach ( $ancestors as $ancestor ): ?>
-                    <span class="separator"><?php echo $separator; ?></span>
+                    <span class="separator">
+                        <?php if (!empty($separator['url'])): ?>
+                            <img src="<?php echo esc_url($separator['url']); ?>" alt="separator" />
+                        <?php endif; ?>
+                    </span>
                     <a class="previous-page" href="<?php echo esc_url( get_permalink($ancestor) ); ?>">
                         <?php echo esc_html( get_the_title($ancestor) ); ?>
                     </a>
@@ -76,7 +79,11 @@ class Custom_Breadcrumb extends Widget_Base {
             <?php endif; ?>
 
             <?php if ( ! is_front_page() ): ?>
-                <span class="separator"><?php echo $separator; ?></span>
+                <span class="separator">
+                    <?php if (!empty($separator['url'])): ?>
+                        <img src="<?php echo esc_url($separator['url']); ?>" alt="separator" />
+                    <?php endif; ?>
+                </span>
                 <span class="current-page"><?php echo esc_html( get_the_title() ); ?></span>
             <?php endif; ?>
         </nav>

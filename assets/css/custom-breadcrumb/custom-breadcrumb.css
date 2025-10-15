@@ -1,16 +1,24 @@
-.main-page a{
-    font-size: 14px;
-    color: #493A3A;
+.breadcrumb{
+    align-items: center;
 }
 
-.previous-page a{
-    margin-right: 15px;
+.breadcrumb a{
     font-size: 14px;
     color: #493A3A;
+    text-decoration: none;
 }
 
-.current-page a{
-    margin-right: 15px;
+.breadcrumb a.previous-page{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.breadcrumb span.current-page{
     font-size: 14px;
     color: #928989;
+}
+
+.breadcrumb .separator img {
+    margin: 0 8px;
+    vertical-align: middle;
 }

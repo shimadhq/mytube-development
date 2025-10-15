@@ -130,7 +130,7 @@ class Contact_Form extends Widget_Base{
             [
                 'label'     => __( 'رنگ عنوان', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#1D1616',
+                'default'   => '#A5A5A5',
                 'selectors' => [
                     '{{WRAPPER}} .cf-title' => 'color: {{VALUE}};',
                 ],
@@ -250,9 +250,9 @@ class Contact_Form extends Widget_Base{
         <div class="contact-form">
             <div class="cf-title-section">
                 <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/shape.svg" />
-                <span class="cf-title">
+                <h2 class="cf-title">
                     <?php echo esc_html($settings['cf_heading_text']); ?>
-                </span>
+                </h2>
                 <?php if ( ! empty( $settings['cf_heading_icon']['url'] ) ) : ?>
                     <div class="cf-icon">
                         <img src="<?php echo esc_url( $settings['cf_heading_icon']['url'] ); ?>" alt="">
@@ -262,17 +262,17 @@ class Contact_Form extends Widget_Base{
             <div class="cf-form-section">
                 <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
                 <div class="name-phone">
-                    <div class="fullname-field">
+                    <div class="cf-fullname-field">
                         <label class="cf-field-label">
                             <?php echo esc_html($settings['cf_fullname_label']); ?>
                         </label>
-                        <input type="text" class="field-input" />
+                        <input type="text" class="cf-field-input" />
                     </div>
-                    <div class="phone-field">
+                    <div class="cf-phone-field">
                         <label class="cf-field-label">
                             <?php echo esc_html($settings['cf_phone_label']); ?>
                         </label>
-                        <input type="text" class="field-input" />
+                        <input type="text" class="cf-field-input" />
                     </div>
                 </div>
                 <div class="message-button">

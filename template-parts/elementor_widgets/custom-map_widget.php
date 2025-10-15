@@ -81,14 +81,14 @@ class Custom_Map extends Widget_Base {
         $zoom    = isset($settings['map_zoom']['size']) ? (int)$settings['map_zoom']['size'] : 14;
         ?>
 
-        <div id="custom-map-wrapper" style="width:100%; height:300px; position:relative;">
+        <div id="custom-map-wrapper" style="width:100%; height:200px; position:relative;">
             <?php if (empty($api_key)): ?>
                 <!-- تصویر پیش فرض -->
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/custom-map/map.webp" 
                     alt="Map Placeholder" 
                     style="width:100%; height:100%; object-fit:cover;" 
                 />
-                <p style="position:absolute; bottom:5px; left:15px; color:red; background:white; padding:5px;">
+                <p style="position:absolute; bottom:5px; left:5px; color:red; background:white; padding:5px; font-size: 13px;">
                     برای مشاهده نقشه، لطفاً Google Maps API Key وارد کنید.
                 </p>
             <?php else: ?>
