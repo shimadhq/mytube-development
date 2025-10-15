@@ -33,6 +33,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('contact-us', get_template_directory_uri() . '/assets/css/contact-us/contact-us.css', [], $version);
     wp_enqueue_style('courses', get_template_directory_uri() . '/assets/css/courses/courses.css', [], $version);
     wp_enqueue_style('comments', get_template_directory_uri() . '/assets/css/comments/comments.css', [], $version);
+    wp_enqueue_style('contact-form', get_template_directory_uri() . '/assets/css/contact-form/contact-form.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
@@ -474,6 +475,10 @@ function register_mytube_widgets( $widgets_manager ){
         [
             'path' => '/template-parts/elementor_widgets/custom-map_widget.php',
             'class' => 'WPC\Widgets\Custom_Map',
+        ],
+        [
+            'path' => '/template-parts/elementor_widgets/contact-form_widget.php',
+            'class' => 'WPC\Widgets\Contact_Form',
         ]
     ];
 
