@@ -20,14 +20,6 @@ class Custom_Map extends Widget_Base {
         return 'eicon-map-pin';
     }
 
-    public function get_style_depends() {
-        return ['map'];
-    }
-
-    public function get_script_depends() {
-        return ['custom-map'];
-    }
-
     public function get_categories() {
         return [ 'mytube-category' ];
     }
@@ -42,33 +34,40 @@ class Custom_Map extends Widget_Base {
         );
 
         $this->add_control(
-            'latitude',
+            'google_api_key',
             [
-                'label' => 'عرض جغرافیایی (Latitude)',
-                'type' => Controls_Manager::TEXT,
-                'default' => '35.6892',
+                'label' => 'Google Map API Key',
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'placeholder' => 'مثلاً: AIzaSyBf....',
             ]
         );
 
         $this->add_control(
-            'longitude',
+            'map_address',
             [
-                'label' => 'طول جغرافیایی (Longitude)',
-                'type' => Controls_Manager::TEXT,
-                'default' => '51.3890',
+                'label' => 'آدرس نقشه',
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => 'برج میلاد، تهران',
+                'placeholder' => 'مثلاً: Tehran, Milad Tower',
             ]
         );
 
         $this->add_control(
-            'zoom',
+            'map_zoom',
             [
-                'label' => 'میزان زوم',
+                'label' => 'میزان زوم نقشه',
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ '' ],
+                'size_units' => [''],
                 'range' => [
-                    '' => [ 'min' => 5, 'max' => 20, 'step' => 1 ],
+                    '' => [
+                        'min' => 1,
+                        'max' => 20,
+                        'step' => 1,
+                    ],
                 ],
-                'default' => [ 'size' => 14 ],
+                'default' => [
+                    'size' => 14,
+                ],
             ]
         );
 
@@ -77,11 +76,90 @@ class Custom_Map extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+        $api_key = esc_attr($settings['google_api_key']);
+        $address = esc_js($settings['map_address']);
+        $zoom    = isset($settings['map_zoom']['size']) ? (int)$settings['map_zoom']['size'] : 14;
         ?>
-        <div id="custom-map" 
-             data-lat="<?php echo esc_attr( $settings['latitude'] ); ?>" 
-             data-lng="<?php echo esc_attr( $settings['longitude'] ); ?>" 
-             data-zoom="<?php echo esc_attr( $settings['zoom']['size'] ); ?>">
+
+        <div id="custom-map-wrapper" style="width:100%; height:300px; position:relative;">
+            <?php if (empty($api_key)): ?>
+                <!-- تصویر پیش فرض -->
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/custom-map/map.webp" 
+                    alt="Map Placeholder" 
+                    style="width:100%; height:100%; object-fit:cover;" 
+                />
+                <p style="position:absolute; bottom:5px; left:15px; color:red; background:white; padding:5px;">
+                    برای مشاهده نقشه، لطفاً Google Maps API Key وارد کنید.
+                </p>
+            <?php else: ?>
+                <!-- نقشه واقعی -->
+                <div id="custom-map" style="width:100%; height:100%;"></div>
+                <script>
+                    function initMap() {
+                        const customStyle = [
+                            // زمین / زمین بازی
+                            { elementType: "geometry", stylers: [{ color: "#f5f5f5" }] },
+
+                            // معابر اصلی
+                            { featureType: "road.arterial", elementType: "geometry", stylers: [{ color: "#C4C4C4" }] },
+
+                            // بزرگراه
+                            { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#C4C4C4" }] },
+
+                            // معابر فرعی / کوچه
+                            { featureType: "road.local", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
+
+                            // پیاده‌رو و سایر جاده‌ها
+                            { featureType: "road", elementType: "geometry", stylers: [{ color: "#C4C4C4" }] },
+                            { featureType: "road.local", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
+
+                            // پارک و فضای سبز
+                            { featureType: "poi.park", elementType: "geometry", stylers: [{ color: "#e0e0e0" }] },
+
+                            // آب
+                            { featureType: "water", elementType: "geometry", stylers: [{ color: "#c9c9c9" }] },
+
+                            // لیبل‌ها
+                            { elementType: "labels.text.fill", stylers: [{ color: "#EEEEEE" }] },
+                            { elementType: "labels.text.stroke", stylers: [{ color: "#f5f5f5" }] },
+
+                            // نقاط مهم، اما کم رنگ
+                            { featureType: "poi", elementType: "geometry", stylers: [{ color: "#eeeeee" }] },
+                            { featureType: "poi.business", elementType: "geometry", stylers: [{ color: "#eeeeee" }] },
+
+                            // مسیرهای سبز و زرد
+                            { featureType: "landscape.natural", elementType: "geometry", stylers: [{ color: "#e8e8e8" }] },
+                        ];
+
+                        const map = new google.maps.Map(document.getElementById("custom-map"), {
+                            zoom: <?php echo $zoom; ?>,
+                            center: { lat: 35.7448, lng: 51.3756 }, // fallback center
+                           styles: customStyle
+                        }); 
+
+                        const marker = new google.maps.Marker({
+                            map: map,
+                            position: { lat: 35.7448, lng: 51.3756 },
+                            icon: "<?php echo get_template_directory_uri(); ?>/assets/img/custom-map/marker.svg"
+                        });
+
+                        const geocoder = new google.maps.Geocoder();
+                        geocoder.geocode({ address: "<?php echo $address; ?>" }, (results, status) => {
+                            if (status === "OK" && results[0]) {
+                                map.setCenter(results[0].geometry.location);
+                                marker.setPosition(results[0].geometry.location);
+                            } else {
+                                const info = document.createElement('p');
+                                info.style.color = 'red';
+                                info.innerText = "Geocode ناموفق: " + status;
+                                document.getElementById("custom-map").appendChild(info);
+                            }
+                        });
+                    }
+                </script>
+
+                <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api_key; ?>&callback=initMap" async defer></script>
+            <?php endif; ?>
         </div>
         <?php
     }
