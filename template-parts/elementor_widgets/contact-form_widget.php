@@ -272,18 +272,18 @@ class Contact_Form extends Widget_Base{
                         <label class="cf-field-label">
                             <?php echo esc_html($settings['cf_phone_label']); ?>
                         </label>
-                        <input type="text" class="cf-field-input" />
+                        <input type="text" class="field-input" />
                     </div>
-                    <div class="message-button">
-                        <div class="message-field">
-                            <label class="cf-field-label">
-                                <?php echo esc_html($settings['cf_message_label']); ?>
-                            </label>
-                            <input type="text" class="message-field-input" />
-                        </div>
-                        <div href="<?php echo esc_url($settings['cf_send_button_link']['url']); ?>" class="cf-send-button">
-                            <?php echo esc_html($settings['cf_send_button_text']); ?>
-                        </div>
+                </div>
+                <div class="message-button">
+                    <div class="message-field">
+                        <label class="cf-field-label">
+                            <?php echo esc_html($settings['cf_message_label']); ?>
+                        </label>
+                        <input type="text" class="message-field-input" />
+                    </div>
+                    <div href="<?php echo esc_url($settings['cf_send_button_link']['url']); ?>" class="cf-send-button">
+                        <?php echo esc_html($settings['cf_send_button_text']); ?>
                     </div>
                 </div>
             </div>
