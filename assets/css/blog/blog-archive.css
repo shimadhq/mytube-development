@@ -1,0 +1,12 @@
+.blog-archive{
+    display: flex;
+    flex-direction: column;
+    padding: 25px 120px 0 120px;
+}
+
+.blog-section{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    margin-top: 20px;
+}

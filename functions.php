@@ -24,17 +24,18 @@ function mytube_enqueue_scripts() {
 
     // Customized styles
     wp_enqueue_style( 'mytube-header-style', get_template_directory_uri() . '/assets/css/header/header.css', [], $version );
-    wp_enqueue_style('main-banner', get_template_directory_uri() . '/assets/css/main-banner/main-banner.css', [], $version);
-    wp_enqueue_style('video-category', get_template_directory_uri() . '/assets/css/video-category/video-category.css', [], $version);
-    wp_enqueue_style('playlist', get_template_directory_uri() . '/assets/css/playlist/playlist.css', [], $version);
-    wp_enqueue_style('most-visited-slider', get_template_directory_uri() . '/assets/css/most-visited-slider/most-visited-slider.css', [], $version);
-    wp_enqueue_style('biography', get_template_directory_uri() . '/assets/css/biography/biography.css', [], $version);
-    wp_enqueue_style('short-videos', get_template_directory_uri() . '/assets/css/short-videos/short-videos.css', [], $version);
-    wp_enqueue_style('contact-us', get_template_directory_uri() . '/assets/css/contact-us/contact-us.css', [], $version);
-    wp_enqueue_style('courses', get_template_directory_uri() . '/assets/css/courses/courses.css', [], $version);
-    wp_enqueue_style('comments', get_template_directory_uri() . '/assets/css/comments/comments.css', [], $version);
-    wp_enqueue_style('contact-form', get_template_directory_uri() . '/assets/css/contact-form/contact-form.css', [], $version);
-    wp_enqueue_style('custom-breadcrumb', get_template_directory_uri() . '/assets/css/custom-breadcrumb/custom-breadcrumb.css', [], $version);
+    wp_enqueue_style('main-banner', get_template_directory_uri() . '/assets/css/elementor-widgets/main-banner/main-banner.css', [], $version);
+    wp_enqueue_style('video-category', get_template_directory_uri() . '/assets/css/elementor-widgets/video-category/video-category.css', [], $version);
+    wp_enqueue_style('playlist', get_template_directory_uri() . '/assets/css/elementor-widgets/playlist/playlist.css', [], $version);
+    wp_enqueue_style('most-visited-slider', get_template_directory_uri() . '/assets/css/elementor-widgets/most-visited-slider/most-visited-slider.css', [], $version);
+    wp_enqueue_style('biography', get_template_directory_uri() . '/assets/css/elementor-widgets/biography/biography.css', [], $version);
+    wp_enqueue_style('short-videos', get_template_directory_uri() . '/assets/css/elementor-widgets/short-videos/short-videos.css', [], $version);
+    wp_enqueue_style('contact-us', get_template_directory_uri() . '/assets/css/elementor-widgets/contact-us/contact-us.css', [], $version);
+    wp_enqueue_style('courses', get_template_directory_uri() . '/assets/css/elementor-widgets/courses/courses.css', [], $version);
+    wp_enqueue_style('comments', get_template_directory_uri() . '/assets/css/elementor-widgets/comments/comments.css', [], $version);
+    wp_enqueue_style('contact-form', get_template_directory_uri() . '/assets/css/contact-us/contact-form/contact-form.css', [], $version);
+    wp_enqueue_style('custom-breadcrumb', get_template_directory_uri() . '/assets/css/elementor-widgets/custom-breadcrumb/custom-breadcrumb.css', [], $version);
+    wp_enqueue_style('blog-archive', get_template_directory_uri() . '/assets/blog/blog-archive.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
@@ -53,7 +54,7 @@ function mytube_add_custom_fonts() {
     $version = date('YmdHis'); // cache buster
     wp_enqueue_style( 
         'IRANYekanX', 
-        get_template_directory_uri() . '/assets/css/custom-fonts.css', 
+        get_template_directory_uri() . '/assets/css/custom-fonts/custom-fonts.css', 
         [], 
         $version 
     );
@@ -81,6 +82,18 @@ function mytube_add_custom_fonts() {
     }
 }
 add_action( 'elementor/frontend/after_enqueue_styles', 'mytube_add_custom_fonts' );
+
+/**
+ * Localizing Ajax URL
+ */
+function mytube_blog_scripts() {
+    wp_enqueue_script('mytube-blog-tabs', get_template_directory_uri() . '/inc/js/blog-tabs/blog-tabs.js', ['jquery'], null, true);
+
+    wp_localize_script('mytube-blog-tabs', 'mytube_ajax', [
+        'ajax_url' => admin_url('admin-ajax.php')
+    ]);
+}
+add_action('wp_enqueue_scripts', 'mytube_blog_scripts');
 
 /**
  * Adding settings menu & setting default items
@@ -209,6 +222,9 @@ function mytube_create_default_menu(){
     $locations['primary-menu'] = $menu_id;
     set_theme_mod('nav_menu_locations', $locations);
 
+    $blog_page = get_page_by_path( 'blog' );
+    $blog_url  = $blog_page ? get_permalink( $blog_page->ID ) : home_url( '/blog/' );
+
     $videos = wp_update_nav_menu_item($menu_id, 0, [
         'menu-item-title' => __('ویـدیـوهـا', 'mytube'),
         'menu-item-url'   => '#',
@@ -293,9 +309,9 @@ function mytube_create_default_menu(){
     ]);
 
     wp_update_nav_menu_item($menu_id, 0, [
-        'menu-item-title' => __('وبلاگ', 'mytube'),
-        'menu-item-url'   => '#',
-        'menu-item-status'=> 'publish'
+       'menu-item-title'  => __('وبلاگ', 'mytube'),
+       'menu-item-url'    => esc_url( $blog_url ),
+       'menu-item-status' => 'publish'
     ]);
 
     wp_update_nav_menu_item($menu_id, 0, [
@@ -504,5 +520,279 @@ function register_mytube_widgets( $widgets_manager ){
     }
 }
 add_action('elementor/widgets/register', 'register_mytube_widgets');
+
+/**
+ * Checking if blog page exists or not, if not it should be created
+ */
+function mytheme_create_default_blog_page() {
+
+    $existing_page = get_page_by_path( 'blog' );
+
+    if ( ! $existing_page ) {
+        // اگر وجود نداشت بسازش
+        $blog_page_id = wp_insert_post( [
+            'post_title'     => 'وبلاگ',
+            'post_name'      => 'blog',
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'post_content'   => '', // Blanck content because archive content is dynamic
+        ] );
+
+        // تنظیمش کن به عنوان صفحه‌ی نوشته‌ها
+        update_option( 'page_for_posts', $blog_page_id );
+        update_option( 'show_on_front', 'posts' );
+
+        error_log('✅ صفحه وبلاگ ساخته شد با ID: ' . $blog_page_id);
+    } else {
+        error_log('ℹ️ صفحه وبلاگ از قبل وجود دارد.');
+    }
+}
+add_action( 'after_switch_theme', 'mytheme_create_default_blog_page' );
+
+
+/**
+ * Creating default posts while theme installation
+ */
+function mytheme_create_default_posts() {
+
+    $existing_posts = get_posts(array(
+        'post_type'      => 'post',
+        'posts_per_page' => 1,
+    ));
+
+    if (empty($existing_posts)) {
+        $default_posts = array(
+            array(
+                'post_title'  => 'چی شد که یوتیوب رو شروع کردم؟',
+                'post_name'   => 'blog1',
+                'post_status' => 'publish',
+                'post_type'   => 'post',
+                'post_excerpt' => 'داستان شروع بدبختیامون ! بیاین تا داستانشو براتون بگم',
+            ),
+            array(
+                'post_title'  => 'معرفی 10 تا از بهترین موزیسین های رپ',
+                'post_name'   => 'blog2',
+                'post_status' => 'publish',
+                'post_type'   => 'post',
+                'post_excerpt' => 'سلام توی این پست بهترین رپرایی که همتون دوسشون دارین رو قراره معرفی کنم'
+            ),
+            array(
+                'post_title'  => 'چی شد که یوتیوب رو شروع کردم؟',
+                'post_name'   => 'blog3',
+                'post_status' => 'publish',
+                'post_type'   => 'post',
+                'post_excerpt' => 'داستان شروع بدبختیامون ! بیاین تا داستانشو براتون بگم',
+            ),
+            array(
+                'post_title'  => 'چی شد که یوتیوب رو شروع کردم؟',
+                'post_name'   => 'blog4',
+                'post_status' => 'publish',
+                'post_excerpt' => 'داستان شروع بدبختیامون ! بیاین تا داستانشو براتون بگم',
+            ),
+        );
+
+        $image_files = array(
+            'blog1.webp',
+            'blog2.webp',
+            'blog3.webp',
+            'blog4.webp'
+        );
+
+        foreach ($default_posts as $index => $post_data) {
+            $post_id = wp_insert_post($post_data);
+
+            if (!is_wp_error($post_id)) {
+                // مسیر کامل فایل تصویر از پوشه قالب
+                $image_path = get_template_directory() . '/assets/img/blog/' . $image_files[$index];
+
+                // بررسی وجود فایل
+                if (file_exists($image_path)) {
+                    $image_url = get_template_directory_uri() . '/assets/img/blog/' . $image_files[$index];
+                    $image_id  = mytheme_import_image_from_path($image_path, $image_url);
+
+                    if ($image_id) {
+                        set_post_thumbnail($post_id, $image_id);
+                    }
+                }
+            }
+        }
+    }
+}
+add_action('after_switch_theme', 'mytheme_create_default_posts');
+
+
+// Helper function to import image from local template file
+function mytheme_import_image_from_path($file_path, $file_url) {
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/media.php';
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+
+    $file_array = array(
+        'name'     => basename($file_path),
+        'tmp_name' => $file_path,
+    );
+
+    $id = media_handle_sideload($file_array, 0);
+    if (is_wp_error($id)) {
+        return false;
+    }
+
+    return $id;
+}
+
+/**
+ * Setup default blog page, categories, and demo posts when theme is activated
+ */
+function mytube_setup_default_blog_content() {
+
+    // 1️⃣ ساخت صفحه "وبلاگ" اگه وجود نداشت
+    $existing_page = get_page_by_path('blog');
+    if (!$existing_page) {
+        $blog_page_id = wp_insert_post([
+            'post_title'   => 'وبلاگ',
+            'post_name'    => 'blog',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_content' => '',
+        ]);
+
+        update_option('page_for_posts', $blog_page_id);
+        error_log('✅ صفحه وبلاگ ساخته شد.');
+    } else {
+        $blog_page_id = $existing_page->ID;
+        error_log('ℹ️ صفحه وبلاگ از قبل وجود دارد.');
+    }
+
+    // 2️⃣ ساخت دو دسته‌بندی پیش‌فرض
+    $categories = [
+        'آموزش تولید محتوا' => 'content-training',
+        'رشد و توسعه کانال' => 'channel-growth',
+    ];
+
+    $created_terms = [];
+
+    foreach ($categories as $cat_name => $cat_slug) {
+        $term = term_exists($cat_name, 'category');
+        if (!$term) {
+            $new_term = wp_insert_term($cat_name, 'category', ['slug' => $cat_slug]);
+            if (!is_wp_error($new_term)) {
+                $created_terms[$cat_name] = $new_term['term_id'];
+                error_log("✅ دسته‌بندی {$cat_name} ساخته شد.");
+            }
+        } else {
+            $created_terms[$cat_name] = $term['term_id'];
+            error_log("ℹ️ دسته‌بندی {$cat_name} از قبل وجود دارد.");
+        }
+    }
+
+    $existing_posts = get_posts([
+        'post_type'      => 'post',
+        'posts_per_page' => 1,
+        'fields'         => 'ids',
+    ]);
+
+    if (empty($existing_posts)) {
+        $demo_posts = [
+            [
+                'post_title'  => 'چی شد که یوتوب رو شروع کردم؟',
+                'slug'  => 'blog1',
+                'cat'   => 'رشد و توسعه کانال',
+                'image' => 'blog1.webp',
+                'post_excerpt' => 'داستان شروع بدبختیامون ! بیاین تا داستانشو براتون بگم',
+            ],
+            [
+                'post_title'  => 'معرفی 10 تا از بهترین موزیسین های رپ',
+                'slug'  => 'blog2',
+                'cat'   => 'آموزش تولید محتوا',
+                'image' => 'blog2.webp',
+                'post_excerpt' => 'سلام توی این پست بهترین رپرایی که همتون دوسشون دارین رو قراره معرفی کنم'
+            ],
+            [
+                'title' => 'بهینه‌سازی سئو برای کانال یوتوب',
+                'slug'  => 'blog3',
+                'cat'   => 'رشد و توسعه کانال',
+                'image' => 'blog3.webp',
+                'post_excerpt' => 'بیا تا بهت بگم چطوری میتونی با رعایت یکسری نکات کانال یوتوبت رو سئو کنی'
+            ],
+            [
+                'title' => 'ترفندهای تدوین سریع ویدیو برای مبتدی‌ها',
+                'slug'  => 'blog4',
+                'cat'   => 'آموزش تولید محتوا',
+                'image' => 'blog4.webp',
+                'post_excerpt' => 'تو این مقاله قراره یکسری ترفندهای سریع تدوین ویدیو رو بهتون یاد بدم'
+            ],
+        ];
+
+        foreach ($demo_posts as $post_data) {
+            $cat_id = $created_terms[$post_data['cat']] ?? null;
+            $post_id = wp_insert_post([
+                'post_title'   => $post_data['title'],
+                'post_name'    => $post_data['slug'],
+                'post_status'  => 'publish',
+                'post_type'    => 'post',
+                'post_excerpt' => $post_data['post_excerpt'],
+                'post_category'=> $cat_id ? [$cat_id] : [],
+            ]);
+
+            // اگر عکس‌ها در پوشه‌ی قالب بودن، تنظیم به عنوان thumbnail
+            $image_path = get_template_directory() . '/assets/img/blog/' . $post_data['image'];
+            if (file_exists($image_path)) {
+                $upload = wp_upload_bits(basename($image_path), null, file_get_contents($image_path));
+                if (!$upload['error']) {
+                    $wp_filetype = wp_check_filetype($upload['file'], null);
+                    $attachment = [
+                        'post_mime_type' => $wp_filetype['type'],
+                        'post_title'     => sanitize_file_name($upload['file']),
+                        'post_content'   => '',
+                        'post_status'    => 'inherit',
+                    ];
+                    $attach_id = wp_insert_attachment($attachment, $upload['file'], $post_id);
+                    require_once(ABSPATH . 'wp-admin/includes/image.php');
+                    $attach_data = wp_generate_attachment_metadata($attach_id, $upload['file']);
+                    wp_update_attachment_metadata($attach_id, $attach_data);
+                    set_post_thumbnail($post_id, $attach_id);
+                }
+            }
+
+            error_log('🆕 پست ساخته شد: ' . $post_data['title']);
+        }
+    } else {
+        error_log('ℹ️ پست‌هایی از قبل وجود دارند، پست‌های نمونه ساخته نشدند.');
+    }
+}
+add_action('after_switch_theme', 'mytube_setup_default_blog_content');
+
+/**
+ * Blog posts filter
+ */
+add_action('wp_ajax_filter_blog_posts', 'mytube_filter_blog_posts');
+add_action('wp_ajax_nopriv_filter_blog_posts', 'mytube_filter_blog_posts');
+
+function mytube_filter_blog_posts() {
+  $cat = sanitize_text_field($_GET['cat']);
+
+  $args = ['post_type' => 'post', 'posts_per_page' => 6];
+
+  if ($cat !== 'all') {
+    $args['tax_query'] = [
+      [
+        'taxonomy' => 'category',
+        'field'    => 'name',
+        'terms'    => $cat,
+      ]
+    ];
+  }
+
+  $query = new WP_Query($args);
+  if ($query->have_posts()) :
+    while ($query->have_posts()) : $query->the_post();
+      get_template_part('template-parts/elementor_widgets/blog-card_widget.php');
+    endwhile;
+  else :
+    echo '<p>هیچ پستی یافت نشد.</p>';
+  endif;
+
+  wp_die();
+}
 
 ?>
