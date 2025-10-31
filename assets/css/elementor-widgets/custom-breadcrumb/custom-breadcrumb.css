@@ -1,5 +1,6 @@
 .breadcrumb{
     align-items: center;
+    direction: rtl;
 }
 
 .breadcrumb a{

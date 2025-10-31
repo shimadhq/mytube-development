@@ -277,7 +277,7 @@ class Biography extends Widget_Base{
             [
                 'label'     => __( 'رنگ عنوان', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#1D1616',
+                'default'   => '#1d16166f',
                 'selectors' => [
                     '{{WRAPPER}} .biography-title' => 'color: {{VALUE}};',
                 ],
@@ -304,7 +304,7 @@ class Biography extends Widget_Base{
             [
                 'label'     => __( 'رنگ متن', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#1D1616',
+                'default'   => '#1d16168f',
                 'selectors' => [
                     '{{WRAPPER}} .biography-description' => 'color: {{VALUE}};',
                 ],
@@ -508,8 +508,8 @@ class Biography extends Widget_Base{
                         </span>
                     </div>
                     <div href="<?php echo esc_url($settings['bio_button_link']['url']); ?>" class="bio-button">
-                            <?php echo esc_html($settings['bio_button_text']); ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
+                        <?php echo esc_html($settings['bio_button_text']); ?>
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                     </div>
                 </div>
                 <div class="mobile-bio-image-section">

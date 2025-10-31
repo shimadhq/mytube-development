@@ -330,7 +330,7 @@ function mytube_create_default_menu(){
 
     wp_update_nav_menu_item($menu_id, 0, [
         'menu-item-title' => __('بیوگرافی', 'mytube'),
-        'menu-item-url'   => '#',
+        'menu-item-url'   => '/about-us',
         'menu-item-status'=> 'publish'
     ]);
 
@@ -342,7 +342,7 @@ function mytube_create_default_menu(){
 
     wp_update_nav_menu_item($menu_id, 0, [
         'menu-item-title' => __('تماس با من', 'mytube'),
-        'menu-item-url'   => '#',
+        'menu-item-url'   => '/contact-us',
         'menu-item-status'=> 'publish'
     ]);
 }
@@ -439,6 +439,12 @@ function mytheme_import_multiple_templates() {
             'title' => 'تماس با ما',
             'slug' => 'contact-us',
             'template' => 'contact-us.json',
+            'front' => false
+        ],
+        [
+            'title' => 'درباره‌ی ما',
+            'slug' => 'about-us',
+            'template' => 'about-us.json',
             'front' => false
         ],
     ];
