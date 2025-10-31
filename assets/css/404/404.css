@@ -1,9 +1,60 @@
 .error-404-page {
     display: flex;
-    justify-content: center; 
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f7f7f7;
-    text-align: center;
     padding: 20px;
+}
+
+.error-content{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error-text{
+    color: #493A3A;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.return-buttons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.previous-page-button{
+    padding: 12px 30px;
+    text-align: center;
+    background-color: #493A3A;
+    color: white;
+    font-size: 16px;
+    font-weight: 900;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.homepage-button{
+    padding: 12px 30px;
+    text-align: center;
+    background-color: #493A3A;
+    color: white;
+    font-size: 16px;
+    font-weight: 900;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.previous-page-button:hover{
+    background-color: #FF4545;
+    box-shadow: 0 4px 10px 0 #1d16164a;
+}
+
+.homepage-button:hover{
+    background-color: #FF4545;
+    box-shadow: 0 4px 10px 0 #1d16164a;
 }
