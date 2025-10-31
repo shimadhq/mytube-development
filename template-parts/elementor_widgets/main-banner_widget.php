@@ -113,7 +113,7 @@ class Main_Banner extends Widget_Base{
                 'label' => 'تصویر اصلی',
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/main-banner/main-image.webp',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/main-banner/main-image.webp',
                 ],
             ]
         );
@@ -554,8 +554,8 @@ class Main_Banner extends Widget_Base{
                 <div class="first-layer"></div>
                 <div class="second-layer"></div>
                 <div class="main-banner">
-                    <img class="bg-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/main-banner/bg-shape.png'); ?>" alt="" />
-                    <img class="bg-shape-mobile" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/main-banner/bg-mobile.png'); ?>" alt="" />
+                    <img class="bg-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/main-banner/bg-shape.png'); ?>" alt="" />
+                    <img class="bg-shape-mobile" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/main-banner/bg-mobile.png'); ?>" alt="" />
 
                     <div class="content-section">
                         <h1 class="main-title"><?php echo esc_html($settings['mb_heading_text'] ?? ''); ?></h1>
@@ -581,7 +581,7 @@ class Main_Banner extends Widget_Base{
 
                     <?php if (!empty($counters)) : ?>
                         <div class="counters-section">
-                            <img class="frame" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/main-banner/frame.svg'); ?>" alt="frame" />
+                            <img class="frame" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/main-banner/frame.svg'); ?>" alt="frame" />
                             <?php foreach ($counters as $counter) : ?>
                                 <div class="counter">
                                     <div class="counter-icon-wrapper">

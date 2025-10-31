@@ -42,7 +42,7 @@ class Video_Category extends Widget_Base{
                 'label' => 'آیکن عنوان',
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/video-category/video-list.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/video-category/video-list.svg',
                 ],
             ]
         );
@@ -189,19 +189,19 @@ class Video_Category extends Widget_Base{
                 'title_field' => '{{{ vc_inner_title }}}',
                 'default' => [
                     [
-                        'vc_inner_image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video1.webp'],
+                        'vc_inner_image' => ['url' => get_template_directory_uri() . '/assets/img/widgets/video-category/video1.webp'],
                         'vc_inner_icon_image' => ['url' => get_template_directory_uri() . '/assets/icon/puzzle.svg'],
                         'vc_inner_title' => __( 'هفت روز ماجراجویی توی شهر زیرزمینی', 'mytube' ),
                         'vc_inner_description' => __( 'با دو تا از دوستای یوتیوبرمون قراره هفت روز بریم ...', 'mytube' ),
-                        'vc_inner_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
+                        'vc_inner_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/video-category/youtube.svg'],
 
                     ],
                     [
-                        'vc_inner_image' => ['url' => get_template_directory_uri() . '/assets/img/video-category/video2.webp'],
+                        'vc_inner_image' => ['url' => get_template_directory_uri() . '/assets/img/widgets/video-category/video2.webp'],
                         'vc_inner_icon_image' => ['url' => get_template_directory_uri() . '/assets/icon/smily.svg'], 
                         'vc_inner_title' => __( 'دعوای یوتیوبرا سر ۱ میلیون دلار', 'mytube' ),
                         'vc_inner_description' => __('پنجاه تا یوتیوبر برتر جهان رو جمع کردیم یه جا که ...', 'mytube'),
-                        'vc_inner_icon' => ['url' => get_template_directory_uri() . '/assets/img/video-category/youtube.svg'],
+                        'vc_inner_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/video-category/youtube.svg'],
                     ],
                 ],
             ]
@@ -595,7 +595,7 @@ class Video_Category extends Widget_Base{
         <div class="video-category">
             <div class="tabs-section">
                 <div class="tab">
-                    <img class="shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/video-category/shape.svg') ?>" alt="" />
+                    <img class="shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/video-category/shape.svg') ?>" alt="" />
                     <div class="title-section">
                         <div class="image-wrapper">
                             <img class="heading-icon" src="<?php echo esc_url( $settings['vc_heading_icon']['url'] ) ?>" alt="" />
@@ -639,7 +639,7 @@ class Video_Category extends Widget_Base{
                 <?php foreach ($tabs as $tab_index => $tab) : ?>
                     <?php $current++; ?>
                     <div class="tab-pane <?php echo $tab_index === 0 ? 'active' : ''; ?>" data-tab="<?php echo $tab_index; ?>">
-                        <img class="shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/video-category/shape2.svg') ?>" alt="" />
+                        <img class="shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/video-category/shape2.svg') ?>" alt="" />
                         <div class="tab-header">
                             <div class="top-title">
                                 <div class="top-icon-wrapper">
@@ -652,7 +652,7 @@ class Video_Category extends Widget_Base{
                                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                             </a>
                         </div>
-                        <img class="shape3" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/video-category/shape3.svg') ?>" alt="" />
+                        <img class="shape3" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/video-category/shape3.svg') ?>" alt="" />
                         <div class="tab-body">
                             <div class="tab-columns">
                                 <?php if (!empty($tab['tab_content'])) : ?>

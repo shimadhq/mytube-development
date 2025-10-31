@@ -42,7 +42,7 @@ class Playlist extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/playlist/list.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/playlist/list.svg',
                 ],
             ]
         );
@@ -62,7 +62,7 @@ class Playlist extends Widget_Base{
                 'label' => __( 'تصویر عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/playlist/camera.webp',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/playlist/camera.webp',
                 ],
             ]
         );
@@ -116,32 +116,32 @@ class Playlist extends Widget_Base{
                 'title_field' => '{{{ pl_item_title }}}',
                 'default' => [
                     [
-                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/playlist/puzzle.svg'],
+                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/playlist/puzzle.svg'],
                         'pl_item_title' => __( 'چالش های امسال', 'mytube' ),
                         'pl_item_description' => __('۱ ویدیو', 'mytube'),
                     ],
                     [
-                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/playlist/smile.svg'],
+                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/playlist/smile.svg'],
                         'pl_item_title' => __( 'میم هایی که شما فرستادید', 'mytube' ),
                         'pl_item_description' => __('۳۴ ویدیو', 'mytube'),
                     ],
                     [
-                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/playlist/puzzle.svg'],
+                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/playlist/puzzle.svg'],
                         'pl_item_title' => __( 'یه هفته زندگی تو جنگل', 'mytube' ),
                         'pl_item_description' => __('۹ ویدیو', 'mytube'),
                     ],
                     [
-                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/playlist/handle.svg'],
+                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/playlist/handle.svg'],
                         'pl_item_title' => __( 'آموزش بازی WOW', 'mytube' ),
                         'pl_item_description' => __('۳۴ ویدیو', 'mytube'),
                     ],
                     [
-                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/playlist/puzzle.svg'],
+                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/playlist/puzzle.svg'],
                         'pl_item_title' => __( 'سعی کن نخندی', 'mytube' ),
                         'pl_item_description' => __('۲ ویدیو', 'mytube'),
                     ],
                     [
-                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/playlist/handle.svg'],
+                        'pl_item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/playlist/handle.svg'],
                         'pl_item_title' => __( 'گیم پلی و استریم بازی', 'mytube' ),
                         'pl_item_description' => __('۳۴ ویدیو', 'mytube'),
                     ],
@@ -423,7 +423,7 @@ class Playlist extends Widget_Base{
         ?>
         <div class="playlist">
             <div class="title-container">
-                <img class="shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/video-category/shape.svg') ?>" alt="" />
+                <img class="shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/video-category/shape.svg') ?>" alt="" />
                 <div class="title-wrap">
                     <div class="main-icon-wrapper">
                         <img class="main-icon" src="<?php echo esc_url( $settings['pl_heading_icon']['url'] ) ?>" alt="" />
@@ -433,10 +433,10 @@ class Playlist extends Widget_Base{
                     </span>
                 </div>
                 <div class="title-image-wrapper">
-                    <img class="playlist-main-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/camera.webp') ?>" />
+                    <img class="playlist-main-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/playlist/camera.webp') ?>" />
                 </div>
-                <img class="gray-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/gray-shape.svg') ?>" />
-                <img class="traingle-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/traingle-shape.svg') ?>" />
+                <img class="gray-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/playlist/gray-shape.svg') ?>" />
+                <img class="traingle-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/playlist/traingle-shape.svg') ?>" />
             </div>
             <div class="items-container">
                 <?php foreach ($items as $item) : ?>
@@ -456,7 +456,7 @@ class Playlist extends Widget_Base{
                                 <span class="item-title"><?php echo esc_html($item['pl_item_title']); ?></span>
                                 <span class="mobile-item-description"><?php echo esc_html($item['pl_item_description']); ?></span>
                             </div>
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg') ?>" alt="arrow-icon" />
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/playlist/red-arrow.svg') ?>" alt="arrow-icon" />
                         </div>
                     </div>
                 <?php endforeach; ?>
