@@ -145,6 +145,25 @@
     gap: 20px;
 }
 
+.blog-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 15px;
+    background: linear-gradient(to left, #EEEEEE, #eeeeee46);
+    border-radius: 20px;
+}
+
+.blog-pagination .pagination-wrapper ul{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 12px;
+}
+
 @media (max-width: 768px) {
     .blog-sidebar{
         display: none;

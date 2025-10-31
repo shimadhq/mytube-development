@@ -123,12 +123,38 @@
                 <!-- 🔢 Pagination -->
                 <div class="blog-pagination">
                     <?php
-                        echo paginate_links([
-                            'total'   => $query->max_num_pages,
-                            'current' => max(1, get_query_var('paged')),
-                            'prev_text' => '&lt;',
-                            'next_text' => '&gt;',
-                        ]);
+                        global $wp_query;
+
+                        $big = 999999999;
+                        $paged = max(1, get_query_var('paged'));
+                        $total = $query->max_num_pages;
+
+                        if ($total > 1) { // Only shows pagination if there is more than one page
+                            echo '<div class="pagination-wrapper">';
+
+                            // Arrows
+                            echo '<div class="pagination-arrows">';
+                            previous_posts_link('<span class="page-arrow prev"></span>');
+                            next_posts_link('<span class="page-arrow next"></span>', $total);
+                            echo '</div>';
+
+                            // اعداد صفحات
+                            echo paginate_links([
+                                'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                                'format'    => '?paged=%#%',
+                                'current'   => $paged,
+                                'total'     => $total,
+                                'mid_size'  => 1,
+                                'end_size'  => 3,
+                                'prev_next' => false,
+                                'type'      => 'list',
+                            ]);
+
+                            echo '</div>';
+                        } elseif ($total === 1) {
+                            // If there is one page only, then ...
+                            echo '<div class="pagination-single">1</div>';
+                        }
                     ?>
                 </div>
             </div>

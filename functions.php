@@ -36,6 +36,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('contact-form', get_template_directory_uri() . '/assets/css/contact-us/contact-form/contact-form.css', [], $version);
     wp_enqueue_style('custom-breadcrumb', get_template_directory_uri() . '/assets/css/elementor-widgets/custom-breadcrumb/custom-breadcrumb.css', [], $version);
     wp_enqueue_style('blog-archive', get_template_directory_uri() . '/assets/blog/blog-archive.css', [], $version);
+    wp_enqueue_style('blog-card', get_template_directory_uri() . '/assets/css/blog/blog-card.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
@@ -564,97 +565,6 @@ function mytheme_create_default_blog_page() {
 }
 add_action( 'after_switch_theme', 'mytheme_create_default_blog_page' );
 
-
-/**
- * Creating default posts while theme installation
- */
-function mytheme_create_default_posts() {
-
-    $existing_posts = get_posts(array(
-        'post_type'      => 'post',
-        'posts_per_page' => 1,
-    ));
-
-    if (empty($existing_posts)) {
-        $default_posts = array(
-            array(
-                'post_title'  => 'چی شد که یوتیوب رو شروع کردم؟',
-                'post_name'   => 'blog1',
-                'post_status' => 'publish',
-                'post_type'   => 'post',
-                'post_excerpt' => 'داستان شروع بدبختیامون ! بیاین تا داستانشو براتون بگم',
-            ),
-            array(
-                'post_title'  => 'معرفی 10 تا از بهترین موزیسین های رپ',
-                'post_name'   => 'blog2',
-                'post_status' => 'publish',
-                'post_type'   => 'post',
-                'post_excerpt' => 'سلام توی این پست بهترین رپرایی که همتون دوسشون دارین رو قراره معرفی کنم'
-            ),
-            array(
-                'post_title'  => 'چی شد که یوتیوب رو شروع کردم؟',
-                'post_name'   => 'blog3',
-                'post_status' => 'publish',
-                'post_type'   => 'post',
-                'post_excerpt' => 'داستان شروع بدبختیامون ! بیاین تا داستانشو براتون بگم',
-            ),
-            array(
-                'post_title'  => 'چی شد که یوتیوب رو شروع کردم؟',
-                'post_name'   => 'blog4',
-                'post_status' => 'publish',
-                'post_excerpt' => 'داستان شروع بدبختیامون ! بیاین تا داستانشو براتون بگم',
-            ),
-        );
-
-        $image_files = array(
-            'blog1.webp',
-            'blog2.webp',
-            'blog3.webp',
-            'blog4.webp'
-        );
-
-        foreach ($default_posts as $index => $post_data) {
-            $post_id = wp_insert_post($post_data);
-
-            if (!is_wp_error($post_id)) {
-                // مسیر کامل فایل تصویر از پوشه قالب
-                $image_path = get_template_directory() . '/assets/img/blog/' . $image_files[$index];
-
-                // بررسی وجود فایل
-                if (file_exists($image_path)) {
-                    $image_url = get_template_directory_uri() . '/assets/img/blog/' . $image_files[$index];
-                    $image_id  = mytheme_import_image_from_path($image_path, $image_url);
-
-                    if ($image_id) {
-                        set_post_thumbnail($post_id, $image_id);
-                    }
-                }
-            }
-        }
-    }
-}
-add_action('after_switch_theme', 'mytheme_create_default_posts');
-
-
-// Helper function to import image from local template file
-function mytheme_import_image_from_path($file_path, $file_url) {
-    require_once ABSPATH . 'wp-admin/includes/file.php';
-    require_once ABSPATH . 'wp-admin/includes/media.php';
-    require_once ABSPATH . 'wp-admin/includes/image.php';
-
-    $file_array = array(
-        'name'     => basename($file_path),
-        'tmp_name' => $file_path,
-    );
-
-    $id = media_handle_sideload($file_array, 0);
-    if (is_wp_error($id)) {
-        return false;
-    }
-
-    return $id;
-}
-
 /**
  * Setup default blog page, categories, and demo posts when theme is activated
  */
@@ -808,6 +718,78 @@ function mytube_filter_blog_posts() {
   endif;
 
   wp_die();
+}
+
+/**
+ * Setting blog post views
+ */
+function mytube_set_post_views($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+
+    if ($count == '') {
+        $count = 0;
+        add_post_meta($postID, $count_key, '0');
+    } else {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+/** 
+ * Blog sorting filter
+ */
+add_action('wp_ajax_mytube_sort_posts', 'mytube_sort_posts');
+add_action('wp_ajax_nopriv_mytube_sort_posts', 'mytube_sort_posts');
+
+function mytube_sort_posts() {
+    $sort = $_POST['sort'] ?? 'all';
+
+    $args = [
+        'post_type'      => 'post',
+        'posts_per_page' => 12,
+    ];
+
+    switch ($sort) {
+        case 'popular':
+            $args['meta_key'] = 'post_likes';
+            $args['orderby']  = 'meta_value_num';
+            $args['order']    = 'DESC';
+            break;
+
+        case 'views':
+            $args['meta_key'] = 'post_views_count';
+            $args['orderby'] = 'meta_value_num';
+            $args['order'] = 'DESC';
+            break;
+
+        case 'newest':
+            $args['orderby'] = 'date';
+            $args['order']   = 'DESC';
+            break;
+
+        case 'oldest':
+            $args['orderby'] = 'date';
+            $args['order']   = 'ASC';
+            break;
+    }
+
+    $query = new WP_Query($args);
+
+    ob_start();
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget.php');
+        endwhile;
+    else:
+        echo '<p>هیچ پستی یافت نشد.</p>';
+    endif;
+
+    wp_reset_postdata();
+
+    echo ob_get_clean();
+    wp_die();
 }
 
 ?>
