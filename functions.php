@@ -87,13 +87,28 @@ add_action( 'elementor/frontend/after_enqueue_styles', 'mytube_add_custom_fonts'
  * Localizing Ajax URL
  */
 function mytube_blog_scripts() {
-    wp_enqueue_script('mytube-blog-tabs', get_template_directory_uri() . '/inc/js/blog-tabs/blog-tabs.js', ['jquery'], null, true);
+    wp_enqueue_script('mytube-blog-tabs', get_template_directory_uri() . '/inc/js/blog/blog-tabs.js', ['jquery'], null, true);
 
     wp_localize_script('mytube-blog-tabs', 'mytube_ajax', [
         'ajax_url' => admin_url('admin-ajax.php')
     ]);
 }
 add_action('wp_enqueue_scripts', 'mytube_blog_scripts');
+
+/**
+ * Blog sorting ajax
+ */
+function mytube_enqueue_blog_ajax_script() {
+    wp_enqueue_script(
+        'mytube-blog-ajax',
+        get_template_directory_uri() . '/inc/js/blog/blog-ajax.js',
+        ['jquery'],
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'mytube_enqueue_blog_ajax_script');
+
 
 /**
  * Adding settings menu & setting default items
