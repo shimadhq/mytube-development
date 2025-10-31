@@ -435,6 +435,12 @@ function mytheme_import_multiple_templates() {
             'template' => 'homepage.json',
             'front'    => true // Set as front page
         ],
+        [
+            'title' => 'تماس با ما',
+            'slug' => 'contact-us',
+            'template' => 'contact-us.json',
+            'front' => false
+        ],
     ];
 
     $front_page_id = null;
