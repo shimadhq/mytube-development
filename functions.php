@@ -85,6 +85,16 @@ function mytube_add_custom_fonts() {
 add_action( 'elementor/frontend/after_enqueue_styles', 'mytube_add_custom_fonts' );
 
 /**
+ * Enqueue the 404.css file separately
+ */
+function enqueue_404_styles() {
+    if (is_404()) {
+        wp_enqueue_style('style-404', get_template_directory_uri() . '/assets/css/404/404.css', array(), '1.0.0');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_404_styles');
+
+/**
  * Localizing Ajax URL
  */
 function mytube_blog_scripts() {
@@ -109,7 +119,6 @@ function mytube_enqueue_blog_ajax_script() {
     );
 }
 add_action('wp_enqueue_scripts', 'mytube_enqueue_blog_ajax_script');
-
 
 /**
  * Adding settings menu & setting default items

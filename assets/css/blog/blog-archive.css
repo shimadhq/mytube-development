@@ -202,6 +202,9 @@
 }
 
 .page-arrow.prev{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20px;
     height: 20px;
     background: url('<?php echo get_template_directory_uri(); ?>/assets/img/blog/right-arrow.svg') center center no-repeat;
@@ -210,6 +213,9 @@
 }
 
 .page-arrow.next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20px;
     height: 20px;
     background: url('<?php echo get_template_directory_uri(); ?>/assets/img/blog/left-arrow.svg') center center no-repeat;
