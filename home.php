@@ -132,12 +132,6 @@
                         if ($total > 1) { // Only shows pagination if there is more than one page
                             echo '<div class="pagination-wrapper">';
 
-                            // Arrows
-                            echo '<div class="pagination-arrows">';
-                            previous_posts_link('<span class="page-arrow prev"></span>');
-                            next_posts_link('<span class="page-arrow next"></span>', $total);
-                            echo '</div>';
-
                             // اعداد صفحات
                             echo paginate_links([
                                 'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
@@ -149,6 +143,12 @@
                                 'prev_next' => false,
                                 'type'      => 'list',
                             ]);
+
+                            // Arrows
+                            echo '<div class="pagination-arrows">';
+                            previous_posts_link('<span class="page-arrow prev"></span>');
+                            next_posts_link('<span class="page-arrow next"></span>', $total);
+                            echo '</div>';
 
                             echo '</div>';
                         } elseif ($total === 1) {
