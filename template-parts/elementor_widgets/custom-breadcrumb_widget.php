@@ -43,7 +43,7 @@ class Custom_Breadcrumb extends Widget_Base {
                 'label' => __('Separator', 'mytube'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/breadcrumb/arrow.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/breadcrumb/arrow.svg',
                 ],
             ]
         );

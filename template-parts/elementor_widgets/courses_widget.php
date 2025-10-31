@@ -42,7 +42,7 @@ class Courses extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/courses/courses.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/courses/courses.svg',
                 ],
             ]
         );
@@ -154,28 +154,28 @@ class Courses extends Widget_Base{
                 'title_field' => '{{{ course_title }}}',
                 'default' => [
                     [
-                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course1.webp'],
+                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/widgets/courses/course1.webp'],
                         'course_title' => __( 'دوره آموزش یوتیوب', 'mytube' ),
                         'course_text' =>  __( 'ترفند های حرفه ای یوتیوب', 'mytube' ),
                         'course_price' => __( '۵,۶۰۰,۰۰۰', 'mytube' ),
                         'pay_button_text' => __( 'خرید', 'mytube' ),
                     ],
                     [
-                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course2.webp'],
+                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/widgets/courses/course2.webp'],
                         'course_title' => __( 'دوره آموزش پرمیر', 'mytube' ),
                         'course_text' =>  __( 'تدوین حرفه ای ویدیو هاتون', 'mytube' ),
                         'course_price' => __( '۷,۶۰۰,۰۰۰', 'mytube' ),
                         'pay_button_text' => __( 'خرید', 'mytube' ),
                     ],
                     [
-                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course3.webp'],
+                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/widgets/courses/course3.webp'],
                         'course_title' => __( 'دوره آموزش تولید محتوا', 'mytube' ),
                         'course_text' =>  __( 'تولید محتوا یه اصل خیلی مهم برای ...', 'mytube' ),
                         'course_price' => __( '۱,۳۰۰,۰۰۰', 'mytube' ),
                         'pay_button_text' => __( 'خرید', 'mytube' ),
                     ],
                     [
-                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/courses/course4.webp'],
+                        'course_image' => ['url' => get_template_directory_uri() . '/assets/img/widgets/courses/course4.webp'],
                         'course_title' => __( 'دوره آموزش اینستاگرام', 'mytube' ),
                         'course_text' =>  __( 'ترفند های حرفه ای اینستاگرام', 'mytube' ),
                         'course_price' => __( '۵,۶۰۰,۰۰۰', 'mytube' ),
@@ -447,7 +447,7 @@ class Courses extends Widget_Base{
             <div class="courses">
                 <div class="courses-header">
                     <div class="courses-title-wrapper">
-                        <img class="short-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/short-videos/shape.svg'); ?>" alt="">
+                        <img class="short-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/short-videos/shape.svg'); ?>" alt="">
                         <div class="courses-icon-wrapper">
                             <?php if (!empty($settings['co_heading_icon']['url'])) : ?>
                                 <img class="main-icon" src="<?php echo esc_url($settings['co_heading_icon']['url']); ?>" alt="<?php echo esc_attr($settings['co_heading_text'] ?? ''); ?>" />

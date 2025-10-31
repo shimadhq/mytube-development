@@ -42,7 +42,7 @@ class Biography extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/biography/information.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/biography/information.svg',
                 ],
             ]
         );
@@ -109,7 +109,7 @@ class Biography extends Widget_Base{
                 'label' => 'تصویر بیوگرافی',
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/biography/image.webp',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/biography/image.webp',
                 ],
             ]
         );
@@ -175,19 +175,19 @@ class Biography extends Widget_Base{
                 'title_field' => '{{{ item_text }}}',
                 'default' => [
                     [
-                        'item_icon' => ['url' => get_template_directory_uri() . '/assets/img/biography/calendar.svg'],
+                        'item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/biography/calendar.svg'],
                         'item_number' => __( '10', 'mytube' ),
                         'item_suffix' => __( 'سال', 'mytube' ),
                         'item_text' => __( 'سابــقه فعالیت', 'mytube' ),
                     ],
                     [
-                        'item_icon' => ['url' => get_template_directory_uri() . '/assets/img/biography/group.svg'],
+                        'item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/biography/group.svg'],
                         'item_number' => __( '1', 'mytube' ),
                         'item_suffix' => __( 'میلیون', 'mytube' ),
                         'item_text' => __( 'دنبال کننــــده', 'mytube' ),
                     ],
                     [
-                        'item_icon' => ['url' => get_template_directory_uri() . '/assets/img/biography/eye.svg'],
+                        'item_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/biography/eye.svg'],
                         'item_number' => __( '3', 'mytube' ),
                         'item_suffix' => __( 'میلیون', 'mytube' ),
                         'item_text' => __( 'بازدید ماهانه', 'mytube' ),
@@ -493,10 +493,10 @@ class Biography extends Widget_Base{
         ?>
         <div class="biography">
             <div class="bio-title-section">
-                <img class="bio-layer1" src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/layer1.svg" />
-                <img class="bio-layer2" src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/layer2.svg" />
-                <div class="main-layer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/biography/main-bg.svg');">
-                    <img class="bio-shape1" src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/shape.svg" />
+                <img class="bio-layer1" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/biography/layer1.svg" />
+                <img class="bio-layer2" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/biography/layer2.svg" />
+                <div class="main-layer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/widgets/biography/main-bg.svg');">
+                    <img class="bio-shape1" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/biography/shape.svg" />
                     <div class="bio-title-wrapper">
                         <?php if ( ! empty( $settings['bio_heading_icon']['url'] ) ) : ?>
                             <div class="bio-title-icon">
@@ -513,13 +513,13 @@ class Biography extends Widget_Base{
                     </div>
                 </div>
                 <div class="mobile-bio-image-section">
-                    <img class="mobile-bio-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/biography/image.svg') ?>" />
+                    <img class="mobile-bio-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/biography/image.svg') ?>" />
                 </div>
             </div>
             <div class="bio-content-section">
                 <div class="bio-content-wrapper">
-                    <img class="bio-shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/video-category/shape.svg') ?>" alt="" />
-                    <img class="info" src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/information.svg" />
+                    <img class="bio-shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/video-category/shape.svg') ?>" alt="" />
+                    <img class="info" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/biography/information.svg" />
                     <span class="biography-title">
                         <?php echo esc_html($settings['biography_heading']); ?>
                     </span>
@@ -557,7 +557,7 @@ class Biography extends Widget_Base{
                 </div>
             </div>
             <div class="bio-image-section">
-                <img class="bio-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/biography/image.webp') ?>" />
+                <img class="bio-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/biography/image.webp') ?>" />
             </div>
         </div>
         <?php

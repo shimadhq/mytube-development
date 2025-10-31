@@ -84,7 +84,7 @@ class Custom_Map extends Widget_Base {
         <div id="custom-map-wrapper" style="width:100%; height:200px; position:relative;">
             <?php if (empty($api_key)): ?>
                 <!-- تصویر پیش فرض -->
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/custom-map/map.webp" 
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/custom-map/map.webp" 
                     alt="Map Placeholder" 
                     style="width:100%; height:100%; object-fit:cover;" 
                 />
@@ -140,7 +140,7 @@ class Custom_Map extends Widget_Base {
                         const marker = new google.maps.Marker({
                             map: map,
                             position: { lat: 35.7448, lng: 51.3756 },
-                            icon: "<?php echo get_template_directory_uri(); ?>/assets/img/custom-map/marker.svg"
+                            icon: "<?php echo get_template_directory_uri(); ?>/assets/img/widgets/custom-map/marker.svg"
                         });
 
                         const geocoder = new google.maps.Geocoder();

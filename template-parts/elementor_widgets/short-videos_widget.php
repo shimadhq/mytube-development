@@ -46,7 +46,7 @@ class Short_Videos extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/short-videos/short-videos.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/short-videos/short-videos.svg',
                 ],
             ]
         );
@@ -111,17 +111,17 @@ class Short_Videos extends Widget_Base{
                 'title_field' => '{{{ sv_counter_text }}}',
                 'default' => [
                     [
-                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/play.svg'],
+                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/short-videos/play.svg'],
                         'sv_counter_number' => __('۶۷', 'mytube'),
                         'sv_counter_text' => __('ویدیوی کوتاه', 'mytube'),
                     ],
                     [
-                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/film.svg'],
+                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/short-videos/film.svg'],
                         'sv_counter_number' => __('۲۴۸', 'mytube'),
                         'sv_counter_text' => __('همه ویدیو ها', 'mytube'),
                     ],
                     [
-                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/playlist.svg'],
+                        'sv_counter_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/short-videos/playlist.svg'],
                         'sv_counter_number' => __('۲۳', 'mytube'),
                         'sv_counter_text' => __('لیست های پخش', 'mytube'),
                     ]
@@ -233,18 +233,18 @@ class Short_Videos extends Widget_Base{
                 'title_field' => '{{{ sv_video_title }}}',
                 'default' => [
                     [
-                        'sv_video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video1.webp'],
+                        'sv_video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/widgets/short-videos/video1.webp'],
                         'sv_video_url' => '',
                         'sv_video_title' => __( 'برای چالش ماشین جدید گرفتیم !', 'mytube' ),
                         'sv_video_text' => __( 'بریم بینیم استقامت این ماشین چقدره!', 'mytube' ),
-                        'sv_video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/puzzle-icon.svg'],
+                        'sv_video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/short-videos/puzzle-icon.svg'],
                     ],
                     [
-                        'sv_video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/short-videos/video2.webp'],
+                        'sv_video_thumbnail' =>  ['url' => get_template_directory_uri() . '/assets/img/widgets/short-videos/video2.webp'],
                         'sv_video_url' => '',
                         'sv_video_title' => __( 'مصاحبه با یوتیوبر ها پارت اول', 'mytube' ),
                         'sv_video_text' => __( 'مصاحبه با معروفترین یوتیوبر ها', 'mytube' ),
-                        'sv_video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/short-videos/puzzle-icon.svg'],
+                        'sv_video_puzzle_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/short-videos/puzzle-icon.svg'],
                     ]
                 ],
             ]
@@ -545,7 +545,7 @@ class Short_Videos extends Widget_Base{
 
             <!-- Title Section -->
             <div class="short-title-section">
-                <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
+                <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/short-videos/shape.svg" />
 
                 <div class="short-title-wrapper">
                     <?php if (!empty($settings['sv_heading_icon']['url'])) : ?>
@@ -584,7 +584,7 @@ class Short_Videos extends Widget_Base{
                 <!-- Button -->
                 <div href="<?php echo esc_url($settings['sv_button_url']['url']); ?>" class="short-button">
                     <?php echo esc_html($settings['sv_button_title']); ?>
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
                 </div>
             </div>
 
@@ -596,7 +596,7 @@ class Short_Videos extends Widget_Base{
                         $thumbnail = $video['sv_video_thumbnail']['url'] ?? '';
                     ?>
                         <div class="short-video">
-                            <img class="white-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/white-shape.svg" />
+                            <img class="white-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/short-videos/white-shape.svg" />
                             <!-- Video Puzzle Icon -->
                             <div class="short-video-icon">
                                 <?php if (!empty($video['sv_video_puzzle_icon']['url'])) : ?>
@@ -614,7 +614,7 @@ class Short_Videos extends Widget_Base{
                                 ">
                                     <img src="<?php echo esc_url($thumbnail); ?>" />
                                     <div class="play-button">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/play-icon.svg" />
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/short-videos/play-icon.svg" />
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -657,7 +657,7 @@ class Short_Videos extends Widget_Base{
             <!-- Mobile Button -->
             <a href="<?php echo esc_url($settings['sv_button_url']['url']); ?>" class="short-button-mobile">
                 <?php echo esc_html($settings['sv_button_title']); ?>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/playlist/red-arrow.svg'); ?>" alt="arrow-icon" />
             </a>
         </div>
     <?php

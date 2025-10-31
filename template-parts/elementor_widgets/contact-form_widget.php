@@ -43,7 +43,7 @@ class Contact_Form extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/rocket.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/rocket.svg',
                 ],
             ]
         );
@@ -249,7 +249,7 @@ class Contact_Form extends Widget_Base{
         ?>
         <div class="contact-form">
             <div class="cf-title-section">
-                <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/shape.svg" />
+                <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/biography/shape.svg" />
                 <h2 class="cf-title">
                     <?php echo esc_html($settings['cf_heading_text']); ?>
                 </h2>
@@ -260,7 +260,7 @@ class Contact_Form extends Widget_Base{
                 <?php endif; ?>
             </div>
             <div class="cf-form-section">
-                <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
+                <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/video-category/shape.svg" />
                 <div class="name-phone">
                     <div class="cf-fullname-field">
                         <label class="cf-field-label">

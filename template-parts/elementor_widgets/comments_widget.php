@@ -43,7 +43,7 @@ class Comments extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/comments/comments.svg',
+                    'url' => get_template_directory_uri() . '/assets/img//widgets/comments/comments.svg',
                 ],
             ]
         );
@@ -125,13 +125,13 @@ class Comments extends Widget_Base{
                 'title_field' => '{{{ comment_title }}}',
                 'default' => [
                     [
-                        'comment_image' => ['url' => get_template_directory_uri() . '/assets/img/comments/image1.png'],
+                        'comment_image' => ['url' => get_template_directory_uri() . '/assets/img/widgets/comments/image1.png'],
                         'comment_title' => __( 'ســعـــیـد کــریــمـیان', 'mytube' ),
                         'comment_text' => __( 'دنبـــال کنـنـده', 'mytube' ),
                         'comment_description' => __( 'سلام. سعید هستم. محتوای چنلتون عالیه. من همه ویدیو هاتون رو دیدم و همچنان دنبالتون می کنم. ادامه بدید!', 'mytube' ),
                     ],
                     [
-                        'comment_image' => ['url' => get_template_directory_uri() . '/assets/img/comments/image1.png'],
+                        'comment_image' => ['url' => get_template_directory_uri() . '/assets/img/widgets/comments/image1.png'],
                         'comment_title' => __( 'ســعـــیـد کــریــمـیان', 'mytube' ),
                         'comment_text' => __( 'دنبـــال کنـنـده', 'mytube' ),
                         'comment_description' => __( 'سلام. سعید هستم. محتوای چنلتون عالیه. من همه ویدیو هاتون رو دیدم و همچنان دنبالتون می کنم. ادامه بدید!', 'mytube' ),
@@ -156,7 +156,7 @@ class Comments extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/comments/social.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/comments/social.svg',
                 ],
             ]
         );
@@ -229,27 +229,27 @@ class Comments extends Widget_Base{
                 'title_field' => '{{{ social_title }}}',
                 'default' => [
                     [
-                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/comments/instagram.svg'],
+                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/comments/instagram.svg'],
                         'social_title' => __( 'اینستاگرام', 'mytube' ),
                         'social_text' => __( '@youtube.id', 'mytube' ),
                     ],
                     [
-                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/comments/telegram.svg'],
+                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/comments/telegram.svg'],
                         'social_title' => __( 'تلگرام', 'mytube' ),
                         'social_text' => __( '@youtube.id', 'mytube' ),
                     ],
                     [
-                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/comments/whatsapp.svg'],
+                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/comments/whatsapp.svg'],
                         'social_title' => __( 'واتس اپ', 'mytube' ),
                         'social_text' => __( '@youtube.id', 'mytube' ),
                     ],
                     [
-                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/comments/twitter.svg'],
+                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/comments/twitter.svg'],
                         'social_title' => __( 'توییتر', 'mytube' ),
                         'social_text' => __( '@youtube.id', 'mytube' ),
                     ],
                     [
-                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/comments/youtube.svg'],
+                        'social_icon' => ['url' => get_template_directory_uri() . '/assets/img/widgets/comments/youtube.svg'],
                         'social_title' => __( 'یوتیوب', 'mytube' ),
                         'social_text' => __( '@youtube.id', 'mytube' ),
                     ]
@@ -612,10 +612,10 @@ class Comments extends Widget_Base{
         ?>
         <div class="comments-widget">
             <div class="comments-section">
-                <img class="comments-bg" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/comments/comments-bg.svg'); ?>" />
+                <img class="comments-bg" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/comments/comments-bg.svg'); ?>" />
                 <div class="comments-title-section">
                     <div class="comments-title-wrapper">
-                        <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
+                        <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/short-videos/shape.svg" />
                         <div class="comments-icon-wrapper">
                             <img class="main-icon" src="<?php echo esc_url( $settings['cm_heading_icon']['url'] ); ?>" alt="" />
                         </div>
@@ -652,7 +652,7 @@ class Comments extends Widget_Base{
                                         </div>
                                         <div class="comment-icon">
                                             <div class="heart-icon-wrapper">
-                                                <img class="heart-icon" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/comments/heart.svg') ?>" alt="">
+                                                <img class="heart-icon" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/comments/heart.svg') ?>" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -666,10 +666,10 @@ class Comments extends Widget_Base{
                 </div>
             </div>
             <div class="socials-section">
-                <img class="socials-bg" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/comments/socials-bg.svg'); ?>" />
+                <img class="socials-bg" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/comments/socials-bg.svg'); ?>" />
                 <div class="socials-title-section">
                     <div class="socials-title-wrapper">
-                        <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/short-videos/shape.svg" />
+                        <img class="short-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/short-videos/shape.svg" />
                         <div class="comments-icon-wrapper">
                             <img class="main-icon" src="<?php echo esc_url( $settings['social_heading_icon']['url'] ); ?>" alt="" />
                         </div>

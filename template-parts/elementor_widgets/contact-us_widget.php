@@ -42,7 +42,7 @@ class Contact_Us extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/rocket.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/rocket.svg',
                 ],
             ]
         );
@@ -62,7 +62,7 @@ class Contact_Us extends Widget_Base{
                 'label' => __( 'آیکن آدرس', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/location.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/location.svg',
                 ],
             ]
         );
@@ -91,7 +91,7 @@ class Contact_Us extends Widget_Base{
                 'label' => __( 'آیکن تماس', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/phone.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/phone.svg',
                 ],
             ]
         );
@@ -120,7 +120,7 @@ class Contact_Us extends Widget_Base{
                 'label' => __( 'آیکن واتساپ', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/whatsapp.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/whatsapp.svg',
                 ],
             ]
         );
@@ -149,7 +149,7 @@ class Contact_Us extends Widget_Base{
                 'label' => __( 'آیکن ایمیل', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/email.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/email.svg',
                 ],
             ]
         );
@@ -188,7 +188,7 @@ class Contact_Us extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/contact.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/contact.svg',
                 ],
             ]
         );
@@ -208,7 +208,7 @@ class Contact_Us extends Widget_Base{
                 'label' => __( 'تصویر', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/image.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/image.svg',
                 ],
             ]
         );
@@ -249,7 +249,7 @@ class Contact_Us extends Widget_Base{
                 'label' => __( 'آیکن عنوان', 'mytube' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/contact-us/rocket.svg',
+                    'url' => get_template_directory_uri() . '/assets/img/widgets/contact-us/rocket.svg',
                 ],
             ]
         );
@@ -820,11 +820,11 @@ class Contact_Us extends Widget_Base{
 
         ?>
         <div class="contact-us">
-            <img class="right-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/right-shape.svg" />
+            <img class="right-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/contact-us/right-shape.svg" />
             <div class="contact-mobile">
-                <img class="contact-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/bg-mobile.svg" />
+                <img class="contact-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/contact-us/bg-mobile.svg" />
                 <div class="contact-title-mobile">
-                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
+                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/video-category/shape.svg" />
                     <div class="second-title-section">
                         <?php if ( ! empty( $settings['contact_second_heading_icon']['url'] ) ) : ?>
                             <div class="second-title-icon">
@@ -836,14 +836,14 @@ class Contact_Us extends Widget_Base{
                         </span>
                     </div>
                 </div>
-                <img class="contact-image-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/contact-bg.svg" />
+                <img class="contact-image-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/contact-us/contact-bg.svg" />
                 <div class="second-image-mobile">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/phone-mobile.svg" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/contact-us/phone-mobile.svg" alt="">
                 </div>
             </div>
             <div class="first-section">
                 <div class="first-title-section">
-                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
+                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/video-category/shape.svg" />
                     <span class="first-title">
                         <?php echo esc_html($settings['contact_heading_text']); ?>
                     </span>
@@ -927,7 +927,7 @@ class Contact_Us extends Widget_Base{
                 </div>
             </div>
             <div class="second-section">
-                <img class="bg-shape1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/contact-us/bg-contact-shape.svg') ?>" />
+                <img class="bg-shape1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/contact-us/bg-contact-shape.svg') ?>" />
                 <div class="second-title-section">
                     <?php if ( ! empty( $settings['contact_second_heading_icon']['url'] ) ) : ?>
                         <div class="second-title-icon">
@@ -945,11 +945,11 @@ class Contact_Us extends Widget_Base{
                     <?php echo esc_html($settings['contact_second_button_text']); ?>
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                 </div>
-                <img class="bg-shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/contact-us/bg-contact-shape2.svg') ?>" />
+                <img class="bg-shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/contact-us/bg-contact-shape2.svg') ?>" />
             </div>
             <div class="third-section">
                 <div class="third-title-section">
-                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/shape.svg" />
+                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/biography/shape.svg" />
                     <span class="third-title">
                         <?php echo esc_html($settings['contact_third_heading']); ?>
                     </span>
@@ -960,7 +960,7 @@ class Contact_Us extends Widget_Base{
                     <?php endif; ?>
                 </div>
                 <div class="third-contact-section">
-                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/video-category/shape.svg" />
+                    <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/video-category/shape.svg" />
                     <div class="name-phone">
                         <div class="fullname-field">
                             <label class="field-label">
@@ -988,14 +988,14 @@ class Contact_Us extends Widget_Base{
                     </div>
                 </div>
             </div>
-            <img class="left-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/left-shape.svg" />
+            <img class="left-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/contact-us/left-shape.svg" />
             <div class="mobile-button">
                 <div href="<?php echo esc_url($settings['contact_button_link']['url']); ?>" class="second-button">
                     <?php echo esc_html($settings['contact_button_text']); ?>
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/arrow.svg') ?>" alt="arrow-icon" />
                 </div>
             </div>
-            <img class="background" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-us/background.svg" />
+            <img class="background" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/contact-us/background.svg" />
         </div>
         <?php
     }
