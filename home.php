@@ -136,7 +136,7 @@
                 ?>
             </ul>
         </div>
-        <div id="blog-posts-section" class="blog-posts-section">
+        <div id="blog-posts-section" class="blog-posts-section" data-ajax-url="<?php echo esc_url( admin_url('admin-ajax.php') ); ?>">
                 <!-- 🔽 Sorting section -->
                 <ul class="sort-options">
                     <li class="sort-item active" data-sort="all">همه</li>
