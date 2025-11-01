@@ -751,12 +751,26 @@ function mytube_set_post_views($postID) {
 
     if ($count == '') {
         $count = 0;
-        add_post_meta($postID, $count_key, '0');
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '1');
     } else {
         $count++;
         update_post_meta($postID, $count_key, $count);
     }
 }
+
+/**
+ * Run counter only on single pages
+ */
+function mytube_track_post_views($post_id) {
+    if (!is_single()) return; // فقط پست‌ها
+    if (empty($post_id)) {
+        global $post;
+        $post_id = $post->ID;
+    }
+    mytube_set_post_views($post_id);
+}
+add_action('wp_head', 'mytube_track_post_views');
 
 /** 
  * Blog sorting filter

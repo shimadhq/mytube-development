@@ -17,3 +17,33 @@ body {
     padding: 0;
     direction: rtl;
 }
+
+/* Custom numbered list style */
+.single-post ol {
+    counter-reset: myCounter;
+    list-style: none;
+    padding-left: 0;
+}
+
+.single-post ol li {
+    counter-increment: myCounter;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.single-post ol li::before {
+    content: counter(myCounter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('<?php echo get_template_directory_uri(); ?>/assets/img/number-bg.svg') center center no-repeat;
+    color: #FF4545;
+    font-size: 24px;
+    font-weight: 500;
+}
