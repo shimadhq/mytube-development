@@ -226,10 +226,10 @@ get_header();
                 <?php if (!empty($blocks)): ?>
                     <?php foreach ($blocks as $block): ?>
                         <div class="content-block">
+                            <div class="title-bg">
+                                <img class="blog-frame" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/frame.svg" alt="title background" />
+                            </div>
                             <div class="block-title">
-                                <div class="title-bg">
-                                    <img class="blog-frame" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/frame.svg" alt="title background" />
-                                </div>
                                 <h2 class="block-heading"><?php echo esc_html($block['title']); ?></h2>
                             </div>
 

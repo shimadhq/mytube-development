@@ -57,9 +57,13 @@
 .address-section{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .label-section{
+    position: absolute;
+    top: -12px;
+    right: 10px;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -67,7 +71,7 @@
 }
 
 .field-section{
-    padding: 15px;
+    padding: 12px;
     border: solid 1px #EEEEEE;
     border-radius: 12px;
     padding-right: 30px;
@@ -78,11 +82,12 @@
     border: solid 1px #EEEEEE;
     border-radius: 12px;
     padding: 10px;
-    height: 50px;
+    height: 30px;
     align-items: center;
 }
 
 .phone-whatsapp{
+    margin-top: 10px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -97,7 +102,8 @@
 }
 
 .phone-text{
-    padding-right: 40px;
+    padding-right: 45px;
+    direction: rtl;
 }
 
 .whatsapp-section{
@@ -108,10 +114,11 @@
 }
 
 .whatsapp-text{
-    padding-right: 40px;
+    padding-right: 45px;
 }
 
 .email-section{
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     position: relative;

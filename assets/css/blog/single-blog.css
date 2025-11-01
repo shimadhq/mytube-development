@@ -282,34 +282,34 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 10px;
+    margin-top: 70px;
 }
 
 .content-block{
     display: flex;
     flex-direction: column;
-    align-items: center;
     background: linear-gradient(to bottom, #EEEEEE, #EEEEEE00);
     border: 1px solid #EEEEEE;
     border-radius: 24px;
     padding: 10px;
-}
-
-.block-title{
     position: relative;
 }
 
 .blog-frame{
     position: absolute;
     z-index: 0;
-    right: 15px;
-    top: -20px;
+    right: 5px;
+    top: -40px;
+}
+
+.block-title{
+    z-index: 2;
 }
 
 .block-heading{
-    z-index: 1;
-    margin-right: 10px;
-    width: 120px;
+    margin-top: -15px;
+    margin-right: 20px;
+    width: 100px;
     color: #1d161667;
     font-size: 14px;
     font-weight: 600;
@@ -325,6 +325,7 @@
 
 .post-tags-section{
     margin-top: 25px;
+    padding: 0 5px;
 }
 
 .post-tags{
@@ -363,17 +364,20 @@
 }
 
 .single-blog-categories-list::-webkit-scrollbar {
-  height: 4px;
+   height: 4px;
 }
+
 .single-blog-categories-list::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 3px;
+   background: #bbb;
+   border-radius: 3px;
 }
+
 .single-blog-categories-list::-webkit-scrollbar-track {
-  background: transparent;
+   background: transparent;
 }
+
 .single-blog-categories-list::-webkit-scrollbar-button {
-  display: none;
+   display: none;
 }
 
 .category-item{
@@ -399,4 +403,81 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .single-blog{
+        padding: 10px 15px;
+    }
+
+    .single-blog-category-wrapper{
+        display: none;
+    }
+
+    .single-blog-content-wrapper{
+        width: 100%;
+    }
+
+    .single-blog-thumbnail{
+        height: 200px;
+    }
+
+    .summery-section{
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .single-blog-title{
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    .blog-share-button img{
+        width: 30px;
+    }
+
+    .wishlist-text{
+        font-size: 10px;
+    }
+
+    .wishlist-button{
+        padding: 8px;
+    }
+
+    .wishlist-button img{
+        width: 15px;
+    }
+
+    .blog-separator{
+        height: 30px;
+    }
+
+    .single-blog-buttons{
+        gap: 12px;
+    }
+
+    .single-blog-title-wrapper{
+        padding: 0 5px;
+        gap: 20px;
+    }
+
+    .views-text{
+        font-size: 16px;
+    }
+
+    .post-date-text{
+        font-size: 16px;
+    }
+
+    .author-text{
+        font-size: 16px;
+    }
+
+    .category-text{
+        font-size: 16px;
+    }
+
+    .single-blog-content{
+        margin-top: 50px;
+    }
 }

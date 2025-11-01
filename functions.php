@@ -38,6 +38,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('blog-archive', get_template_directory_uri() . '/assets/css/blog/blog-archive.css', [], $version);
     wp_enqueue_style('blog-card', get_template_directory_uri() . '/assets/css/blog/blog-card.css', [], $version);
     wp_enqueue_style('single-blog', get_template_directory_uri() . '/assets/css/blog/single-blog.css', [], $version);
+    wp_enqueue_style('footer', get_template_directory_uri() . '/assets/css/footer/footer.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);

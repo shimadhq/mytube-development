@@ -381,7 +381,7 @@ class Contact_Us extends Widget_Base{
             [
                 'label'     => __( 'رنگ متن فیلد آدرس', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#493A3A',
+                'default'   => '#493a3a80',
                 'selectors' => [
                     '{{WRAPPER}} .address-text' => 'color: {{VALUE}};',
                 ],
@@ -435,7 +435,7 @@ class Contact_Us extends Widget_Base{
             [
                 'label'     => __( 'رنگ متن فیلد تماس', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#493A3A',
+                'default'   => '#493a3a80',
                 'selectors' => [
                     '{{WRAPPER}} .phone-text' => 'color: {{VALUE}};',
                 ],
@@ -489,7 +489,7 @@ class Contact_Us extends Widget_Base{
             [
                 'label'     => __( 'رنگ متن فیلد واتساپ', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#493A3A',
+                'default'   => '#493a3a80',
                 'selectors' => [
                     '{{WRAPPER}} .whatsapp-text' => 'color: {{VALUE}};',
                 ],
@@ -543,7 +543,7 @@ class Contact_Us extends Widget_Base{
             [
                 'label'     => __( 'رنگ متن فیلد ایمیل', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#493A3A',
+                'default'   => '#493a3a80',
                 'selectors' => [
                     '{{WRAPPER}} .email-text' => 'color: {{VALUE}};',
                 ],
