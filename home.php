@@ -78,7 +78,7 @@
     <div class="blog-section">
         <div class="blog-sidebar">
             <div class="blog-heading-wrapper">
-                <img class="shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/video-category/shape.svg') ?>" alt="" />
+                <img class="blog-frame2" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/frame.svg" alt="title background" />
                 <div class="blog-title-wrap"> 
                     <div class="blog-icon-wrapper"> 
                         <img class="main-icon" src="<?php echo get_template_directory_uri() . '/assets/img/blog/blog.svg' ?>" alt="" /> 
@@ -86,7 +86,7 @@
                     <span class="blog-heading"> مقــــالات مـــــــــــــــا </span>
                 </div>
             </div>
-            <ul class="blog-tabs">
+            <ul class="single-blog-tabs">
                 <?php 
                     $all_posts_count = wp_count_posts('post')->publish;
                 ?>
@@ -116,7 +116,7 @@
                 if ( ! empty($categories) ) :
                     foreach ($categories as $category) :
                 ?>
-                    <li class="blog-tab" data-cat="<?php echo esc_attr($category->slug); ?>">
+                    <li class="blog-tab" data-cat="<?php echo esc_attr($category->term_id); ?>">
                         <div class="blog-title-wrapper">
                             <div class="blog-tab-icon-wrapper">
                                 <img class="blog-tab-icon" src="<?php echo get_template_directory_uri() . '/assets/img/blog/tab-icon.svg'; ?>" />
@@ -135,7 +135,8 @@
                     endif;
                 ?>
             </ul>
-            <div id="blog-posts-section" class="blog-posts-section">
+        </div>
+        <div id="blog-posts-section" class="blog-posts-section">
                 <!-- 🔽 Sorting section -->
                 <ul class="sort-options">
                     <li class="sort-item active" data-sort="all">همه</li>
@@ -160,11 +161,12 @@
                         $query = new WP_Query($args);
                         if ($query->have_posts()) :
                             while ($query->have_posts()) : $query->the_post();
-                                get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget.php');
+                                get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget');
                             endwhile;
                         else:
                             echo '<p>هیچ پستی یافت نشد.</p>';
                         endif;
+                        wp_reset_postdata();
                     ?>
                 </div>
 
@@ -206,7 +208,6 @@
                     ?>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 

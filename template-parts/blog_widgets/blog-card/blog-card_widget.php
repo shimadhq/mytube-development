@@ -5,7 +5,7 @@
                 <?php if (has_post_thumbnail()) : ?>
                     <?php the_post_thumbnail('medium_large'); ?>
                 <?php else : ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/default-thumb.jpg" alt="<?php the_title(); ?>">
+                    <img class="thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/blog1.webp" alt="<?php the_title(); ?>">
                 <?php endif; ?>
             </div>
             <div class="blog-card-title-excerpt-wrapper">

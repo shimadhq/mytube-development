@@ -1,57 +1,65 @@
 @font-face {
     font-family: 'IRANYekanX';
-    src: url('../fonts/IRANYekan/ttf/IRANYekanXFaNum-Thin.ttf') format('ttf');
+    src: url('../../fonts/IRANYekan/ttf/IRANYekanXFaNum-Thin.ttf') format('ttf');
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANYekanX';
-    src: url('../fonts/IRANYekan/ttf/IRANYekanXFaNum-Light.ttf') format('ttf');
+    src: url('../../fonts/IRANYekan/ttf/IRANYekanXFaNum-Light.ttf') format('ttf');
     font-weight: 200;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANYekanX';
-    src: url('../fonts/IRANYekan/ttf/IRANYekanXFaNum-Regular.ttf') format('woff');
+    src: url('../../fonts/IRANYekan/ttf/IRANYekanXFaNum-Regular.ttf') format('woff');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANYekanX';
-    src: url('../fonts/IRANYekan/ttf/IRANYekanXFaNum-Medium.ttf') format('ttf');
+    src: url('../../fonts/IRANYekan/ttf/IRANYekanXFaNum-Medium.ttf') format('ttf');
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANYekanX';
-    src: url('../fonts/IRANYekan/ttf/IRANYekanXFaNum-DemiBold.ttf') format('ttf');
+    src: url('../../fonts/IRANYekan/ttf/IRANYekanXFaNum-DemiBold.ttf') format('ttf');
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANYekanX';
-    src: url('../fonts/IRANYekan/ttf/IRANYekanXFaNum-Bold.ttf') format('ttf');
+    src: url('../../fonts/IRANYekan/ttf/IRANYekanXFaNum-Bold.ttf') format('ttf');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANYekanX';
-    src: url('../fonts/IRANYekan/ttf/IRANYekanXFaNum-ExtraBold.ttf') format('ttf');
+    src: url('../../fonts/IRANYekan/ttf/IRANYekanXFaNum-ExtraBold.ttf') format('ttf');
     font-weight: 800;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANYekanX';
-    src: url('../fonts/IRANYekan/ttf/IRANYekanExtraBlackFaNum.ttf') format('ttf');
+    src: url('../../fonts/IRANYekan/ttf/IRANYekanExtraBlackFaNum.ttf') format('ttf');
     font-weight: 900;
     font-style: normal;
+    font-display: swap;
 }
 
 body,

@@ -18,8 +18,11 @@
 }
 
 .blog-card-thumb{
-    width: 300px;
-    height: auto;
+    width: 330px;
+}
+
+.blog-card-thumb img{
+    width: 100%;
 }
 
 .blog-card-title-excerpt-wrapper{

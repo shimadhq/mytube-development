@@ -259,27 +259,25 @@ get_header();
             </div>
         </div>
         <div class="single-blog-category-wrapper">
-            <div class="categories-wrapper">
-                <ul class="blog-categories-list">
-                    <?php
-                        $categories = get_categories([
-                            'taxonomy' => 'category',
-                            'hide_empty' => false,
-                            'orderby' => 'name',
-                            'order' => 'ASC',
-                        ]);
+            <ul class="single-blog-categories-list">
+                <?php
+                    $categories = get_categories([
+                        'taxonomy' => 'category',
+                        'hide_empty' => false,
+                        'orderby' => 'name',
+                        'order' => 'ASC',
+                    ]);
 
-                        if ($categories) :
-                            foreach ($categories as $cat) : ?>
-                                <li class="category-item" data-cat="<?php echo esc_attr($cat->term_id); ?>">
-                                    <?php echo esc_html($cat->name); ?>
-                                </li>
-                            <?php endforeach;
-                        endif;
-                    ?>
-                </ul>
-            </div>
-            <div class="blog-posts-wrapper" id="blog-posts-wrapper">
+                    if ($categories) :
+                        foreach ($categories as $cat) : ?>
+                            <li class="category-item" data-cat="<?php echo esc_attr($cat->term_id); ?>">
+                                <?php echo esc_html($cat->name); ?>
+                            </li>
+                        <?php endforeach;
+                    endif;
+                ?>
+            </ul>
+            <div class="single-blog-posts-wrapper" id="single-blog-posts-wrapper">
                 <?php
                     $default_posts = new WP_Query([
                         'post_type' => 'post',

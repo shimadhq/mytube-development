@@ -35,7 +35,7 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('comments', get_template_directory_uri() . '/assets/css/elementor-widgets/comments/comments.css', [], $version);
     wp_enqueue_style('contact-form', get_template_directory_uri() . '/assets/css/contact-us/contact-form/contact-form.css', [], $version);
     wp_enqueue_style('custom-breadcrumb', get_template_directory_uri() . '/assets/css/elementor-widgets/custom-breadcrumb/custom-breadcrumb.css', [], $version);
-    wp_enqueue_style('blog-archive', get_template_directory_uri() . '/assets/blog/blog-archive.css', [], $version);
+    wp_enqueue_style('blog-archive', get_template_directory_uri() . '/assets/css/blog/blog-archive.css', [], $version);
     wp_enqueue_style('blog-card', get_template_directory_uri() . '/assets/css/blog/blog-card.css', [], $version);
     wp_enqueue_style('single-blog', get_template_directory_uri() . '/assets/css/blog/single-blog.css', [], $version);
 
@@ -46,14 +46,19 @@ function mytube_enqueue_scripts() {
     wp_enqueue_script('mobile-menu', get_template_directory_uri() . '/inc/js/mobile-menu/mobile-menu.js', array (), $version, true);
     wp_enqueue_script('cart-toggle', get_template_directory_uri() . '/inc/js/cart-toggle/cart-toggle.js', array (), $version, true);
     wp_enqueue_script('vertical-slider', get_template_directory_uri() . '/inc/js/widgets/vertical-slider.js', array (), $version, true);
-    wp_enqueue_script('short-videos-counter', get_template_directory_uri() . '/inc/js/widget/short-videos-counter.js', array (), $version, true);
+    wp_enqueue_script('short-videos-counter', get_template_directory_uri() . '/inc/js/widgets/short-videos-counter.js', array (), $version, true);
     wp_enqueue_script('main-banner-counter', get_template_directory_uri() . '/inc/js/widgets/main-banner-counter.js', array (), $version, true);
+    wp_enqueue_script('mytube-blog-tabs', get_template_directory_uri() . '/inc/js/blog/blog-tabs.js', ['jquery'], $version, true);
+    wp_enqueue_script('mytube-blog-ajax', get_template_directory_uri() . '/inc/js/blog/blog-ajax.js', ['jquery'], $version, true);
+    wp_localize_script('mytube-blog-tabs', 'mytube_ajax', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ]);
 }
 add_action( 'wp_enqueue_scripts', 'mytube_enqueue_scripts' );
 
 function mytube_add_custom_fonts() {
-    // Upload custom font CSS
-    $version = date('YmdHis'); // cache buster
+    $version = date('YmdHis');
+
     wp_enqueue_style( 
         'IRANYekanX', 
         get_template_directory_uri() . '/assets/css/custom-fonts/custom-fonts.css', 
@@ -61,10 +66,8 @@ function mytube_add_custom_fonts() {
         $version 
     );
 
-    // Register custom font in Elementor
     if ( class_exists( '\Elementor\Plugin' ) ) {
 
-        // Add custom group name to Elementor
         add_filter( 'elementor/fonts/groups', function( $groups ) {
             $groups['mytube_font'] = [
                 'title' => __( 'My Tube Fonts', 'mytube' ),
@@ -72,17 +75,18 @@ function mytube_add_custom_fonts() {
             return $groups;
         });
 
-        // Add font to Elementor list
         add_filter( 'elementor/fonts/additional_fonts', function( $fonts ) {
             $fonts['IRANYekanX'] = [
                 'label' => 'IRAN Yekan Font',
-                'stack' => 'IRANYekanX, sans-serif',
+                'stack' => '"IRANYekanX", sans-serif',
                 'category' => 'sans-serif',
             ];
             return $fonts;
         });
     }
 }
+add_action( 'wp_enqueue_scripts', 'mytube_add_custom_fonts' );
+add_action( 'elementor/editor/after_enqueue_styles', 'mytube_add_custom_fonts' );
 add_action( 'elementor/frontend/after_enqueue_styles', 'mytube_add_custom_fonts' );
 
 /**
@@ -94,32 +98,6 @@ function enqueue_404_styles() {
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_404_styles');
-
-/**
- * Localizing Ajax URL
- */
-function mytube_blog_scripts() {
-    wp_enqueue_script('mytube-blog-tabs', get_template_directory_uri() . '/inc/js/blog/blog-tabs.js', ['jquery'], null, true);
-
-    wp_localize_script('mytube-blog-tabs', 'mytube_ajax', [
-        'ajax_url' => admin_url('admin-ajax.php')
-    ]);
-}
-add_action('wp_enqueue_scripts', 'mytube_blog_scripts');
-
-/**
- * Blog sorting ajax
- */
-function mytube_enqueue_blog_ajax_script() {
-    wp_enqueue_script(
-        'mytube-blog-ajax',
-        get_template_directory_uri() . '/inc/js/blog/blog-ajax.js',
-        ['jquery'],
-        null,
-        true
-    );
-}
-add_action('wp_enqueue_scripts', 'mytube_enqueue_blog_ajax_script');
 
 /**
  * Adding settings menu & setting default items
@@ -627,14 +605,14 @@ function mytube_setup_default_blog_content() {
                 'post_excerpt' => 'سلام توی این پست بهترین رپرایی که همتون دوسشون دارین رو قراره معرفی کنم'
             ],
             [
-                'title' => 'بهینه‌سازی سئو برای کانال یوتوب',
+                'post_title' => 'بهینه‌سازی سئو برای کانال یوتوب',
                 'slug'  => 'blog3',
                 'cat'   => 'رشد و توسعه کانال',
                 'image' => 'blog3.webp',
                 'post_excerpt' => 'بیا تا بهت بگم چطوری میتونی با رعایت یکسری نکات کانال یوتوبت رو سئو کنی'
             ],
             [
-                'title' => 'ترفندهای تدوین سریع ویدیو برای مبتدی‌ها',
+                'post_title' => 'ترفندهای تدوین سریع ویدیو برای مبتدی‌ها',
                 'slug'  => 'blog4',
                 'cat'   => 'آموزش تولید محتوا',
                 'image' => 'blog4.webp',
@@ -645,7 +623,7 @@ function mytube_setup_default_blog_content() {
         foreach ($demo_posts as $post_data) {
             $cat_id = $created_terms[$post_data['cat']] ?? null;
             $post_id = wp_insert_post([
-                'post_title'   => $post_data['title'],
+                'post_title' => $post_data['post_title'],
                 'post_name'    => $post_data['slug'],
                 'post_status'  => 'publish',
                 'post_type'    => 'post',
@@ -687,30 +665,31 @@ add_action('wp_ajax_filter_blog_posts', 'mytube_filter_blog_posts');
 add_action('wp_ajax_nopriv_filter_blog_posts', 'mytube_filter_blog_posts');
 
 function mytube_filter_blog_posts() {
-  $cat = sanitize_text_field($_GET['cat']);
+    $cat = $_GET['cat'] ?? 'all';
 
-  $args = ['post_type' => 'post', 'posts_per_page' => 6];
-
-  if ($cat !== 'all') {
-    $args['tax_query'] = [
-      [
-        'taxonomy' => 'category',
-        'field'    => 'name',
-        'terms'    => $cat,
-      ]
+    $args = [
+        'post_type'      => 'post',
+        'posts_per_page' => 12,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
     ];
-  }
 
-  $query = new WP_Query($args);
-  if ($query->have_posts()) :
-    while ($query->have_posts()) : $query->the_post();
-      get_template_part('template-parts/elementor_widgets/blog-card_widget.php');
-    endwhile;
-  else :
-    echo '<p>هیچ پستی یافت نشد.</p>';
-  endif;
+    if ($cat !== 'all') {
+        $args['cat'] = intval($cat);
+    }
 
-  wp_die();
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget');
+        endwhile;
+    else :
+        echo '<p>هیچ پستی یافت نشد.</p>';
+    endif;
+
+    wp_reset_postdata();
+    wp_die();
 }
 
 /**
@@ -787,7 +766,7 @@ function mytube_sort_posts() {
 
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
-            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget.php');
+            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget');
         endwhile;
     else:
         echo '<p>هیچ پستی یافت نشد.</p>';
@@ -818,7 +797,7 @@ function filter_category_posts() {
 
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
-            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget.php');
+            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget');
         endwhile;
     else :
         echo '<p>هیچ پستی در این دسته وجود ندارد.</p>';
