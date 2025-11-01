@@ -22,28 +22,6 @@ $desktop_logo = get_option('mytube_logo_desktop', get_template_directory_uri() .
                 <a href="<?php echo wp_login_url(); ?>" class="icon-btn">
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icon/profile.svg') ?>" alt="user-icon" />
                 </a>
-                <div class="login-register">
-                    <a href="#" style="text-decoration: none;">
-                        <div class="login-wrapper">
-                            <div class="layer layer1"></div>
-                            <div class="layer layer2"></div>
-                            <div class="login-content">
-                                <p class="text">ورود</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" style="text-decoration: none;">
-                        <div class="register-wrapper">
-                            <div class="layer layer1"></div>
-                            <div class="layer layer2"></div>
-                            <div class="register-content">
-                                <p class="text">
-                                    ثـبت نـام
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
         <div class="cart-section">

@@ -1,25 +1,24 @@
 .single-blog{
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 25px 120px 0 120px;
 }
 
 .single-blog-sections{
+    margin-top: 20px;
     display: flex;
     width: 100%;
-    align-items: center;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .single-blog-content-wrapper{
     display: flex;
     flex-direction: column;
-    width: 80%;
-    align-items: center;
+    width: 75%;
     border: 1px solid #EEEEEECC;
     border-radius: 24px;
-    padding: 8px;
+    padding: 14px 16px;
 }
 
 .single-blog-title-wrapper{
@@ -42,6 +41,13 @@
     gap: 20px;
 }
 
+.blog-share-button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
 .blog-separator{
     background-color: #EEEEEE;
     width: 1px;
@@ -52,6 +58,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    cursor: pointer;
 }
 
 .wishlist-text{
@@ -67,20 +74,22 @@
     gap: 10px;
     border: solid 1px #DBD8D8;
     border-radius: 8px;
+    padding: 11px  9px;
 }
 
 .wishlist-icon{
-    fill: white;
+    color: white;
 }
 
 .wishlist-icon:hover{
-    fill: #493A3A;
+    color: #493A3A;
 }
 
 .single-blog-thumbnail{
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
     height: 500px;
+    border-radius: 20px;
 }
 
 .single-blog-thumbnail img{
@@ -89,7 +98,11 @@
 }
 
 .single-blog-summary{
+    margin-top: 30px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .blog-layer1,
@@ -117,29 +130,29 @@
 }
 
 .summery-section{
-    margin-top: 10px;
+    width: 90%;
     background-color: white;
     border: 1px solid #EEEEEE;
     border-radius: 16px;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     padding: 12px;
     gap: 10px;
+    z-index: 2;
 }
 
 .views-section{
     background-color: #F8F8F8;
     border-radius: 16px;
     display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    gap: 5px;
+    padding: 10px 20px;
+    gap: 10px;
 }
 
 .views-wrapper{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 7px;
 }
 
 .views-text{
@@ -165,13 +178,13 @@
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    gap: 5px;
+    gap: 10px;
 }
 
 .post-date-wrapper{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 7px;
 }
 
 .post-date-text{
@@ -192,13 +205,13 @@
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    gap: 5px;
+    gap: 10px;
 }
 
 .author-wrapper{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 7px;
 }
 
 .author-text{
@@ -220,13 +233,13 @@
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    gap: 5px;
+    gap: 10px;
 }
 
 .category-wrapper{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 7px;
 }
 
 .category-text{
@@ -330,19 +343,37 @@
 }
 
 .single-blog-category-wrapper{
-    width: 20%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .single-blog-categories-list{
+    width: 100%;
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 0;
-    margin: 0 0 20px 0;
+    padding: 0 0 20px 0;
     gap: 10px;
+    list-style: none;
+    scrollbar-width: none; 
+    scrollbar-color: #d1d1d1 transparent;
+    scroll-behavior: smooth;
+}
+
+.single-blog-categories-list::-webkit-scrollbar {
+  height: 4px;
+}
+.single-blog-categories-list::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 3px;
+}
+.single-blog-categories-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.single-blog-categories-list::-webkit-scrollbar-button {
+  display: none;
 }
 
 .category-item{

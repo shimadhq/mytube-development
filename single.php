@@ -91,7 +91,7 @@ get_header();
                     <?php echo esc_html($title); ?>
                 </div>
                 <div class="single-blog-buttons">
-                    <button class="share-button">
+                    <button class="blog-share-button">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/blog/share.svg' ?>" />
                     </button>
                     <div class="blog-separator"></div>
@@ -260,6 +260,12 @@ get_header();
         </div>
         <div class="single-blog-category-wrapper">
             <ul class="single-blog-categories-list">
+                <?php 
+                    $all_posts_count = wp_count_posts('post')->publish;
+                ?>
+                <li data-cat="all" class="category-item active">
+                    همه
+                </li>
                 <?php
                     $categories = get_categories([
                         'taxonomy' => 'category',
@@ -286,7 +292,7 @@ get_header();
 
                     if ($default_posts->have_posts()) :
                         while ($default_posts->have_posts()) : $default_posts->the_post();
-                            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget.php');
+                            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget');
                         endwhile;
                         wp_reset_postdata();
                     endif;
