@@ -799,4 +799,32 @@ function mytube_sort_posts() {
     wp_die();
 }
 
+/**
+ * 
+ */
+add_action('wp_ajax_filter_category_posts', 'filter_category_posts');
+add_action('wp_ajax_nopriv_filter_category_posts', 'filter_category_posts');
+
+function filter_category_posts() {
+    $cat_id = intval($_POST['cat_id']);
+
+    $args = [
+        'post_type' => 'post',
+        'posts_per_page' => 2,
+        'cat' => $cat_id,
+    ];
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget.php');
+        endwhile;
+    else :
+        echo '<p>هیچ پستی در این دسته وجود ندارد.</p>';
+    endif;
+
+    wp_die();
+}
+
 ?>
