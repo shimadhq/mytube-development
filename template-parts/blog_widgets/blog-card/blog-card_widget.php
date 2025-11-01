@@ -50,7 +50,9 @@
                     <span class="readmore">
                         مطالعه مقاله
                     </span>
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/blog/readmore.svg' ?>" />
+                    <div class="readmore-icon">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/blog/readmore.svg' ?>" />
+                    </div>
                 </a>
             </div>
         </div>

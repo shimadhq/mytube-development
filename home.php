@@ -171,7 +171,8 @@
                 </div>
 
                 <!-- 🔢 Pagination -->
-                <div class="blog-pagination">
+                <div class="blog-pagination-wrapper">
+                    <div class="blog-pagination">
                     <?php
                         global $wp_query;
 
@@ -206,6 +207,7 @@
                             echo '<div class="pagination-single">1</div>';
                         }
                     ?>
+                </div>
                 </div>
             </div>
     </div>
