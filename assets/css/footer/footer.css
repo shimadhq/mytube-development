@@ -123,6 +123,7 @@
 }
 
 .footer-content-wrapper{
+    position: relative;
     width: 88%;
     background-color: white;
     border: solid 1px #EEEEEE;
@@ -298,4 +299,119 @@
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.footer-social-icons-mobile{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .footer-wrapper{
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .footer{
+        gap: 0;
+        height: auto;
+        display: block;
+    }
+
+    .footer-layer1,
+    .footer-layer2,
+    .footer-layer3{
+        display: none;
+    }
+
+    .footer-social-icons{
+        display: none;
+    }
+
+    .footer-content-wrapper{
+        width: 100%;
+    }
+
+    .footer-content{
+        grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
+    }
+
+    .sec-trd-section{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .footer-social-icons-mobile{
+        display: block;
+        gap: 10px;
+        position: absolute;
+        left: 0;
+        bottom: 27%;
+    }
+
+    .mobile-layer1,
+    .mobile-layer2,
+    .mobile-layer3{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 0;
+    }
+
+    .mobile-layer1 { z-index: 0; top: 40px; }
+    .mobile-layer2 { z-index: 1; top: 0; }
+    .mobile-layer3 { z-index: 2; top: 0; }
+
+    .mobile-social-icons{
+        padding-left: 40px;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        z-index: 3;
+        position: relative;
+        gap: 10px;
+    }
+
+    .about-text{
+        font-size: 14px;
+    }
+
+    .about-section{
+        padding: 0 10px;
+    }
+
+    .links-section{
+        margin-right: 10px;
+    }
+
+    .licenses-section{
+        margin-right: 10px;
+        margin-top: 40px;
+    }
+
+    .licenses{
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .license-wrapper{
+        padding: 15px 31px;
+    }
+
+    .link-list{
+        margin: 15px 15px 0 0;
+    }
+
+    .footer-separator{
+        display: none;
+    }
+
+    .privacy-policy-section{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .traingle{
+        display: none;
+    }
 }
