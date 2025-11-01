@@ -111,7 +111,6 @@
                     'hide_empty' => false,
                     'orderby'    => 'name',
                     'order'      => 'ASC',
-                    'number'     => 5,
                 ]);
 
                 if ( ! empty($categories) ) :

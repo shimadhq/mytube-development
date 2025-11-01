@@ -130,12 +130,12 @@ add_action('after_switch_theme', function() {
         update_option('mytube_logo_desktop', get_template_directory_uri() . '/assets/img/logo.png');
     }
 
-    // لوگوی موبایل پیش‌فرض
+    // Default mobile logo
     if ( ! get_option('mytube_logo_mobile') ) {
         update_option('mytube_logo_mobile', get_template_directory_uri() . '/assets/img/logo-mobile.svg');
     }
 
-    // شماره تماس پشتیبانی پیش‌فرض
+    // Default contact number
     if ( ! get_option('mytube_support_phone') ) {
         update_option('mytube_support_phone', '۰۹۳۰ ۹۹۱ ۰۹۰۵');
     }
@@ -416,7 +416,6 @@ function mytheme_import_elementor_template( $page_id, $template_file ) {
     if ( method_exists( $files_manager, 'clear_cache' ) ) {
         $files_manager->clear_cache();
     }
-    // regenerate_css() حذف شده، نیاز به فراخوانی مستقیم نیست
 
     error_log('✅ Elementor template imported successfully to page ID: ' . $page_id);
 }
@@ -560,39 +559,11 @@ function register_mytube_widgets( $widgets_manager ){
 add_action('elementor/widgets/register', 'register_mytube_widgets');
 
 /**
- * Checking if blog page exists or not, if not it should be created
- */
-function mytheme_create_default_blog_page() {
-
-    $existing_page = get_page_by_path( 'blog' );
-
-    if ( ! $existing_page ) {
-        // اگر وجود نداشت بسازش
-        $blog_page_id = wp_insert_post( [
-            'post_title'     => 'وبلاگ',
-            'post_name'      => 'blog',
-            'post_status'    => 'publish',
-            'post_type'      => 'page',
-            'post_content'   => '', // Blanck content because archive content is dynamic
-        ] );
-
-        // تنظیمش کن به عنوان صفحه‌ی نوشته‌ها
-        update_option( 'page_for_posts', $blog_page_id );
-        update_option( 'show_on_front', 'posts' );
-
-        error_log('✅ صفحه وبلاگ ساخته شد با ID: ' . $blog_page_id);
-    } else {
-        error_log('ℹ️ صفحه وبلاگ از قبل وجود دارد.');
-    }
-}
-add_action( 'after_switch_theme', 'mytheme_create_default_blog_page' );
-
-/**
  * Setup default blog page, categories, and demo posts when theme is activated
  */
 function mytube_setup_default_blog_content() {
 
-    // 1️⃣ ساخت صفحه "وبلاگ" اگه وجود نداشت
+    // 1️⃣ Creating blog page if not exists
     $existing_page = get_page_by_path('blog');
     if (!$existing_page) {
         $blog_page_id = wp_insert_post([
@@ -604,13 +575,14 @@ function mytube_setup_default_blog_content() {
         ]);
 
         update_option('page_for_posts', $blog_page_id);
+        update_option( 'show_on_front', 'posts' );
         error_log('✅ صفحه وبلاگ ساخته شد.');
     } else {
         $blog_page_id = $existing_page->ID;
         error_log('ℹ️ صفحه وبلاگ از قبل وجود دارد.');
     }
 
-    // 2️⃣ ساخت دو دسته‌بندی پیش‌فرض
+    // 2️⃣ Creating 2 default categories
     $categories = [
         'آموزش تولید محتوا' => 'content-training',
         'رشد و توسعه کانال' => 'channel-growth',
@@ -681,7 +653,6 @@ function mytube_setup_default_blog_content() {
                 'post_category'=> $cat_id ? [$cat_id] : [],
             ]);
 
-            // اگر عکس‌ها در پوشه‌ی قالب بودن، تنظیم به عنوان thumbnail
             $image_path = get_template_directory() . '/assets/img/blog/' . $post_data['image'];
             if (file_exists($image_path)) {
                 $upload = wp_upload_bits(basename($image_path), null, file_get_contents($image_path));
@@ -763,7 +734,7 @@ function mytube_set_post_views($postID) {
  * Run counter only on single pages
  */
 function mytube_track_post_views($post_id) {
-    if (!is_single()) return; // فقط پست‌ها
+    if (!is_single()) return;
     if (empty($post_id)) {
         global $post;
         $post_id = $post->ID;

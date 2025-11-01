@@ -258,5 +258,42 @@ get_header();
                 <?php endif; ?>
             </div>
         </div>
+        <div class="single-blog-category-wrapper">
+            <div class="categories-wrapper">
+                <ul class="blog-categories-list">
+                    <?php
+                        $categories = get_categories([
+                            'taxonomy' => 'category',
+                            'hide_empty' => false,
+                            'orderby' => 'name',
+                            'order' => 'ASC',
+                        ]);
+
+                        if ($categories) :
+                            foreach ($categories as $cat) : ?>
+                                <li class="category-item" data-cat="<?php echo esc_attr($cat->term_id); ?>">
+                                    <?php echo esc_html($cat->name); ?>
+                                </li>
+                            <?php endforeach;
+                        endif;
+                    ?>
+                </ul>
+            </div>
+            <div class="blog-posts-wrapper" id="blog-posts-wrapper">
+                <?php
+                    $default_posts = new WP_Query([
+                        'post_type' => 'post',
+                        'posts_per_page' => 2,
+                    ]);
+
+                    if ($default_posts->have_posts()) :
+                        while ($default_posts->have_posts()) : $default_posts->the_post();
+                            get_template_part('template-parts/blog_widgets/blog-card/blog-card_widget.php');
+                        endwhile;
+                        wp_reset_postdata();
+                    endif;
+                ?>
+            </div>
+        </div>
     </div>
 </div>
