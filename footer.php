@@ -174,7 +174,7 @@
                                 <div class="links-wrapper">
                                     <img src="<?php echo get_template_directory_uri() . '/assets/img/footer/links.svg' ?>" />
                                     <span class="links-title">
-                                        مــــجـــوز هـــا
+                                        مــــجـــوز‌هـــا
                                     </span>
                                 </div>
                                 <div class="licenses">

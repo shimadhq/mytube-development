@@ -180,19 +180,19 @@ class Main_Banner extends Widget_Base{
                     [
                         'mb_counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/calendar.svg'],
                         'mb_counter_number' => '10',
-                        'mb_counter_suffix' => 'سال',
+                        'mb_counter_suffix' => 'ســــــال',
                         'mb_counter_text' => 'سابقه فعالیت'
                     ],
                     [
                         'mb_counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/group.svg'],
                         'mb_counter_number' => '1',
-                        'mb_counter_suffix' => 'میلیون',
+                        'mb_counter_suffix' => 'مــیلیـون',
                         'mb_counter_text' => 'دنبال کننده'
                     ],
                     [
                         'mb_counter_icon' => ['url' => get_template_directory_uri() . '/assets/icon/eye.svg'],
                         'mb_counter_number' => '3',
-                        'mb_counter_suffix' => 'میلیون',
+                        'mb_counter_suffix' => 'مــیلیـون',
                         'mb_counter_text' => 'بازدید ماهانه'
                     ],
                 ],

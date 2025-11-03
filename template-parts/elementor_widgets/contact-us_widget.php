@@ -622,7 +622,7 @@ class Contact_Us extends Widget_Base{
                 ],
                 'default' => [
                     'unit' => 'px',
-                    'size' => 200,
+                    'size' => 170,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .second-image' => 'width: {{SIZE}}{{UNIT}};',
@@ -648,7 +648,7 @@ class Contact_Us extends Widget_Base{
                 ],
                 'default' => [
                     'unit' => '%',
-                    'size' => 100,
+                    'size' => 90,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .second-image' => 'height: {{SIZE}}{{UNIT}};',

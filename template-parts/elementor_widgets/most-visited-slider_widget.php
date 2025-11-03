@@ -279,7 +279,7 @@ class Most_Visited_Slider extends Widget_Base{
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
                     'font_size'  => [ 'default' => [ 'size' => 16, 'unit' => 'px' ] ],
-                    'font_weight'=> [ 'default' => 700 ],
+                    'font_weight'=> [ 'default' => 950 ],
                     'font_family'=> [ 'default' => 'IRANYekanX' ],
                 ]
             ]

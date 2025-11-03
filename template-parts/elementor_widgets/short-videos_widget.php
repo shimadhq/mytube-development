@@ -488,7 +488,7 @@ class Short_Videos extends Widget_Base{
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'video_title_typography',
@@ -497,7 +497,7 @@ class Short_Videos extends Widget_Base{
                 'fields_options' => [
                     'typography' => [ 'default' => 'default' ], 
                     'font_size'  => [ 'default' => [ 'size' => 16, 'unit' => 'px' ] ],
-                    'font_weight'=> [ 'default' => 700 ],
+                    'font_weight'=> [ 'default' => 950 ],
                     'font_family'=> [ 'default' => 'IRANYekanX' ],
                 ]
             ]

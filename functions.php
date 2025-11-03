@@ -412,19 +412,7 @@ function mytheme_import_multiple_templates() {
             'slug'     => 'mytube',
             'template' => 'homepage.json',
             'front'    => true // Set as front page
-        ],
-        [
-            'title' => 'تماس با ما',
-            'slug' => 'contact-us',
-            'template' => 'contact-us.json',
-            'front' => false
-        ],
-        [
-            'title' => 'درباره‌ی ما',
-            'slug' => 'about-us',
-            'template' => 'about-us.json',
-            'front' => false
-        ],
+        ]
     ];
 
     $front_page_id = null;
