@@ -54,7 +54,7 @@
 
 .short-shape{
     position: absolute;
-    top: -1%;
+    top: -4%;
     right: 2%;
 }
 
@@ -63,6 +63,7 @@
     flex-direction: row;
     gap: 10px;
     z-index: 5;
+    margin-right: 25px;
 }
 
 .short-title-icon{

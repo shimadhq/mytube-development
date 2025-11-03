@@ -446,8 +446,8 @@ class Courses extends Widget_Base{
         <div class="elementor-widget-courses">
             <div class="courses">
                 <div class="courses-header">
+                    <img class="short-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/short-videos/shape.svg'); ?>" alt="">
                     <div class="courses-title-wrapper">
-                        <img class="short-shape" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/short-videos/shape.svg'); ?>" alt="">
                         <div class="courses-icon-wrapper">
                             <?php if (!empty($settings['co_heading_icon']['url'])) : ?>
                                 <img class="main-icon" src="<?php echo esc_url($settings['co_heading_icon']['url']); ?>" alt="<?php echo esc_attr($settings['co_heading_text'] ?? ''); ?>" />

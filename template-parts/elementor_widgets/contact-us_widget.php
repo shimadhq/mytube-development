@@ -327,7 +327,7 @@ class Contact_Us extends Widget_Base{
             [
                 'label'     => __( 'رنگ عنوان اصلی', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#1D1616',
+                'default'   => '#1d16166f',
                 'selectors' => [
                     '{{WRAPPER}} .first-title' => 'color: {{VALUE}};',
                 ],
@@ -712,7 +712,7 @@ class Contact_Us extends Widget_Base{
             [
                 'label'     => __( 'رنگ عنوان اصلی', 'mytube' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#1D1616',
+                'default'   => '#1d16166f',
                 'selectors' => [
                     '{{WRAPPER}} .third-title' => 'color: {{VALUE}};',
                 ],
@@ -918,7 +918,7 @@ class Contact_Us extends Widget_Base{
                                 <?php echo esc_html( $settings['contact_email_label'] ); ?>
                             </span>
                         </div>
-                        <div class="field-section">
+                        <div class="email-field-section">
                             <span class="email-text">
                                 <?php echo esc_html($settings['contact_email_text']); ?>
                             </span>

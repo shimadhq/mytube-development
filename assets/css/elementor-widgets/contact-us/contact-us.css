@@ -125,6 +125,16 @@
     position: relative;
 }
 
+.email-field-section{
+    padding: 12px;
+    border: solid 1px #EEEEEE;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 30px;
+}
+
 .second-section{
     display: flex;
     flex-direction: column;
