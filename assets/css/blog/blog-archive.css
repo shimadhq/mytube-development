@@ -145,6 +145,7 @@
     border-radius: 9px;
     font-size: 14px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .sort-item.active{

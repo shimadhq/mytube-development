@@ -1,0 +1,359 @@
+.contact-page{
+    display: flex;
+    flex-direction: column;
+    padding: 25px 75px 0 75px;
+}
+
+.contact-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.corner{
+    height: 100%;
+}
+
+.contact-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.first-section{
+    width: 490px;
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: solid 1px #EEEEEE;
+    border-radius: 24px;
+    padding: 15px;
+    position: relative;
+}
+
+.first-title-section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-shape{
+    position: absolute;
+    top: -8%;
+    right: 2%;
+}
+
+.contact-first-title{
+    width: 110px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d16166f;
+    z-index: 3;
+    padding-right: 30px;
+}
+
+.main-icon-wrapper{
+    padding-left: 10px;
+}
+
+.first-contact-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.address-section{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.label-section{
+    position: absolute;
+    top: -12px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: white;
+}
+
+.field-section{
+    padding: 12px;
+    border: solid 1px #EEEEEE;
+    border-radius: 12px;
+    padding-right: 30px;
+}
+
+.contact-address-label,
+.contact-phone-label,
+.contact-whatsapp-label,
+.contact-email-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #493A3A;
+}
+
+.address-field-section{
+    display: flex;
+    border: solid 1px #EEEEEE;
+    border-radius: 12px;
+    padding: 10px;
+    height: 50px;
+    align-items: center;
+}
+
+.contact-address-text{
+    font-size: 16px;
+    font-weight: 600;
+    color: #493a3a9d;
+}
+
+.phone-whatsapp{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.phone-section{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.contact-phone-text{
+    padding-right: 45px;
+    direction: rtl;
+    font-size: 16px;
+    font-weight: 600;
+    color: #493a3a9d;
+}
+
+.whatsapp-section{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.contact-whatsapp-text{
+    padding-right: 45px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #493a3a9d;
+}
+
+.email-section{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.email-field-section{
+    padding: 12px;
+    border: solid 1px #EEEEEE;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 30px;
+}
+
+.contact-email-text{
+    font-size: 16px;
+    font-weight: 600;
+    color: #493a3a9d;
+}
+
+.second-section{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.bg-shape1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.bg-shape2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+.second-title-section{
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    z-index: 3;
+}
+
+.contact-second-title{
+    font-size: 16px;
+    font-weight: 950;
+    color: #493A3A;
+}
+
+.second-image{
+    margin-top: 20px;
+    z-index: 3;
+    height: 217px;
+}
+
+.second-title-icon{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF4545;
+    border-radius: 12px;
+}
+
+.contact-second-button{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    z-index: 3;
+    padding: 12px;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 700;
+    color: #493A3A;
+}
+
+.third-section{
+    width: 490px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: solid 1px #EEEEEE;
+    border-radius: 24px;
+    padding: 15px;
+    position: relative;
+}
+
+.third-title-section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.third-title{
+    width: 110px;
+    padding-right: 25px;
+    z-index: 3;
+}
+
+.third-contact-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.name-phone{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.fullname-field{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+}
+
+.field-input{
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    padding-right: 15px;
+    background-color: #eeeeee7f;
+}
+
+.phone-field{
+    margin-left: 15px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+}
+
+.message-button{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: end;
+}
+
+.message-field{
+    margin-top: 13px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-field-input{
+    width: 100%;
+    height: 110px;
+    background-color: #eeeeee7f;
+    border: none;
+    border-radius: 12px;
+    padding-right: 15px;
+}
+
+.contact-send-button{
+    height: 110px;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #FF4545;
+    background-color: #ff454512;
+}
+
+@media (max-width: 768px) {
+    .corner{
+        display: none;
+    }
+
+    .contact{
+        flex-direction: column;
+    }
+}

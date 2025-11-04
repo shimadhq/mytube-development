@@ -762,18 +762,6 @@ class Contact_Us extends Widget_Base{
         );
 
         $this->add_control(
-            'field_bg_color',
-            [
-                'label'     => 'رنگ پس‌زمینه فیلد',
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#EEEEEE',
-                'selectors' => [
-                    '{{WRAPPER}} .field-input' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
             'send_button_bg_color',
             [
                 'label'     => 'رنگ پس‌زمینه دکمه ارسال',

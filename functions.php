@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once get_template_directory() . '/inc/class-mytube-walker/class-mytube-walker.php';
 require_once get_template_directory() . '/inc/class-mytube-mobile-walker/class-mytube-mobile-walker.php';
+require_once get_template_directory() . '/admin/theme-options.php';
 
 /**
  * Uploading CSS & JS files
@@ -33,12 +34,13 @@ function mytube_enqueue_scripts() {
     wp_enqueue_style('contact-us', get_template_directory_uri() . '/assets/css/elementor-widgets/contact-us/contact-us.css', [], $version);
     wp_enqueue_style('courses', get_template_directory_uri() . '/assets/css/elementor-widgets/courses/courses.css', [], $version);
     wp_enqueue_style('comments', get_template_directory_uri() . '/assets/css/elementor-widgets/comments/comments.css', [], $version);
-    wp_enqueue_style('contact-form', get_template_directory_uri() . '/assets/css/contact-us/contact-form/contact-form.css', [], $version);
+    wp_enqueue_style('contact-form', get_template_directory_uri() . '/assets/css/contact-us/contact-form.css', [], $version);
     wp_enqueue_style('custom-breadcrumb', get_template_directory_uri() . '/assets/css/elementor-widgets/custom-breadcrumb/custom-breadcrumb.css', [], $version);
     wp_enqueue_style('blog-archive', get_template_directory_uri() . '/assets/css/blog/blog-archive.css', [], $version);
     wp_enqueue_style('blog-card', get_template_directory_uri() . '/assets/css/blog/blog-card.css', [], $version);
     wp_enqueue_style('single-blog', get_template_directory_uri() . '/assets/css/blog/single-blog.css', [], $version);
     wp_enqueue_style('footer', get_template_directory_uri() . '/assets/css/footer/footer.css', [], $version);
+    wp_enqueue_style('contact-page', get_template_directory_uri() . '/assets/css/contact-us/contact-page.css', [], $version);
 
     // Scripts
     wp_enqueue_script('mega-menu', get_template_directory_uri() . '/inc/js/mega-menu/mega-menu.js', array(), $version, true);
@@ -420,6 +422,35 @@ function register_mytube_widgets( $widgets_manager ){
     }
 }
 add_action('elementor/widgets/register', 'register_mytube_widgets');
+
+/**
+ * Adding contact us page
+ */
+function mytheme_create_contact_page() {
+    $page_title = 'تماس با ما';
+    $page_template = 'page-contact.php';
+
+    // We check that the page has not already been created
+    $page_check = get_page_by_title($page_title);
+    if (!isset($page_check->ID)) {
+        $new_page_id = wp_insert_post(array(
+            'post_title'    => $page_title,
+            'post_name'    => 'contact-us',
+            'post_content'  => '',
+            'post_status'   => 'publish',
+            'post_type'     => 'page',
+        ));
+
+        if (!is_wp_error($new_page_id)) {
+            // Assign page template
+            update_post_meta($new_page_id, '_wp_page_template', $page_template);
+        }
+    }
+}
+
+// Run only when the template is activated
+add_action('after_switch_theme', 'mytheme_create_contact_page');
+
 
 /**
  * Setup default blog page, categories, and demo posts when theme is activated

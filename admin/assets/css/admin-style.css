@@ -1,0 +1,142 @@
+.mytube-admin {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    max-width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 20px;
+}
+
+.mytube-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    background: #fff;
+}
+
+.mytube-logo{
+    width: 200px;
+}
+
+.mytube-settings-container {
+    display: flex;
+    min-height: 500px;
+    border-top: 1px solid #eee;
+}
+
+.mytube-tabs-vertical {
+    width: 200px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    border-right: 1px solid #eee;
+}
+
+
+.mytube-tabs-vertical li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #333;
+    font-weight: 500;
+}
+
+.mytube-tabs-vertical li:hover {
+    background: #f3f3f3;
+}
+
+.mytube-tabs-vertical li.active {
+    background: #ff4545;
+    color: #fff;
+}
+
+.mytube-tabs-vertical .has-submenu > .arrow {
+    float: right;
+    transition: transform 0.3s;
+}
+
+.mytube-tabs-vertical .has-submenu.open > .arrow {
+    transform: rotate(180deg);
+}
+
+.mytube-tabs-vertical .submenu {
+    display: none;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+
+.subtab-content {
+    padding: 15px 0;
+}
+
+.mytube-tab-contents {
+    flex: 1;
+    padding: 30px;
+    background: #fff;
+}
+
+.mytube-tab-content {
+    display: none;
+}
+
+.mytube-tab-content.active {
+    display: block;
+}
+
+.theme-option-field {
+    margin-bottom: 20px;
+}
+
+.theme-option-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.upload-field {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.upload-field input[type="text"] {
+    width: 470px;
+    direction: ltr;
+}
+
+.upload-field .button {
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.upload-field .button:hover {
+    border: 1px solid #135e96;
+}
+
+body, h1, h2, h3, h4, h5, h6, input, label, button {
+  font-family: 'IRANYekanX', sans-serif !important;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+label {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+li {
+    font-size: 16px;
+    font-weight: 700;
+}

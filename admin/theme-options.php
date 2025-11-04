@@ -1,4 +1,38 @@
 <?php
+
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
+
+/**
+ * Load styles and scripts only on the theme settings page
+ */
+add_action('admin_enqueue_scripts', 'mytube_admin_assets');
+function mytube_admin_assets($hook) {
+    if ($hook !== 'toplevel_page_mytube-theme-options') return;
+
+    wp_enqueue_style(
+        'mytube-admin-fonts',
+        get_template_directory_uri() . '/assets/css/custom-fonts/custom-fonts.css',
+        array(),
+        null
+    );
+
+    wp_enqueue_style(
+        'mytube-admin-style',
+        get_template_directory_uri() . '/admin/assets/css/admin-style.css',
+        [],
+        '1.0.0'
+    );
+
+    wp_enqueue_media();
+    wp_enqueue_script(
+        'mytube-admin-script',
+        get_template_directory_uri() . '/admin/assets/js/admin-script.js',
+        ['jquery'],
+        '1.0.0',
+        true
+    );
+}
+
 // Adding MYTUBE menu to admin panel
 add_action('admin_menu', 'mytube_add_admin_menu');
 
@@ -48,49 +82,103 @@ function mytube_render_theme_options() {
     ?>
     <div class="wrap mytube-admin">
         <div class="mytube-header">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="MYTUBE Logo" class="mytube-logo" />
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="MYTUBE Logo" class="mytube-logo" />
             <h1>تنظیمات قالب مای‌توب</h1>
+            <hr />
         </div>
 
-        <div class="mytube-tabs">
-            <ul class="mytube-tab-titles">
+        <div class="mytube-settings-container">
+            <!-- Tabs -->
+            <ul class="mytube-tabs-vertical">
                 <li class="active" data-tab="tab-header">هدر</li>
-                <!-- Future Tabs ... -->
+                <li class="has-submenu" data-tab="tab-contact">
+                    تماس با ما <span class="arrow"><img src="<?php echo get_template_directory_uri() . '/assets/img/admin/arrow.svg' ?>" /></span>
+                    <ul class="submenu">
+                        <li data-subtab="contact-info">اطلاعات تماس</li>
+                        <li data-subtab="contact-form">فرم تماس</li>
+                        <li data-subtab="contact-map">موقعیت مکانی</li>
+                    </ul>
+                </li>
+                <!-- در آینده: <li data-tab="tab-footer">فوتر</li> -->
             </ul>
 
-            <form method="post" action="options.php">
-                <?php settings_fields('mytube_theme_options_group'); ?>
+            <!-- Tabs Content -->
+            <div class="mytube-tab-contents">
+                <form method="post" action="options.php">
+                    <?php
+                        settings_fields('mytube_theme_options_group');
+                        $options = get_option('mytube_theme_options');
+                    ?>
 
-                <div class="mytube-tab-content active" id="tab-header">
-                    <h2>تنظیمات هدر</h2>
+                    <div id="tab-header" class="mytube-tab-content active">
+                        <h2>تنظیمات هدر</h2>
+                        <table class="form-table">
+                            <div class="theme-option-field">
+                                <label for="desktop_logo">لوگوی دسکتاپ</label>
+                                <div class="upload-field">
+                                    <input type="text" id="desktop_logo" name="desktop_logo" value="<?php echo esc_attr(get_option('desktop_logo')); ?>" />
+                                    <button type="button" class="button upload-logo-button" data-target="#desktop_logo">انتخاب تصویر</button>
+                                </div>
+                            </div>
 
-                    <table class="form-table">
-                        <tr>
-                            <th scope="row">لوگوی دسکتاپ</th>
-                            <td>
-                                <input type="text" name="mytube_theme_options[desktop_logo]" value="<?php echo esc_attr($options['desktop_logo'] ?? get_template_directory_uri() . '/assets/img/logo.png'); ?>" class="regular-text" />
-                                <p class="description">آدرس تصویر لوگوی دسکتاپ</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">لوگوی موبایل</th>
-                            <td>
-                                <input type="text" name="mytube_theme_options[mobile_logo]" value="<?php echo esc_attr($options['mobile_logo'] ?? get_template_directory_uri() . '/assets/img/logo-mobile.svg'); ?>" class="regular-text" />
-                                <p class="description">آدرس تصویر لوگوی موبایل</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">شماره تماس پشتیبانی</th>
-                            <td>
-                                <input type="text" name="mytube_theme_options[support_phone]" value="<?php echo esc_attr($options['support_phone'] ?? '۰۹۳۰ ۹۹۱ ۰۹۰۵'); ?>" class="regular-text" />
-                                <p class="description">شماره تماس برای نمایش در هدر</p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                            <div class="theme-option-field">
+                                <label for="mobile_logo">لوگوی موبایل</label>
+                                <div class="upload-field">
+                                    <input type="text" id="mobile_logo" name="mobile_logo" value="<?php echo esc_attr(get_option('mobile_logo')); ?>" />
+                                    <button type="button" class="button upload-logo-button" data-target="#mobile_logo">انتخاب تصویر</button>
+                                </div>
+                            </div>
 
-                <?php submit_button('ذخیره تنظیمات'); ?>
-            </form>
+                            <tr>
+                                <th scope="row">شماره تماس پشتیبانی</th>
+                                <td>
+                                    <input type="text" name="mytube_theme_options[support_phone]" value="<?php echo esc_attr($options['support_phone'] ?? '۰۹۳۰ ۹۹۱ ۰۹۰۵'); ?>" class="regular-text" />
+                                    <p class="description">شماره تماس برای نمایش در هدر</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div id="tab-contact" class="mytube-tab-content">
+                        <!-- Sub menu: contact inf -->
+                        <div id="contact-info" class="subtab-content">
+                            <h2>اطلاعات تماس</h2>
+                            <table class="form-table">
+                                <tr>
+                                    <th>آدرس</th>
+                                    <td><input type="text" name="mytube_theme_options[contact_address]" value="<?php echo esc_attr($options['contact_address'] ?? 'تهران، میدان آزادی، کوچه ۲۴ آزادی، پلاک ۳۰'); ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <th>شماره تماس</th>
+                                    <td><input type="tel" name="mytube_theme_options[contact_phone]" value="<?php echo esc_attr($options['contact_phone'] ?? '۰۹۳۸ ۹۳۸ ۸۱۸۱'); ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <th>واتساپ</th>
+                                    <td><input type="tel" name="mytube_theme_options[contact_whatsapp]" value="<?php echo esc_attr($options['contact_whatsapp'] ?? '۰۹۳۸ ۹۳۸ ۸۱۸۱'); ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <th>ایمیل</th>
+                                    <td><input type="email" name="mytube_theme_options[contact_email]" value="<?php echo esc_attr($options['contact_email'] ?? 'info@mytube.com'); ?>" /></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Sub menu: contact form -->
+                        <div id="contact-form" class="subtab-content" style="display:none;">
+                            <h2>فرم تماس</h2>
+                            <p>اینجا می‌توانی شورتکد فرم تماس یا فیلدهای اضافی اضافه کنی.</p>
+                        </div>
+
+                        <!-- Sub menu: google maps iframe -->
+                        <div id="contact-map" class="subtab-content" style="display:none;">
+                            <h2>موقعیت مکانی</h2>
+                            <p>اینجا می‌توانی تنظیمات گوگل مپ یا iframe نقشه اضافه کنی.</p>
+                        </div>
+                    </div>
+
+                    <?php submit_button('ذخیره تنظیمات'); ?>
+                </form>
+            </div>
         </div>
     </div>
     <?php
