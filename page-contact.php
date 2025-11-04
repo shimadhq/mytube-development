@@ -6,6 +6,9 @@
 get_header(); 
 
 $options = get_option('mytube_theme_options');
+if (!is_array($options)) {
+    $options = [];
+}
 ?>
 
 <div class="contact-page">
@@ -186,7 +189,7 @@ $options = get_option('mytube_theme_options');
                             تماس با ما
                         </span>
                     </div>
-                    <div class="second-image">
+                    <div class="contact-second-image">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/widgets/contact-us/image.svg' ?>" alt="">
                     </div>
                     <a href="tel:<?php echo esc_attr($options['contact_phone']); ?>" class="contact-second-button">
@@ -198,7 +201,7 @@ $options = get_option('mytube_theme_options');
                 <div class="third-section">
                     <div class="third-title-section">
                         <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/biography/shape.svg" />
-                        <span class="third-title">
+                        <span class="contact-first-title">
                             پــــــــــیـــــام بــــــــذار!
                         </span>
                         <div class="third-title-icon">
@@ -209,13 +212,13 @@ $options = get_option('mytube_theme_options');
                         <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/video-category/shape.svg" />
                         <div class="name-phone">
                             <div class="fullname-field">
-                                <label class="field-label">
+                                <label class="contact-field-label">
                                    نام و نام خانوادگی
                                 </label>
                                 <input type="text" class="field-input" />
                             </div>
                             <div class="phone-field">
-                                <label class="field-label">
+                                <label class="contact-field-label">
                                     شماره تلفن
                                 </label>
                                 <input type="text" class="field-input" />
@@ -223,7 +226,7 @@ $options = get_option('mytube_theme_options');
                         </div>
                         <div class="message-button">
                             <div class="message-field">
-                                <label class="field-label">
+                                <label class="contact-field-label">
                                     توضیحات
                                 </label>
                                 <input type="text" class="message-field-input" />
@@ -232,6 +235,124 @@ $options = get_option('mytube_theme_options');
                                 ارسال
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="address">
+                <div class="first-section">
+                    <div class="first-title-section">
+                        <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/video-category/shape.svg" />
+                        <span class="contact-first-title">
+                            آدرس پستی مــــــــــــــــــــا
+                        </span>
+                        <div class="first-title-icon">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/img/widgets/contact-us/rocket.svg' ?>" alt="">
+                        </div>
+                    </div>
+                    <div class="first-contact-section">
+                        <div class="phone-whatsapp">
+                            <div class="phone-section">
+                                <div class="label-section">
+                                    <div class="label-icon">
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/widgets/contact-us/phone.svg' ?>" alt="">
+                                    </div>
+                                    <span class="contact-phone-label">
+                                        شهر
+                                    </span>
+                                </div>
+                                <div class="field-section">
+                                    <span class="contact-city-text">
+                                        <?php echo esc_html($options['contact_city'] ?? ''); ?>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="whatsapp-section">
+                                <div class="label-section">
+                                    <div class="label-icon">
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/widgets/contact-us/whatsapp.svg' ?>" alt="">
+                                    </div>
+                                    <span class="contact-whatsapp-label">
+                                        استان
+                                    </span>
+                                </div>
+                                <div class="field-section">
+                                    <span class="contact-province-text">
+                                        <?php echo esc_html($options['contact_province'] ?? ''); ?>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="address-section">
+                            <div class="label-section">
+                                <div class="label-icon">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/widgets/contact-us/location.svg' ?>" alt="">
+                                </div>
+                                <span class="contact-address-label">
+                                    خیابان و کوچه
+                                </span>
+                            </div>
+                            <div class="address-field-section">
+                                <span class="contact-address-text">
+                                    <?php echo esc_html($options['contact_street'] ?? ''); ?>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="email-section">
+                            <div class="label-section">
+                                <div class="label-icon">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/contact-page/mail.svg' ?>" alt="">
+                                </div>
+                                <span class="contact-email-label">
+                                    پلاک
+                                </span>
+                            </div>
+                            <?php if (!empty($options['contact_housenumber'])) : ?>
+                                <div class="email-field-section">
+                                    <span class="contact-housenumber-text">
+                                        <?php echo esc_html($options['contact_housenumber'] ?? ''); ?>
+                                    </span>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-section">
+                    <img class="bg-shape1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/widgets/contact-us/bg-contact-shape.svg') ?>" />
+                    <div class="second-title-section">
+                        <div class="second-title-icon">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/img/contact-page/address.svg' ?>" alt="">
+                        </div>
+                        <span class="contact-location-title">
+                            آدرس ما
+                        </span>
+                    </div>
+                    <div class="contact-second-image">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/contact-page/location.svg' ?>" alt="">
+                    </div>
+                    <a href="tel:<?php echo esc_attr($options['contact_phone']); ?>" class="contact-second-button">
+                        آدرس مـــــای تــــیوب
+                    </a>
+                    <img class="bg-shape2" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/contact-page/location-bg.svg') ?>" />
+                </div>
+                <div class="first-section">
+                    <div class="first-title-section">
+                        <img class="contact-shape" src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/video-category/shape.svg" />
+                        <span class="contact-first-title">
+                            آدرس مــــا روی نقشه
+                        </span>
+                        <div class="first-title-icon">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/img/contact-page/map.svg' ?>" alt="">
+                        </div>
+                    </div>
+                    <div class="custom-map-wrapper" style="width: 100%; height: 200px; position:relative;">
+                        <!-- تصویر پیش فرض -->
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/widgets/custom-map/map.webp" 
+                            alt="Map Placeholder" 
+                            style="width:100%; height:100%; object-fit:cover; border-radius: 16px;" 
+                        />
+                        <p style="position:absolute; bottom:5px; left:5px; color:red; background:white; padding:5px; font-size: 13px;">
+                            برای مشاهده نقشه، لطفاً Google Maps API Key وارد کنید.
+                        </p>
                     </div>
                 </div>
             </div>

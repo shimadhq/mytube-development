@@ -1,0 +1,247 @@
+html, body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+.auth-page{
+    background-color: #EEEEEE;
+    min-height: 100dvh;
+    padding: 30px;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.auth-background{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 70%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to right, #992929, #FF4545);
+    clip-path: polygon(0 0, 100% 0%, 80% 100%, 0 100%);
+}
+
+.auth-shape{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.auth-box{
+    width: 70%;
+    z-index: 2;
+    position: relative;
+    background-color: white;
+    border-radius: 32px;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 30px;
+}
+
+.auth-section{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.auth-title-wrapper{
+    display: flex;
+    gap: 15px;
+}
+
+.auth-title-bg{
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    z-index: 2;
+}
+
+.auth-title{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    z-index: 3;
+}
+
+.auth-title-icon{
+    z-index: 3;
+}
+
+.auth-title-text {
+    font-size: 16px;
+    font-weight: 900;
+    color: #493A3A;
+}
+
+.auth-mytube{
+    width: 100px;
+}
+
+.auth-desc{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.auth-desc-title{
+    font-size: 24px;
+    font-weight: 900;
+    color: #493A3A;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-desc-text{
+    color: #928989;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 !important;
+    padding: 0;
+}
+
+.auth-form{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form-input{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.auth-form-label{
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    color: #807575;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-input {
+    width: 100% !important;
+    height: 48px !important;
+    background-color: #EEEEEE66 !important;
+    border: 1px solid #EEEEEE !important;
+    border-radius: 16px !important;
+    outline: none !important;
+    -webkit-box-shadow: 0 0 0px 1000px #EEEEEE66 inset !important;
+}
+
+/* حذف رنگ آبی autofill در کروم */
+input.auth-input:-webkit-autofill,
+input.auth-input:-webkit-autofill:hover,
+input.auth-input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #EEEEEE66 inset !important;
+    -webkit-text-fill-color: #333 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* افکت focus */
+.auth-input:focus {
+    border-color: #ff4545 !important;
+    box-shadow: 0 0 0 2px rgba(255, 69, 69, 0.2);
+}
+
+.forget-password{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.forget-password-text a{
+    color: #493A3A;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-submit-button{
+    width: 100%;
+    background-color: #FF4545;
+    text-align: center;
+    padding: 12px 16px;
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 700px;
+    border: none;
+    box-shadow: 0 6px 20px 0 #1d161647;
+}
+
+.auth-link{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+.auth-link-text{
+    color: #6D6161;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-link-register{
+    color: #FF4545;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.auth-social-icons{
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-layer1, 
+.auth-layer2,
+.auth-layer3 {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 700px;
+}
+
+.auth-layer1 img{
+    z-index: 3;
+}
+
+.auth-layer2{
+    z-index: 4;
+}
+
+.auth-layer3{
+    z-index: 5;
+}
+
+.auth-mytube-logo{
+    margin-right: 100px;
+    height: auto;
+    z-index: 6;
+}

@@ -79,6 +79,9 @@ function mytube_register_settings() {
  */
 function mytube_render_theme_options() {
     $options = get_option('mytube_theme_options');
+    if (!is_array($options)) {
+        $options = [];
+    }
     ?>
     <div class="wrap mytube-admin">
         <div class="mytube-header">
@@ -95,8 +98,6 @@ function mytube_render_theme_options() {
                     تماس با ما <span class="arrow"><img src="<?php echo get_template_directory_uri() . '/assets/img/admin/arrow.svg' ?>" /></span>
                     <ul class="submenu">
                         <li data-subtab="contact-info">اطلاعات تماس</li>
-                        <li data-subtab="contact-form">فرم تماس</li>
-                        <li data-subtab="contact-map">موقعیت مکانی</li>
                     </ul>
                 </li>
                 <!-- در آینده: <li data-tab="tab-footer">فوتر</li> -->
@@ -116,7 +117,9 @@ function mytube_render_theme_options() {
                             <div class="theme-option-field">
                                 <label for="desktop_logo">لوگوی دسکتاپ</label>
                                 <div class="upload-field">
-                                    <input type="text" id="desktop_logo" name="desktop_logo" value="<?php echo esc_attr(get_option('desktop_logo')); ?>" />
+                                    <input type="text" id="desktop_logo" 
+                                        name="mytube_theme_options[desktop_logo]" 
+                                        value="<?php echo esc_attr($options['desktop_logo'] ?? ''); ?>" />
                                     <button type="button" class="button upload-logo-button" data-target="#desktop_logo">انتخاب تصویر</button>
                                 </div>
                             </div>
@@ -124,7 +127,9 @@ function mytube_render_theme_options() {
                             <div class="theme-option-field">
                                 <label for="mobile_logo">لوگوی موبایل</label>
                                 <div class="upload-field">
-                                    <input type="text" id="mobile_logo" name="mobile_logo" value="<?php echo esc_attr(get_option('mobile_logo')); ?>" />
+                                    <input type="text" id="mobile_logo" 
+                                        name="mytube_theme_options[mobile_logo]" 
+                                        value="<?php echo esc_attr($options['mobile_logo'] ?? ''); ?>" />
                                     <button type="button" class="button upload-logo-button" data-target="#mobile_logo">انتخاب تصویر</button>
                                 </div>
                             </div>
@@ -160,19 +165,23 @@ function mytube_render_theme_options() {
                                     <th>ایمیل</th>
                                     <td><input type="email" name="mytube_theme_options[contact_email]" value="<?php echo esc_attr($options['contact_email'] ?? 'info@mytube.com'); ?>" /></td>
                                 </tr>
+                                <tr>
+                                    <th>شهر</th>
+                                    <td><input type="text" name="mytube_theme_options[contact_city]" value="<?php echo esc_attr($options['contact_city'] ?? 'تهران'); ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <th>استان</th>
+                                    <td><input type="text" name="mytube_theme_options[contact_province]" value="<?php echo esc_attr($options['contact_province'] ?? 'تهران'); ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <th>خیابان و کوچه</th>
+                                    <td><input type="text" name="mytube_theme_options[contact_street]" value="<?php echo esc_attr($options['contact_street'] ?? 'میدان آزادی، کوچه ۲۴ آزادی'); ?>" /></td>
+                                </tr>
+                                <tr>
+                                    <th>پلاک</th>
+                                    <td><input type="text" name="mytube_theme_options[contact_housenumber]" value="<?php echo esc_attr($options['contact_housenumber'] ?? 'پلاک ۶۷۴'); ?>" /></td>
+                                </tr>
                             </table>
-                        </div>
-
-                        <!-- Sub menu: contact form -->
-                        <div id="contact-form" class="subtab-content" style="display:none;">
-                            <h2>فرم تماس</h2>
-                            <p>اینجا می‌توانی شورتکد فرم تماس یا فیلدهای اضافی اضافه کنی.</p>
-                        </div>
-
-                        <!-- Sub menu: google maps iframe -->
-                        <div id="contact-map" class="subtab-content" style="display:none;">
-                            <h2>موقعیت مکانی</h2>
-                            <p>اینجا می‌توانی تنظیمات گوگل مپ یا iframe نقشه اضافه کنی.</p>
                         </div>
                     </div>
 

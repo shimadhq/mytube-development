@@ -31,33 +31,28 @@ jQuery(document).ready(function($){
 });
 
 jQuery(document).ready(function ($) {
-    var mediaUploader;
-
+    // دکمه انتخاب تصویر
     $('.upload-logo-button').on('click', function (e) {
         e.preventDefault();
-        var targetInput = $($(this).data('target'));
 
-        if (mediaUploader) {
-            mediaUploader.open();
-            return;
-        }
+        const button = $(this);
+        const targetInput = $(button.data('target'));
 
-        // Creating upload
-        mediaUploader = wp.media.frames.file_frame = wp.media({
-            title: 'انتخاب یا آپلود تصویر لوگو',
+        // اگر مدیا قبلاً باز شده، همون رو دوباره استفاده می‌کنیم
+        let file_frame = wp.media({
+            title: 'انتخاب تصویر لوگو',
             button: {
                 text: 'استفاده از این تصویر'
             },
             multiple: false
         });
 
-        // When an image has been chosen
-        mediaUploader.on('select', function () {
-            var attachment = mediaUploader.state().get('selection').first().toJSON();
-            targetInput.val(attachment.url);
+        file_frame.on('select', function () {
+            let attachment = file_frame.state().get('selection').first().toJSON();
+            targetInput.val(attachment.url); // آدرس فایل در input قرار می‌گیره
         });
 
-        mediaUploader.open();
+        file_frame.open();
     });
 });
 

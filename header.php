@@ -11,7 +11,8 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<?php $mobile_logo  = get_option('mytube_logo_mobile', get_template_directory_uri() . '/assets/img/logo-mobile.svg'); ?>
+<?php $options = get_option('mytube_theme_options'); ?>
+<?php $mobile_logo = $options['mobile_logo'] ?? ''; ?>
 
 <header id="header" class="header-desktop">
     <div class="header-section-ds">
@@ -45,7 +46,9 @@
         </div>
         <div class="mobile-logo">
             <a href="<?php echo home_url(); ?>">
-                <img src="<?php echo esc_url($mobile_logo); ?>" alt="<?php bloginfo('name'); ?>">
+                <?php if ($mobile_logo): ?>
+                    <img src="<?php echo esc_url($options['mobile_logo']); ?>" alt="لوگوی سایت" />
+                <?php endif; ?>
             </a>
         </div>
         <div class="cart-icon">
